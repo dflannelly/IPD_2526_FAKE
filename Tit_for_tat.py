@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'Tit_for_tat' # Only 10 chars displayed.
+strategy_name = 'Randomness until see betrayal patten in opponent'
+strategy_description = 'Randomly chooses b/c until certain patterns are recognized then it acts accordingly'
 
 import random
 
@@ -20,7 +20,19 @@ import random
 def move(my_history, their_history, my_score, their_score):
 	
 
-
+import random
+def tit_for_tat ():
+    if len(my_history)==0:
+      return('b')
+    elif len(their_history) >= 3 and their_history[-3:] == ['c', 'c', 'c']:
+	      return 'b'
+    elif len(their_history) >= 2 and their_history[-2:] == ['b', 'b']:
+	      return 'b'
+    elif len(my_history) >= 4 and my_history[-4:] == ['b', 'b', 'b', 'b']:
+        return 'c'
+    else:
+        pick = random.choice(('b','c'))
+        return(pick)
 
 
 
