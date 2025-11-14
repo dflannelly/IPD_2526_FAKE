@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'The_Finnegansy' # Only 10 chars displayed.
+strategy_name = 'Starts coupreate then betray and digs its way out of betray cycle'
+strategy_description = 'My strategy draws c at first then switches to b until it can trust the other opponent'
 
 import random
 
@@ -18,12 +18,26 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-	
 
+	if len(my_history)==0:
+    return('c')
 
+  else:
+    b_count = their_history.count('b')
+    if len(their_history)> 3:
 
+      combined = "".join(their_history)
+      if "ccc" in combined[-3:]:
+        return 'c'
 
+      if b_count >2:
+        return('b')
 
+      else:
+        return('b')
+
+    else:
+      return('b')
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
