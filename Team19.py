@@ -8,16 +8,76 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'MasonTeam' # Only 10 chars displayed.
+strategy_name = 'Dont_Cross_Me'
+strategy_description = 'Depending on what letter you type in you either gain or loss points'
 
 import random
+
+def game():
+  counter = 0
+  global my_history
+  global their_history
+  global my_score
+  global their_score
+
+  my_history = []
+  their_history = []
+
+  my_score = 0
+  their_score = 0
+
+  game_length = random.randint(100,150)
+
+  for i in range(game_length):
+     choice1 = Dont_Cross_Me()
+     choice2 = wild_card()
+
+     my_history += choice1
+     their_history += choice2
+
+     release = 0
+     reward = 100
+     punishment = -250
+     severe_punishment = -500
+
+     if choice1 == 'c' and choice2 =='c':
+       my_score +=  release
+       their_score += release
+
+     elif choice1 == 'b' and choice2 =='b':
+       my_score += punishment
+       their_score += punishment
+
+     elif choice1 == 'c' and choice2 =='b':
+       my_score += severe_punishment
+       their_score += reward
+
+     elif choice1 == 'b' and choice2 =='c':
+       my_score += reward
+       their_score += severe_punishment
+
+     counter +=1
+
+  print("Broccoli Bruisers :", my_score)
+  print("Wild Card :",their_score)
+
+  print("Broccoli Bruisers: ",my_history)
+  print("Wild Card: ", their_history)
+game()
 
 
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
+def Dont_Cross_Me()
+  if len(my_history)==0:
+    return('c')
+
+  elif 'b' in their_history:
+    return('b')
+  else:
+    return('c')
 	
 
 
