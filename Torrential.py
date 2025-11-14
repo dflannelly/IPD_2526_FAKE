@@ -18,7 +18,6 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-def Torrential():
   if len(my_history)==0:
     return('c')
   elif 'c' in their_history:
