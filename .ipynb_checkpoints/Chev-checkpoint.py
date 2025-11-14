@@ -18,15 +18,14 @@ import random
 
 
 def move(my_history, their_history, my_score, their_score):
-	if len(my_history) == 0:
-    	return('c')
-  	elif 'bb' in their_history:
-    	return('b')
-	elif 'bbb' in their_history:
-		return('b')
-	else:
-    	return('c')
-
+    if len(my_history) == 0:
+        return 'c'
+    elif 'bb' in their_history:
+        return 'b'
+    elif 'bbb' in their_history:
+        return 'b'
+    else:
+        return 'c'
 
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)

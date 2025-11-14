@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = 'DM' # Only 10 chars displayed.
-strategy_name = 'Last move'
-strategy_description = "My first choice is always b, and then depends on opponent's choice. If their las choice was 'b' my program will return 'b' in next round, same with 'c', also one in every 50s round there is 1 b"
+team_name = 'vincitore' # Only 10 chars displayed.
+strategy_name = 'Nice then not so nice'
+strategy_description = 'Beat complex code wihtout kindness '
 
 import random
 
@@ -19,20 +19,13 @@ import random
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
     if len(my_history) == 0:
-        return 'b'
-    elif their_history[-1] == 'b':
+        return 'c'
+    else:
         return 'b'
 
-    if len(my_history) == 50:
-        return 'b'
-    if len(my_history) == 100:
-        return 'b'
-    if len(my_history) == 150:
-        return 'b'
-    if len(my_history) == 200:
-        return 'b'
-    else:
-        return 'c'
+
+
+
 
 
     

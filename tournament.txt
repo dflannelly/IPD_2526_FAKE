@@ -1,0 +1,2915 @@
+--------------------------------------------------------------------------------
+Section 0 - Line up
+--------------------------------------------------------------------------------
+Player 0 (P0): defRealFunct, random until after 10 rounds
+        randomly chooses letters
+Player 1 (P1): kuba, Fights back when attacked
+        Doubles amount of attacks when attacked
+Player 2 (P2): youLost, opposite
+        Do the opposite of what the oppenent did the turn before
+Player 3 (P3): Chev, Cooperate until too many betrayals
+        My strategy draw c until my oppentent backstabs me twice in a row and th
+        en it draws b
+Player 4 (P4): AJ, Figth back hard
+        If attacked, fight back 3x what the opponent attacked
+Player 5 (P5): DM, Last move
+        My first choice is always b, and then depends on opponent's choice. If t
+        heir las choice was 'b' my program will return 'b' in next round, same w
+        ith 'c', also one in every 50s round there is 1 b
+Player 6 (P6): EthanC.py, HALFNHALF
+        The code runs backstab half of the time and cooperate half of the time
+Player 7 (P7): Jesters, Red Herring
+        A set start to throw off the oppenent that then devolves into randomness
+         and constants.
+Player 8 (P8): June_bug, Cooperate
+        My strategy is cooperating unless bakstabbed, use what opponnent used la
+        st round
+Player 9 (P9): RDGamblers, betray than randomness than betray
+        betray 4 times than random spilt and repeat
+Player 10 (P10): , 
+Player 11 (P11): Savior, cooperate first and backstab
+        cooperates first and if the user cooperates first it continues to cooper
+        ate and if the previous turn is backstab it backstabs. If the opponent h
+        as backstabed 40 times in total it backstabs always.
+Player 12 (P12): The_Finnegansy, Starts coupreate then betray and digs its way out of betray cycle
+        My strategy draws c at first then switches to b until it can trust the o
+        ther opponent
+Player 13 (P13): Tit_for_tat, Randomness until see betrayal patten in opponent
+        Randomly chooses b/c until certain patterns are recognized then it acts 
+        accordingly
+Player 14 (P14): Torrential, get other points down then keep them down
+        it starts with c until it gets a chance to put a b to lower the enemy po
+        ints the  is keep them lower with a b
+Player 15 (P15): trustMe, backstab 
+        back stab all the time until i win 
+Player 16 (P16): Y, Last move of their history
+        My code starts with b and their history and then if b in their history r
+        eturns bbb.
+--------------------------------------------------------------------------------
+Section 1 - Player vs. Player
+--------------------------------------------------------------------------------
+Each column shows pts/round earned against each other player:
+             P0     P1     P2     P3     P4     P5     P6     P7     P8     P9    P10    P11    P12    P13    P14    P15    P16
+vs. P0 :   0.00-254.63-492.81-253.55-253.97-249.32-248.20-405.66-251.09-276.53-496.25-251.44-249.25-250.82-250.00-249.47-250.00
+vs. P1 :-243.52   0.00-100.51   0.00   0.00  -3.59-245.24 -71.24   0.00-149.38-244.85   0.00-243.21-100.76-242.34   0.00-250.00
+vs. P2 :  94.24-251.28   0.00  88.85-250.00-158.40  97.18-213.55-162.50 -73.21-492.86 -64.57 -75.00  76.03-500.00  90.50-250.00
+vs. P3 :-240.78   0.00-489.57   0.00   0.00   2.37-245.98-309.15   0.00-268.39-487.12   0.00-244.31-246.46-243.40   0.00-250.00
+vs. P4 :-244.44   0.00-245.04   0.00   0.00-246.51-243.81-241.47   0.00-246.83-245.48   0.00-244.66-244.26-244.54   0.00-250.00
+vs. P5 :-249.32 -17.96-168.00 -11.83-250.00   0.00-250.00-151.93-200.00-245.45  -9.83-212.62-249.37-249.47-247.50-249.43-250.00
+vs. P6 :-251.29-253.40-497.98-252.87-254.42-250.00   0.00-401.10-251.66-263.04-498.55-251.56-251.67-250.00-500.00-251.89-250.00
+vs. P7 : -26.42-273.32 -93.55 -72.54-246.12-141.99 -38.46   0.00-126.25 -83.85-188.82-145.37 -76.23-107.95 -59.28 -46.59-250.00
+vs. P8 :-246.74   0.00-162.50   0.00   0.00-200.00-247.68-126.25   0.00-235.75  -9.19   0.00-246.95-235.66-244.55   0.00-250.00
+vs. P9 :-211.22-250.00-278.32-221.76-250.00-245.45-231.74-299.23-239.11   0.00-333.90-231.60-206.17-248.11-238.74-229.21-250.00
+vs. P10 :  97.75-253.68  95.71  85.61-253.23   0.28  97.98  31.06  -4.78  64.73   0.00  -3.55  -1.08  97.66-497.57  92.44-250.00
+vs. P11 :-245.67   0.00-291.34   0.00   0.00-212.62-247.81-178.70   0.00-260.40  -6.83   0.00-246.03-243.37-245.89   0.00-250.00
+vs. P12 :-249.25-251.79-275.00-251.50-251.40-249.37-247.67-335.25-250.00-280.19 -10.75-250.00   0.00-249.44-248.66-250.00-250.00
+vs. P13 :-247.53-246.21-469.42-252.53-254.10-249.47-250.00-226.14-240.31-225.38-496.09-246.69-249.44   0.00-500.00-249.46-250.00
+vs. P14 :-245.77-252.02 100.00-251.74-251.44-247.50 100.00-384.02-250.00-250.66  96.60-250.00-248.66 100.00   0.00-250.00-250.00
+vs. P15 :-249.47   0.00-491.50   0.00   0.00-249.43-247.35-387.50   0.00-263.95-493.60   0.00-244.87-249.46-245.04   0.00-250.00
+vs. P16 :-250.00-250.00-250.00-250.00-250.00-250.00-250.00-250.00-250.00-250.00-250.00-250.00-250.00-250.00-250.00-250.00   0.00
+TOTAL  :-3009.43-2554.28-4109.82-1643.85-2764.68-2951.01-2698.77-3950.14-2225.69-3308.30-4167.55-2157.40-3326.91-2652.08-4757.51-1843.11-4000.00
+--------------------------------------------------------------------------------
+Section 2 - Leaderboard
+--------------------------------------------------------------------------------
+Average points per round:
+Rank  Team name (P#):  Score      with strategy name
+1st   Chev      (P3):     -96.70 points with Cooperate until too many betrayals      
+2nd   trustMe   (P15):    -108.42 points with backstab                                
+3rd   Savior    (P11):    -126.91 points with cooperate first and backstab            
+4th   June_bug  (P8):    -130.92 points with Cooperate                               
+5th   kuba      (P1):    -150.25 points with Fights back when attacked               
+6th   Tit_for_ta(P13):    -156.00 points with Randomness until see betrayal patten in 
+7th   EthanC.py (P6):    -158.75 points with HALFNHALF                               
+8th   AJ        (P4):    -162.63 points with Figth back hard                         
+9th   DM        (P5):    -173.59 points with Last move                               
+10th  defRealFun(P0):    -177.03 points with random until after 10 rounds            
+11th  RDGamblers(P9):    -194.61 points with betray than randomness than betray      
+12th  The_Finneg(P12):    -195.70 points with Starts coupreate then betray and digs it
+13th  Jesters   (P7):    -232.36 points with Red Herring                             
+14th  Y         (P16):    -235.29 points with Last move of their history              
+15th  youLost   (P2):    -241.75 points with opposite                                
+16th            (P10):    -245.15 points with                                         
+17th  Torrential(P14):    -279.85 points with get other points down then keep them dow
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team defRealFunct
+--------------------------------------------------------------------------------
+-243.52 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-254.63 pt/round: kuba (P1) "Fights back when attacked"
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+c c                                                                             
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                    c                                                           
+
+bb
+  
+
+--------------------------------------------------------------------------------
+94.24 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-492.81 pt/round: youLost (P2) "opposite"
+bCbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+bCbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-240.78 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-253.55 pt/round: Chev (P3) "Cooperate until too many betrayals"
+BCBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cCccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-244.44 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-253.97 pt/round: AJ (P4) "Figth back hard"
+BcbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+c         c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                              
+
+--------------------------------------------------------------------------------
+-249.32 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-249.32 pt/round: DM (P5) "Last move"
+bcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.29 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-248.20 pt/round: EthanC.py (P6) "HALFNHALF"
+bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-26.42 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-405.66 pt/round: Jesters (P7) "Red Herring"
+BCbBbBBBbbBBbBbBbBbBbbBBbBbBbBBBBBbBbBBBBBbBbBbBbBbbBBbBbbbBBBbBBBBBbbbBbBbBBBbB
+cCbcbcccbbccbcbcbcbcbbccbcbcbcccccbcbcccccbcbcbcbcbbccbcbbbcccbcccccbbbcbcbcccbc
+
+BBbBBBbBbBBBBBbBbBBBBBBBBb
+ccbcccbcbcccccbcbccccccccb
+
+--------------------------------------------------------------------------------
+-246.74 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-251.09 pt/round: June_bug (P8) "Cooperate"
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-211.22 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-276.53 pt/round: RDGamblers (P9) "betray than randomness than betray"
+bcbbbbbbbbbbbbbbbBbbbbbbbbbbBbbbbbBBbbbbbbbbbbBbbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbbb
+bBbbbbbbbbbbbbbbbcbbbbbbbbbbcbbbbbccbbbbbbbbbbcbbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbbb
+
+bbbBbbbbBbbbbbbbbbbbBbbbbbBbbbbbBbbbbbBBbbbbBbbbbbbBbbbbbBbbbbbbbbb
+bbbcbbbbcbbbbbbbbbbbcbbbbbcbbbbbcbbbbbccbbbbcbbbbbbcbbbbbcbbbbbbbbb
+
+--------------------------------------------------------------------------------
+97.75 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-496.25 pt/round:  (P10) ""
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-245.67 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-251.44 pt/round: Savior (P11) "cooperate first and backstab"
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.25 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-249.25 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-247.53 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-250.82 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+bcBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bBccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-245.77 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-250.00 pt/round: Torrential (P14) "get other points down then keep them down"
+BCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.47 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-249.47 pt/round: trustMe (P15) "backstab "
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: defRealFunct (P0) "random until after 10 rounds"
+-250.00 pt/round: Y (P16) "Last move of their history"
+bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                  
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team kuba
+--------------------------------------------------------------------------------
+-254.63 pt/round: kuba (P1) "Fights back when attacked"
+-243.52 pt/round: defRealFunct (P0) "random until after 10 rounds"
+c c                                                                             
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                                                           
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+  
+bb
+
+--------------------------------------------------------------------------------
+-251.28 pt/round: kuba (P1) "Fights back when attacked"
+-100.51 pt/round: youLost (P2) "opposite"
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  C
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  C
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+0.00 pt/round: AJ (P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-17.96 pt/round: kuba (P1) "Fights back when attacked"
+-3.59 pt/round: DM (P5) "Last move"
+c CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+BcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBcCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCc CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc CCCCCCCC
+CCCCCCCCCCCCCCCCCCCCBcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBcCCCCCCCC
+
+CCCCCCC
+CCCCCCC
+
+--------------------------------------------------------------------------------
+-253.40 pt/round: kuba (P1) "Fights back when attacked"
+-245.24 pt/round: EthanC.py (P6) "HALFNHALF"
+c                                                                               
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                                              
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-273.32 pt/round: kuba (P1) "Fights back when attacked"
+-71.24 pt/round: Jesters (P7) "Red Herring"
+CCc c CCc c c c   c Cc  c c   CCc CCc c c CCc CCc Cc Cc c   c Cc Cc Cc Cc Cc  c 
+CCBcBcCCBcBcBcBbbcBcCBbcBcBbbcCCBcCCBcBcBcCCBcCCBcCBcCBcBbbcBcCBcCBcCBcCBcCBbcBc
+
+c c c c c CCc CCc c c c CCc c c   CCc c c c   CCc c c c  CCCCCc c CCc c c c CCc 
+BcBcBcBcBcCCBcCCBcBcBcBcCCBcBcBbbcCCBcBcBcBbbcCCBcBcBcBbcCCCCCBcBcCCBcBcBcBcCCBc
+
+c c c   c c c c c c CCc   CCCCCCc
+BcBcBbbcBcBcBcBcBcBcCCBbbcCCCCCCB
+
+--------------------------------------------------------------------------------
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+0.00 pt/round: June_bug (P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: kuba (P1) "Fights back when attacked"
+-149.38 pt/round: RDGamblers (P9) "betray than randomness than betray"
+c    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc 
+BbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBb
+
+   Cc    Cc    Cc   CCc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc   
+bbcCBbbbcCBbbbcCBbbbCCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbb
+
+ 
+c
+
+--------------------------------------------------------------------------------
+-253.68 pt/round: kuba (P1) "Fights back when attacked"
+-244.85 pt/round:  (P10) ""
+cc                                                                              
+ Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                                   
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCC
+CCC
+
+--------------------------------------------------------------------------------
+-251.79 pt/round: kuba (P1) "Fights back when attacked"
+-243.21 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Cc                                                                              
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                                       
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-246.21 pt/round: kuba (P1) "Fights back when attacked"
+-100.76 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+c c  c  CCCc   CCCc   Cc Cc Cc CCCc  c  c CCCc  CCc  Cc  c  CCc  c c    c c c c 
+BcBbcBbcCCCBbbcCCCBbbcCBcCBcCBcCCCBbcBbcBcCCCBbcCCBbcCBbcBbcCCBbcBcBbbbcBcBcBcBc
+
+Cc    c c    CCCc  CCCc    Cc CCCc    CCc  Cc    c  
+CBbbbcBcBbbbcCCCBbcCCCBbbbcCBcCCCBbbbcCCBbcCBbbbcBbb
+
+--------------------------------------------------------------------------------
+-252.02 pt/round: kuba (P1) "Fights back when attacked"
+-242.34 pt/round: Torrential (P14) "get other points down then keep them down"
+Cc                                                                              
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                       
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+0.00 pt/round: trustMe (P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: kuba (P1) "Fights back when attacked"
+-250.00 pt/round: Y (P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccccc
+         
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team youLost
+--------------------------------------------------------------------------------
+-492.81 pt/round: youLost (P2) "opposite"
+94.24 pt/round: defRealFunct (P0) "random until after 10 rounds"
+bCbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bCbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-100.51 pt/round: youLost (P2) "opposite"
+-251.28 pt/round: kuba (P1) "Fights back when attacked"
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  C
+
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  C
+
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbc
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  
+
+--------------------------------------------------------------------------------
+-489.57 pt/round: youLost (P2) "opposite"
+88.85 pt/round: Chev (P3) "Cooperate until too many betrayals"
+BBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-245.04 pt/round: youLost (P2) "opposite"
+-250.00 pt/round: AJ (P4) "Figth back hard"
+BbccccccccCbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c         C                                                                     
+
+ccccccccccccccccccccccccccccccccccccccccc
+                                         
+
+--------------------------------------------------------------------------------
+-168.00 pt/round: youLost (P2) "opposite"
+-158.40 pt/round: DM (P5) "Last move"
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbccCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+
+BbcCBbcCBbcCBbcCBbcCbcCBbcCBbcCBbcCBbcCBbcCBb
+cbBCcbBCcbBCcbBCcbBCbBCcbBCcbBCcbBCcbBCcbBCcb
+
+--------------------------------------------------------------------------------
+-497.98 pt/round: youLost (P2) "opposite"
+97.18 pt/round: EthanC.py (P6) "HALFNHALF"
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-93.55 pt/round: youLost (P2) "opposite"
+-213.55 pt/round: Jesters (P7) "Red Herring"
+BBbCbCbCbCbCbCbccCBBbCBBbCBbcCBBbCbCbCBbcCbCbCbCBBbCBBbCbCbCbCbccCbCBbcCbCbccCbC
+ccbCbCbCbCbCbCbBBCccbCccbCcbBCccbCbCbCcbBCbCbCbCccbCccbCbCbCbCbBBCbCcbBCbCbBBCbC
+
+bCBBbCbCbCbCBbCBBBBBbCbCBBbCBBBBbCbCbCBBbCbccCbCBbcCbCBBBBBBbCBBBBbcCBBBbcC
+bCccbCbCbCbCcbCcccccbCbCccbCccccbCbCbCccbCbBBCbCcbBCbCccccccbCccccbBCcccbBC
+
+--------------------------------------------------------------------------------
+-162.50 pt/round: youLost (P2) "opposite"
+-162.50 pt/round: June_bug (P8) "Cooperate"
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+
+--------------------------------------------------------------------------------
+-278.32 pt/round: youLost (P2) "opposite"
+-73.21 pt/round: RDGamblers (P9) "betray than randomness than betray"
+bcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbc
+bBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbB
+
+ccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbccc
+BBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBB
+
+CBbcccCBbcccCBbcccCBbcccCBbcccCBbccc
+CcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBB
+
+--------------------------------------------------------------------------------
+95.71 pt/round: youLost (P2) "opposite"
+-492.86 pt/round:  (P10) ""
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-291.34 pt/round: youLost (P2) "opposite"
+-64.57 pt/round: Savior (P11) "cooperate first and backstab"
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcc
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-275.00 pt/round: youLost (P2) "opposite"
+-75.00 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+BbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBb
+cbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcb
+
+cccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccC
+BBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBC
+
+--------------------------------------------------------------------------------
+-469.42 pt/round: youLost (P2) "opposite"
+76.03 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+bcCbCbcCBBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bBCbCbBCccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+100.00 pt/round: youLost (P2) "opposite"
+-500.00 pt/round: Torrential (P14) "get other points down then keep them down"
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-491.50 pt/round: youLost (P2) "opposite"
+90.50 pt/round: trustMe (P15) "backstab "
+Bbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: youLost (P2) "opposite"
+-250.00 pt/round: Y (P16) "Last move of their history"
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccccccccccccccccccccccccc
+                             
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Chev
+--------------------------------------------------------------------------------
+-253.55 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-240.78 pt/round: defRealFunct (P0) "random until after 10 rounds"
+cCccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BCBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+88.85 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-489.57 pt/round: youLost (P2) "opposite"
+ccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+BBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+0.00 pt/round: AJ (P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-11.83 pt/round: Chev (P3) "Cooperate until too many betrayals"
+2.37 pt/round: DM (P5) "Last move"
+cCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+BCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCC
+
+CCCCCCCCC
+CCCCCCCCC
+
+--------------------------------------------------------------------------------
+-252.87 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-245.98 pt/round: EthanC.py (P6) "HALFNHALF"
+ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbb
+bbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-72.54 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-309.15 pt/round: Jesters (P7) "Red Herring"
+CCcCcCcCCCcCcCCcCCcCcCCCcCCccBbBBbbBbBbbbBbBBBbBBBbbBBbBBBbBbBbBBBbBBbbBbBbBbBbB
+CCBCBCBCCCBCBCCBCCBCBCCCBCCBBcbccbbcbcbbbcbcccbcccbbccbcccbcbcbcccbccbbcbcbcbcbc
+
+bBbBbBBBBBBBbbbBbBBBbBbBbBbBBBBBbBBBbBbBbBbbBBbBbBbBbBBbbBBBbB
+bcbcbcccccccbbbcbcccbcbcbcbcccccbcccbcbcbcbbccbcbcbcbccbbcccbc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+0.00 pt/round: June_bug (P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-221.76 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-268.39 pt/round: RDGamblers (P9) "betray than randomness than betray"
+ccbbbbbbbbbbbbbbBbbbbbbBbbbbbbbbbbBBbbbbbbbbbbBbbbbbbbbbbbbbbbbbbBbbbbbBbbbbBbbb
+BBbbbbbbbbbbbbbbcbbbbbbcbbbbbbbbbbccbbbbbbbbbbcbbbbbbbbbbbbbbbbbbcbbbbbcbbbbcbbb
+
+bbbBbbbbbbbbbbBbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbBbbbbbBbbbbBbbbbb
+bbbcbbbbbbbbbbcbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbcbbbbbcbbbbcbbbbb
+
+bBbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbb
+bcbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+85.61 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-487.12 pt/round:  (P10) ""
+cccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ BBbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-251.50 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-244.31 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbb
+bbbbbbb
+
+--------------------------------------------------------------------------------
+-252.53 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-246.46 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.74 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-243.40 pt/round: Torrential (P14) "get other points down then keep them down"
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+0.00 pt/round: trustMe (P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+C
+C
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+-250.00 pt/round: Y (P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccccccccccc
+                                              
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team AJ
+--------------------------------------------------------------------------------
+-253.97 pt/round: AJ (P4) "Figth back hard"
+-244.44 pt/round: defRealFunct (P0) "random until after 10 rounds"
+c         c                                                                     
+BcbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                              
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: AJ (P4) "Figth back hard"
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: AJ (P4) "Figth back hard"
+-245.04 pt/round: youLost (P2) "opposite"
+c         C                                                                     
+BbccccccccCbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                         
+ccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: AJ (P4) "Figth back hard"
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: AJ (P4) "Figth back hard"
+-246.51 pt/round: DM (P5) "Last move"
+c         C                                                                     
+BcccccccccCcccccccccccccccccccccccccccccccccccccccbccccccccccccccccccccccccccccc
+
+                                                                                
+ccccccccccccccccccccbcccccccccccccccccccccccccccccccccccccccccccccccccbccccccccc
+
+            
+cccccccccccc
+
+--------------------------------------------------------------------------------
+-254.42 pt/round: AJ (P4) "Figth back hard"
+-243.81 pt/round: EthanC.py (P6) "HALFNHALF"
+c         c                                                                     
+BbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                 
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-246.12 pt/round: AJ (P4) "Figth back hard"
+-241.47 pt/round: Jesters (P7) "Red Herring"
+CCc       C                                                                     
+CCBcccbcbcCcbcbcbcccbcccbcbccccccbccccccbcbcbcbcccbcbcbccbbcbccbbcbccbccbcbcbcbc
+
+                                                 
+bcbcbccbbcbcbbbcbcbcccbcbcbcbcbcbcccccbcbcccbcccc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: AJ (P4) "Figth back hard"
+0.00 pt/round: June_bug (P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: AJ (P4) "Figth back hard"
+-246.83 pt/round: RDGamblers (P9) "betray than randomness than betray"
+c         C                                                                     
+BbbbccbbbbCcbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbb
+
+                                                                                
+bbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+
+                             
+ccbbbbccbbbbccbbbbccbbbbccbbb
+
+--------------------------------------------------------------------------------
+-253.23 pt/round: AJ (P4) "Figth back hard"
+-245.48 pt/round:  (P10) ""
+cc        c                                                                     
+ BbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                           
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: AJ (P4) "Figth back hard"
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-251.40 pt/round: AJ (P4) "Figth back hard"
+-244.66 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Cc        c                                                                     
+CBbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                  
+bbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-254.10 pt/round: AJ (P4) "Figth back hard"
+-244.26 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+c         c                                                                     
+BbbcbcbcbbBbccbbbcbccbcbcbcbcbcccbccbcbbccbcbbcccbbcbcbcbbcbbbcbbccccbcbccbcbbcb
+
+                                          
+cbcccccbbbccbbcbcccbcbbcbcccccbbbbccbbcccc
+
+--------------------------------------------------------------------------------
+-251.44 pt/round: AJ (P4) "Figth back hard"
+-244.54 pt/round: Torrential (P14) "get other points down then keep them down"
+Cc        c                                                                     
+CBbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+              
+bbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: AJ (P4) "Figth back hard"
+0.00 pt/round: trustMe (P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: AJ (P4) "Figth back hard"
+-250.00 pt/round: Y (P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                        
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team DM
+--------------------------------------------------------------------------------
+-249.32 pt/round: DM (P5) "Last move"
+-249.32 pt/round: defRealFunct (P0) "random until after 10 rounds"
+bBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-3.59 pt/round: DM (P5) "Last move"
+-17.96 pt/round: kuba (P1) "Fights back when attacked"
+BcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBcCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+c CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCBcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBcCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCc CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc CCCCCCCC
+
+CCCCCCC
+CCCCCCC
+
+--------------------------------------------------------------------------------
+-158.40 pt/round: DM (P5) "Last move"
+-168.00 pt/round: youLost (P2) "opposite"
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbccCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+cbBCcbBCcbBCcbBCcbBCbBCcbBCcbBCcbBCcbBCcbBCcb
+BbcCBbcCBbcCBbcCBbcCbcCBbcCBbcCBbcCBbcCBbcCBb
+
+--------------------------------------------------------------------------------
+2.37 pt/round: DM (P5) "Last move"
+-11.83 pt/round: Chev (P3) "Cooperate until too many betrayals"
+BCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+cCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCC
+
+CCCCCCCCC
+CCCCCCCCC
+
+--------------------------------------------------------------------------------
+-246.51 pt/round: DM (P5) "Last move"
+-250.00 pt/round: AJ (P4) "Figth back hard"
+BcccccccccCcccccccccccccccccccccccccccccccccccccccbccccccccccccccccccccccccccccc
+c         C                                                                     
+
+ccccccccccccccccccccbcccccccccccccccccccccccccccccccccccccccccccccccccbccccccccc
+                                                                                
+
+cccccccccccc
+            
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: DM (P5) "Last move"
+-250.00 pt/round: EthanC.py (P6) "HALFNHALF"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-141.99 pt/round: DM (P5) "Last move"
+-151.93 pt/round: Jesters (P7) "Red Herring"
+BCcbBCCCcBcBcBcbBCcBCcbBCCcBcBCCcbBCcBcBCCcBcbBCcBbBcBcBcBCCCCcBcBcBcbbBcBcBcBcB
+cCBbcCCCBcBcBcBbcCBcCBbcCCBcBcCCBbcCBcBcCCBcBbcCBcbcBcBcBcCCCCBcBcBcBbbcBcBcBcBc
+
+CcbBcBcBCCcBcBCCcBcbbBcBcBCCcBCcbBCCCcbBcBCcBCcBcBCCcBcBCCcBCCcBcBcBcBBCcBcBCCCC
+CBbcBcBcCCBcBcCCBcBbbcBcBcCCBcCBbcCCCBbcBcCBcCBcBcCCBcBcCCBcCCBcBcBcBccCBcBcCCCC
+
+CCCCcbbBCCCCcBcBcbBCC
+CCCCBbbcCCCCBcBcBbcCC
+
+--------------------------------------------------------------------------------
+-200.00 pt/round: DM (P5) "Last move"
+-200.00 pt/round: June_bug (P8) "Cooperate"
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+
+--------------------------------------------------------------------------------
+-245.45 pt/round: DM (P5) "Last move"
+-245.45 pt/round: RDGamblers (P9) "betray than randomness than betray"
+bbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbBcbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbBcbbbbbbbbbbbBcbbbbbbbbb
+bbbbbbbbcBbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbcBbbbbbbbbbbbcBbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.28 pt/round: DM (P5) "Last move"
+-9.83 pt/round:  (P10) ""
+bCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-212.62 pt/round: DM (P5) "Last move"
+-212.62 pt/round: Savior (P11) "cooperate first and backstab"
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.37 pt/round: DM (P5) "Last move"
+-249.37 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.47 pt/round: DM (P5) "Last move"
+-249.47 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+bBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-247.50 pt/round: DM (P5) "Last move"
+-247.50 pt/round: Torrential (P14) "get other points down then keep them down"
+BCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.43 pt/round: DM (P5) "Last move"
+-249.43 pt/round: trustMe (P15) "backstab "
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: DM (P5) "Last move"
+-250.00 pt/round: Y (P16) "Last move of their history"
+bcccccccccccccccccccccccccccccccccccccccccccccccccbccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccccccccccccccccbccccccccccccccccccccccc
+                                            
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team EthanC.py
+--------------------------------------------------------------------------------
+-248.20 pt/round: EthanC.py (P6) "HALFNHALF"
+-251.29 pt/round: defRealFunct (P0) "random until after 10 rounds"
+bBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-245.24 pt/round: EthanC.py (P6) "HALFNHALF"
+-253.40 pt/round: kuba (P1) "Fights back when attacked"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+c                                                                               
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                    c                                              
+
+--------------------------------------------------------------------------------
+97.18 pt/round: EthanC.py (P6) "HALFNHALF"
+-497.98 pt/round: youLost (P2) "opposite"
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-245.98 pt/round: EthanC.py (P6) "HALFNHALF"
+-252.87 pt/round: Chev (P3) "Cooperate until too many betrayals"
+BBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbb
+bbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-243.81 pt/round: EthanC.py (P6) "HALFNHALF"
+-254.42 pt/round: AJ (P4) "Figth back hard"
+BbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+c         c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                 
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: EthanC.py (P6) "HALFNHALF"
+-250.00 pt/round: DM (P5) "Last move"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-38.46 pt/round: EthanC.py (P6) "HALFNHALF"
+-401.10 pt/round: Jesters (P7) "Red Herring"
+BBbbBBbBbBbBbBBBbBBBBBBBbBbBbBbBbBBBbBbBbBbBBbBBBBbBBBbBBBbBbBBbbBbBbbbBbBbBbBBB
+ccbbccbcbcbcbcccbcccccccbcbcbcbcbcccbcbcbcbccbccccbcccbcccbcbccbbcbcbbbcbcbcbccc
+
+bBbBBBBbbBbBBBBBbBbBbBBBbbbBbBbBbBbBbbBBbBbBBBbBbBbBbBbBbBbBbbbBbBBBbBBBbBbBbBbB
+bcbccccbbcbcccccbcbcbcccbbbcbcbcbcbcbbccbcbcccbcbcbcbcbcbcbcbbbcbcccbcccbcbcbcbc
+
+bBBBbBbBBBBBbBbBBBbBbB
+bcccbcbcccccbcbcccbcbc
+
+--------------------------------------------------------------------------------
+-247.68 pt/round: EthanC.py (P6) "HALFNHALF"
+-251.66 pt/round: June_bug (P8) "Cooperate"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-231.74 pt/round: EthanC.py (P6) "HALFNHALF"
+-263.04 pt/round: RDGamblers (P9) "betray than randomness than betray"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbb
+
+bbBbbbbbbbbbbbbBbbbbbbbbbbBbbbbbbbb
+bbcbbbbbbbbbbbbcbbbbbbbbbbcbbbbbbbb
+
+--------------------------------------------------------------------------------
+97.98 pt/round: EthanC.py (P6) "HALFNHALF"
+-498.55 pt/round:  (P10) ""
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBB
+ccccccccccccc
+
+--------------------------------------------------------------------------------
+-247.81 pt/round: EthanC.py (P6) "HALFNHALF"
+-251.56 pt/round: Savior (P11) "cooperate first and backstab"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-247.67 pt/round: EthanC.py (P6) "HALFNHALF"
+-251.67 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: EthanC.py (P6) "HALFNHALF"
+-250.00 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+100.00 pt/round: EthanC.py (P6) "HALFNHALF"
+-500.00 pt/round: Torrential (P14) "get other points down then keep them down"
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-247.35 pt/round: EthanC.py (P6) "HALFNHALF"
+-251.89 pt/round: trustMe (P15) "backstab "
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: EthanC.py (P6) "HALFNHALF"
+-250.00 pt/round: Y (P16) "Last move of their history"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbb
+          
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Jesters
+--------------------------------------------------------------------------------
+-405.66 pt/round: Jesters (P7) "Red Herring"
+-26.42 pt/round: defRealFunct (P0) "random until after 10 rounds"
+cCbcbcccbbccbcbcbcbcbbccbcbcbcccccbcbcccccbcbcbcbcbbccbcbbbcccbcccccbbbcbcbcccbc
+BCbBbBBBbbBBbBbBbBbBbbBBbBbBbBBBBBbBbBBBBBbBbBbBbBbbBBbBbbbBBBbBBBBBbbbBbBbBBBbB
+
+ccbcccbcbcccccbcbccccccccb
+BBbBBBbBbBBBBBbBbBBBBBBBBb
+
+--------------------------------------------------------------------------------
+-71.24 pt/round: Jesters (P7) "Red Herring"
+-273.32 pt/round: kuba (P1) "Fights back when attacked"
+CCBcBcCCBcBcBcBbbcBcCBbcBcBbbcCCBcCCBcBcBcCCBcCCBcCBcCBcBbbcBcCBcCBcCBcCBcCBbcBc
+CCc c CCc c c c   c Cc  c c   CCc CCc c c CCc CCc Cc Cc c   c Cc Cc Cc Cc Cc  c 
+
+BcBcBcBcBcCCBcCCBcBcBcBcCCBcBcBbbcCCBcBcBcBbbcCCBcBcBcBbcCCCCCBcBcCCBcBcBcBcCCBc
+c c c c c CCc CCc c c c CCc c c   CCc c c c   CCc c c c  CCCCCc c CCc c c c CCc 
+
+BcBcBbbcBcBcBcBcBcBcCCBbbcCCCCCCB
+c c c   c c c c c c CCc   CCCCCCc
+
+--------------------------------------------------------------------------------
+-213.55 pt/round: Jesters (P7) "Red Herring"
+-93.55 pt/round: youLost (P2) "opposite"
+ccbCbCbCbCbCbCbBBCccbCccbCcbBCccbCbCbCcbBCbCbCbCccbCccbCbCbCbCbBBCbCcbBCbCbBBCbC
+BBbCbCbCbCbCbCbccCBBbCBBbCBbcCBBbCbCbCBbcCbCbCbCBBbCBBbCbCbCbCbccCbCBbcCbCbccCbC
+
+bCccbCbCbCbCcbCcccccbCbCccbCccccbCbCbCccbCbBBCbCcbBCbCccccccbCccccbBCcccbBC
+bCBBbCbCbCbCBbCBBBBBbCbCBBbCBBBBbCbCbCBBbCbccCbCBbcCbCBBBBBBbCBBBBbcCBBBbcC
+
+--------------------------------------------------------------------------------
+-309.15 pt/round: Jesters (P7) "Red Herring"
+-72.54 pt/round: Chev (P3) "Cooperate until too many betrayals"
+CCBCBCBCCCBCBCCBCCBCBCCCBCCBBcbccbbcbcbbbcbcccbcccbbccbcccbcbcbcccbccbbcbcbcbcbc
+CCcCcCcCCCcCcCCcCCcCcCCCcCCccBbBBbbBbBbbbBbBBBbBBBbbBBbBBBbBbBbBBBbBBbbBbBbBbBbB
+
+bcbcbcccccccbbbcbcccbcbcbcbcccccbcccbcbcbcbbccbcbcbcbccbbcccbc
+bBbBbBBBBBBBbbbBbBBBbBbBbBbBBBBBbBBBbBbBbBbbBBbBbBbBbBBbbBBBbB
+
+--------------------------------------------------------------------------------
+-241.47 pt/round: Jesters (P7) "Red Herring"
+-246.12 pt/round: AJ (P4) "Figth back hard"
+CCBcccbcbcCcbcbcbcccbcccbcbccccccbccccccbcbcbcbcccbcbcbccbbcbccbbcbccbccbcbcbcbc
+CCc       C                                                                     
+
+bcbcbccbbcbcbbbcbcbcccbcbcbcbcbcbcccccbcbcccbcccc
+                                                 
+
+--------------------------------------------------------------------------------
+-151.93 pt/round: Jesters (P7) "Red Herring"
+-141.99 pt/round: DM (P5) "Last move"
+cCBbcCCCBcBcBcBbcCBcCBbcCCBcBcCCBbcCBcBcCCBcBbcCBcbcBcBcBcCCCCBcBcBcBbbcBcBcBcBc
+BCcbBCCCcBcBcBcbBCcBCcbBCCcBcBCCcbBCcBcBCCcBcbBCcBbBcBcBcBCCCCcBcBcBcbbBcBcBcBcB
+
+CBbcBcBcCCBcBcCCBcBbbcBcBcCCBcCBbcCCCBbcBcCBcCBcBcCCBcBcCCBcCCBcBcBcBccCBcBcCCCC
+CcbBcBcBCCcBcBCCcBcbbBcBcBCCcBCcbBCCCcbBcBCcBCcBcBCCcBcBCCcBCCcBcBcBcBBCcBcBCCCC
+
+CCCCBbbcCCCCBcBcBbcCC
+CCCCcbbBCCCCcBcBcbBCC
+
+--------------------------------------------------------------------------------
+-401.10 pt/round: Jesters (P7) "Red Herring"
+-38.46 pt/round: EthanC.py (P6) "HALFNHALF"
+ccbbccbcbcbcbcccbcccccccbcbcbcbcbcccbcbcbcbccbccccbcccbcccbcbccbbcbcbbbcbcbcbccc
+BBbbBBbBbBbBbBBBbBBBBBBBbBbBbBbBbBBBbBbBbBbBBbBBBBbBBBbBBBbBbBBbbBbBbbbBbBbBbBBB
+
+bcbccccbbcbcccccbcbcbcccbbbcbcbcbcbcbbccbcbcccbcbcbcbcbcbcbcbbbcbcccbcccbcbcbcbc
+bBbBBBBbbBbBBBBBbBbBbBBBbbbBbBbBbBbBbbBBbBbBBBbBbBbBbBbBbBbBbbbBbBBBbBBBbBbBbBbB
+
+bcccbcbcccccbcbcccbcbc
+bBBBbBbBBBBBbBbBBBbBbB
+
+--------------------------------------------------------------------------------
+-126.25 pt/round: Jesters (P7) "Red Herring"
+-126.25 pt/round: June_bug (P8) "Cooperate"
+CCBbcCBcCCCCCCBcCCBcBcBcBcBcBcBcBcBcCCBbcCBcCCBcBcCCCCBcBbbcCCBbcCCCBcCCCCBbbcBc
+CCcbBCcBCCCCCCcBCCcBcBcBcBcBcBcBcBcBCCcbBCcBCCcBcBCCCCcBcbbBCCcbBCCCcBCCCCcbbBcB
+
+CCBcCCBcCCBcBcBcBcCCBcBcBcCCCCBcBcCCBcBcBcBcBcBcCBcCBcCCBcCCCCBcCCBbcCCCBbcCBcBb
+CCcBCCcBCCcBcBcBcBCCcBcBcBCCCCcBcBCCcBcBcBcBcBcBCcBCcBCCcBCCCCcBCCcbBCCCcbBCcBcb
+
+bcBcCCCCCCBbbcCCBcBcBcCCCCBcCCBcCCCBcCCC
+bBcBCCCCCCcbbBCCcBcBcBCCCCcBCCcBCCCcBCCC
+
+--------------------------------------------------------------------------------
+-299.23 pt/round: Jesters (P7) "Red Herring"
+-83.85 pt/round: RDGamblers (P9) "betray than randomness than betray"
+ccbcBCccbcBcbcbcBCbcbcBcbcbbbcbcbbBCbcccBcccbcCCccbcBcbcbcBcbcbcCCbcbcCCccbbcCbc
+BBbBcCBBbBcBbBbBcCbBbBcBbBbbbBbBbbcCbBBBcBBBbBCCBBbBcBbBbBcBbBbBCCbBbBCCBBbbBCbB
+
+bbBcbcbcBcbcccBCbcbbBccccbCCbcbcBCcccbcCbcbbbcbcbbBcccccCCbcccBCbcbcCCbcbcBcbcbc
+bbcBbBbBcBbBBBcCbBbbcBBBBbCCbBbBcCBBBbBCbBbbbBbBbbcBBBBBCCbBBBcCbBbBCCbBbBcBbBbB
+
+CCbcbbcCbcbcBcbcbcBcccbcBcccbbcCbcb
+CCbBbbBCbBbBcBbBbBcBBBbBcBBBbbBCbBb
+
+--------------------------------------------------------------------------------
+31.06 pt/round: Jesters (P7) "Red Herring"
+-188.82 pt/round:  (P10) ""
+ccbBBCCCBCBCBCBCBCBCCBCCCCBBBCCCCCBCBCCCCCBCBCBCBCCBBCBCCCBCCCBBCCBCBCBCBCCCCCCC
+ BbccCCCcCcCcCcCcCcCCcCCCCcccCCCCCcCcCCCCCcCcCcCcCCccCcCCCcCCCccCCcCcCcCcCCCCCCC
+
+BCBCCCBCBCCCBCBCBCBCBCCCCBBCCCBCBCBCBCBCBCBCBCBCCCCCBCBCBCCCBCCCCCBCBCBCCCBCBCBB
+cCcCCCcCcCCCcCcCcCcCcCCCCccCCCcCcCcCcCcCcCcCcCcCCCCCcCcCcCCCcCCCCCcCcCcCCCcCcCcc
+
+B
+c
+
+--------------------------------------------------------------------------------
+-178.70 pt/round: Jesters (P7) "Red Herring"
+-145.37 pt/round: Savior (P11) "cooperate first and backstab"
+CCBbbcBcCCBcBcBcBcBcCCBcCCBbbcCCBcBcBcBbbcBcCCBcBcCBcCBcCCBcCCCCBcCCCBbcBcBcBcBc
+CCcbbBcBCCcBcBcBcBcBCCcBCCcbbBCCcBcBcBcbbBcBCCcBcBCcBCcBCCcBCCCCcBCCCcbBcBcBcBcB
+
+BbcCBcBcBcBcBcBcbcbbccbcbcbc
+cbBCcBcBcBcBcBcBbBbbBBbBbBbB
+
+--------------------------------------------------------------------------------
+-335.25 pt/round: Jesters (P7) "Red Herring"
+-76.23 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+CcbcccBcbbccbcbcccBcbcccCCBcbcbcbbbcccCCBcccCCBcbcbcbcbcbbbcccBbbcbcbcbcccCCBcbc
+CBbBBBcBbbBBbBbBBBcBbBBBCCcBbBbBbbbBBBCCcBBBCCcBbBbBbBbBbbbBBBcbbBbBbBbBBBCCcBbB
+
+bcbcccBcccBcbbbcccBbbcbcbcbcbcbcccBcccBcbcccBcccBcccBccbbcccBbbcbcbbbcbcbbbcbccc
+bBbBBBcBBBcBbbbBBBcbbBbBbBbBbBbBBBcBBBcBbBBBcBBBcBBBcBBbbBBBcbbBbBbbbBbBbbbBbBBB
+
+BcccBcbcccBbccbcbcbcbcb
+cBBBcBbBBBcbBBbBbBbBbBb
+
+--------------------------------------------------------------------------------
+-226.14 pt/round: Jesters (P7) "Red Herring"
+-107.95 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+ccccbCCccbbcBCbCbcbcBccCbccCbcbCbbbcCCcbbcBcBcBcCCbcBCbccBbcbcBbcCBcBCBCBcbCbccc
+BBBBbCCBBbbBcCbCbBbBcBBCbBBCbBbCbbbBCCBbbBcBcBcBCCbBcCbBBcbBbBcbBCcBcCcCcBbCbBBB
+
+bBbcbCbCBcCCbBbcBCBcbCbCbcCcccbCbCBcCCbCbcbBcCbcbcCc
+bcbBbCbCcBCCbcbBcCcBbCbCbBCBBBbCbCcBCCbCbBbcBCbBbBCB
+
+--------------------------------------------------------------------------------
+-384.02 pt/round: Jesters (P7) "Red Herring"
+-59.28 pt/round: Torrential (P14) "get other points down then keep them down"
+Ccbbbcccbbbcbcbcbcbcbbbcbcbcbcbcbcbcccccbcbcbcbcbcbbbcccbbccccbcbcbcbcbcbcbbbcbc
+CBbbbBBBbbbBbBbBbBbBbbbBbBbBbBbBbBbBBBBBbBbBbBbBbBbbbBBBbbBBBBbBbBbBbBbBbBbbbBbB
+
+bbbcbcbcbcbcccbcccbbbcbcbcbccccbcccccbccbcbbbcccbcbcbccbbcbcccbcbcbcbcbccbbcccbb
+bbbBbBbBbBbBBBbBBBbbbBbBbBbBBBBbBBBBBbBBbBbbbBBBbBbBbBBbbBbBBBbBbBbBbBbBBbbBBBbb
+
+ccbcbcbcccbbbcbcbbbcccbcccccbcbcbc
+BBbBbBbBBBbbbBbBbbbBBBbBBBBBbBbBbB
+
+--------------------------------------------------------------------------------
+-387.50 pt/round: Jesters (P7) "Red Herring"
+-46.59 pt/round: trustMe (P15) "backstab "
+CCBcccbcccbcbcbcbcbcbcbcbcbbbcbcbccccccbbcccccbcbcbcbcbcccbcbcbcbcbcbbbcbcbcbcbc
+CCcBBBbBBBbBbBbBbBbBbBbBbBbbbBbBbBBBBBBbbBBBBBbBbBbBbBbBBBbBbBbBbBbBbbbBbBbBbBbB
+
+bcbcbcbccccccbccccbcbcccbbbcccbbccbcccbcccbbbcccbbbc
+bBbBbBbBBBBBBbBBBBbBbBBBbbbBBBbbBBbBBBbBBBbbbBBBbbbB
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Jesters (P7) "Red Herring"
+-250.00 pt/round: Y (P16) "Last move of their history"
+ccbbccbcbbbcbcbcbcbcbbccbcbbccbcbbbcbcbcbcbcbbbcccbcbcbccbccbcccbcbcccbcccccbcbc
+                                                                                
+
+ccbcbcbbbcbcbcbcbcbbbcccbcbcbcbcbcbcccbcbcbcbcbcbcbcccbcccbcbbbcbcbcbcbcccbcbcbc
+                                                                                
+
+ccbcccbcbcbcbcbccbbcbcbbbcc
+                           
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team June_bug
+--------------------------------------------------------------------------------
+-251.09 pt/round: June_bug (P8) "Cooperate"
+-246.74 pt/round: defRealFunct (P0) "random until after 10 rounds"
+cBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: June_bug (P8) "Cooperate"
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-162.50 pt/round: June_bug (P8) "Cooperate"
+-162.50 pt/round: youLost (P2) "opposite"
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+--------------------------------------------------------------------------------
+0.00 pt/round: June_bug (P8) "Cooperate"
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.00 pt/round: June_bug (P8) "Cooperate"
+0.00 pt/round: AJ (P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-200.00 pt/round: June_bug (P8) "Cooperate"
+-200.00 pt/round: DM (P5) "Last move"
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+
+--------------------------------------------------------------------------------
+-251.66 pt/round: June_bug (P8) "Cooperate"
+-247.68 pt/round: EthanC.py (P6) "HALFNHALF"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-126.25 pt/round: June_bug (P8) "Cooperate"
+-126.25 pt/round: Jesters (P7) "Red Herring"
+CCcbBCcBCCCCCCcBCCcBcBcBcBcBcBcBcBcBCCcbBCcBCCcBcBCCCCcBcbbBCCcbBCCCcBCCCCcbbBcB
+CCBbcCBcCCCCCCBcCCBcBcBcBcBcBcBcBcBcCCBbcCBcCCBcBcCCCCBcBbbcCCBbcCCCBcCCCCBbbcBc
+
+CCcBCCcBCCcBcBcBcBCCcBcBcBCCCCcBcBCCcBcBcBcBcBcBCcBCcBCCcBCCCCcBCCcbBCCCcbBCcBcb
+CCBcCCBcCCBcBcBcBcCCBcBcBcCCCCBcBcCCBcBcBcBcBcBcCBcCBcCCBcCCCCBcCCBbcCCCBbcCBcBb
+
+bBcBCCCCCCcbbBCCcBcBcBCCCCcBCCcBCCCcBCCC
+bcBcCCCCCCBbbcCCBcBcBcCCCCBcCCBcCCCBcCCC
+
+--------------------------------------------------------------------------------
+-239.11 pt/round: June_bug (P8) "Cooperate"
+-235.75 pt/round: RDGamblers (P9) "betray than randomness than betray"
+cbbbbbbbbbBcbbbbBcbbbbbbbbbbbbbbbbBcbbbbbbbbbbbBcbbbBCcbbbbBcbbbBcbbbbBcbbbbbbbb
+BbbbbbbbbbcBbbbbcBbbbbbbbbbbbbbbbbcBbbbbbbbbbbbcBbbbcCBbbbbcBbbbcBbbbbcBbbbbbbbb
+
+bbbbbbbbBcbbbbbbbbbbBcbbbbbBcbbbbbbbbbBcbbbbbbbbbbbbbbbbbBcbbbbbbbbbBcbbbbbBcbbb
+bbbbbbbbcBbbbbbbbbbbcBbbbbbcBbbbbbbbbbcBbbbbbbbbbbbbbbbbbcBbbbbbbbbbcBbbbbbcBbbb
+
+BcbbbbBCcbbbbbbbbbb
+cBbbbbcCBbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-4.78 pt/round: June_bug (P8) "Cooperate"
+-9.19 pt/round:  (P10) ""
+c bBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.00 pt/round: June_bug (P8) "Cooperate"
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: June_bug (P8) "Cooperate"
+-246.95 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-240.31 pt/round: June_bug (P8) "Cooperate"
+-235.66 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+cbBcBCCCcbBcBCcbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BbcBcCCCBbcBcCBbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: June_bug (P8) "Cooperate"
+-244.55 pt/round: Torrential (P14) "get other points down then keep them down"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: June_bug (P8) "Cooperate"
+0.00 pt/round: trustMe (P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: June_bug (P8) "Cooperate"
+-250.00 pt/round: Y (P16) "Last move of their history"
+c                                                                               
+                                                                                
+
+                                                                                
+                                                                                
+
+                       
+                       
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team RDGamblers
+--------------------------------------------------------------------------------
+-276.53 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-211.22 pt/round: defRealFunct (P0) "random until after 10 rounds"
+bBbbbbbbbbbbbbbbbcbbbbbbbbbbcbbbbbccbbbbbbbbbbcbbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbbb
+bcbbbbbbbbbbbbbbbBbbbbbbbbbbBbbbbbBBbbbbbbbbbbBbbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbbb
+
+bbbcbbbbcbbbbbbbbbbbcbbbbbcbbbbbcbbbbbccbbbbcbbbbbbcbbbbbcbbbbbbbbb
+bbbBbbbbBbbbbbbbbbbbBbbbbbBbbbbbBbbbbbBBbbbbBbbbbbbBbbbbbBbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-149.38 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-250.00 pt/round: kuba (P1) "Fights back when attacked"
+BbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBb
+c    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc 
+
+bbcCBbbbcCBbbbcCBbbbCCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbb
+   Cc    Cc    Cc   CCc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc   
+
+c
+ 
+
+--------------------------------------------------------------------------------
+-73.21 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-278.32 pt/round: youLost (P2) "opposite"
+bBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbB
+bcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbc
+
+BBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBB
+ccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbccc
+
+CcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBB
+CBbcccCBbcccCBbcccCBbcccCBbcccCBbccc
+
+--------------------------------------------------------------------------------
+-268.39 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-221.76 pt/round: Chev (P3) "Cooperate until too many betrayals"
+BBbbbbbbbbbbbbbbcbbbbbbcbbbbbbbbbbccbbbbbbbbbbcbbbbbbbbbbbbbbbbbbcbbbbbcbbbbcbbb
+ccbbbbbbbbbbbbbbBbbbbbbBbbbbbbbbbbBBbbbbbbbbbbBbbbbbbbbbbbbbbbbbbBbbbbbBbbbbBbbb
+
+bbbcbbbbbbbbbbcbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbcbbbbbcbbbbcbbbbb
+bbbBbbbbbbbbbbBbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbBbbbbbBbbbbBbbbbb
+
+bcbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbb
+bBbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-246.83 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-250.00 pt/round: AJ (P4) "Figth back hard"
+BbbbccbbbbCcbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbb
+c         C                                                                     
+
+bbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+                                                                                
+
+ccbbbbccbbbbccbbbbccbbbbccbbb
+                             
+
+--------------------------------------------------------------------------------
+-245.45 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-245.45 pt/round: DM (P5) "Last move"
+bbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbcBbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbcBbbbbbbbbbbbcBbbbbbbbbb
+bbbbbbbbBcbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbBcbbbbbbbbbbbBcbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-263.04 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-231.74 pt/round: EthanC.py (P6) "HALFNHALF"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbb
+
+bbcbbbbbbbbbbbbcbbbbbbbbbbcbbbbbbbb
+bbBbbbbbbbbbbbbBbbbbbbbbbbBbbbbbbbb
+
+--------------------------------------------------------------------------------
+-83.85 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-299.23 pt/round: Jesters (P7) "Red Herring"
+BBbBcCBBbBcBbBbBcCbBbBcBbBbbbBbBbbcCbBBBcBBBbBCCBBbBcBbBbBcBbBbBCCbBbBCCBBbbBCbB
+ccbcBCccbcBcbcbcBCbcbcBcbcbbbcbcbbBCbcccBcccbcCCccbcBcbcbcBcbcbcCCbcbcCCccbbcCbc
+
+bbcBbBbBcBbBBBcCbBbbcBBBBbCCbBbBcCBBBbBCbBbbbBbBbbcBBBBBCCbBBBcCbBbBCCbBbBcBbBbB
+bbBcbcbcBcbcccBCbcbbBccccbCCbcbcBCcccbcCbcbbbcbcbbBcccccCCbcccBCbcbcCCbcbcBcbcbc
+
+CCbBbbBCbBbBcBbBbBcBBBbBcBBBbbBCbBb
+CCbcbbcCbcbcBcbcbcBcccbcBcccbbcCbcb
+
+--------------------------------------------------------------------------------
+-235.75 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-239.11 pt/round: June_bug (P8) "Cooperate"
+BbbbbbbbbbcBbbbbcBbbbbbbbbbbbbbbbbcBbbbbbbbbbbbcBbbbcCBbbbbcBbbbcBbbbbcBbbbbbbbb
+cbbbbbbbbbBcbbbbBcbbbbbbbbbbbbbbbbBcbbbbbbbbbbbBcbbbBCcbbbbBcbbbBcbbbbBcbbbbbbbb
+
+bbbbbbbbcBbbbbbbbbbbcBbbbbbcBbbbbbbbbbcBbbbbbbbbbbbbbbbbbcBbbbbbbbbbcBbbbbbcBbbb
+bbbbbbbbBcbbbbbbbbbbBcbbbbbBcbbbbbbbbbBcbbbbbbbbbbbbbbbbbBcbbbbbbbbbBcbbbbbBcbbb
+
+cBbbbbcCBbbbbbbbbbb
+BcbbbbBCcbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+64.73 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-333.90 pt/round:  (P10) ""
+bBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBB
+ cccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCcc
+
+BBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBB
+ccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCcc
+
+--------------------------------------------------------------------------------
+-260.40 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-231.60 pt/round: Savior (P11) "cooperate first and backstab"
+BbbbbbbbbbbbbbbbbbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbccbbbbbbbbbbcbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbBBbbbbbbbbbbBbbbbbbbbb
+
+bbbcbbbbbbbbbbbcbbbbcbbbbbbbbbbbbbbbbbbbbbbbb
+bbbBbbbbbbbbbbbBbbbbBbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-280.19 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-206.17 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bbbbbbbbbbbcbbbbcbbbbbbbbbbbcbbbbbcbbbbbcbbbbbbcbbbbbbbbbbbbbbbbcbbbbbccbbbbbcbb
+cbbbbbbbbbbBbbbbBbbbbbbbbbbbBbbbbbBbbbbbBbbbbbbBbbbbbbbbbbbbbbbbBbbbbbBBbbbbbBbb
+
+bbbbbbbbbbbbbbcbbbbbbbbbbbbcbbbbccbbbbcbbbbbcbbbbbbcbbbbcbbbbbbcbbbbcbbbbb
+bbbbbbbbbbbbbbBbbbbbbbbbbbbBbbbbBBbbbbBbbbbbBbbbbbbBbbbbBbbbbbbBbbbbBbbbbb
+
+--------------------------------------------------------------------------------
+-225.38 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-248.11 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+bBbbbcBbbbbbbbbbbbbbbbbbbbbbbcBBbbbbbbbbbcBBbbbcBBbbcBBbbbbbbbbbbbbbbbbcBbbbbcBB
+bcbbbBcbbbbbbbbbbbbbbbbbbbbbbBccbbbbbbbbbBccbbbBccbbBccbbbbbbbbbbbbbbbbBcbbbbBcc
+
+bbccBBbbbbbbbbbbbbbbbcBBbbccBBbbccBbbbbbbbbbbbbbbbbc
+bbBBccbbbbbbbbbbbbbbbBccbbBBccbbBBcbbbbbbbbbbbbbbbbB
+
+--------------------------------------------------------------------------------
+-250.66 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-238.74 pt/round: Torrential (P14) "get other points down then keep them down"
+BBBBCcbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbb
+ccccCBbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbb
+
+bbbbbbbbcbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbcbbbbbbbb
+bbbbbbbbBbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbBbbbbbbbb
+
+--------------------------------------------------------------------------------
+-263.95 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-229.21 pt/round: trustMe (P15) "backstab "
+Bbbbcbbbbbbbbbbbbbbbbbbbbbbbccbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbbbbbbcbbbbcbbbbbbbbb
+cbbbBbbbbbbbbbbbbbbbbbbbbbbbBBbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbbbbbbBbbbbBbbbbbbbbb
+
+bbbbbbbbccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbb
+bbbbbbbbBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbcbbbbbcbbbbbbbbbbb
+bbbbbbbbbbbbBbbbbbBbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: RDGamblers (P9) "betray than randomness than betray"
+-250.00 pt/round: Y (P16) "Last move of their history"
+bbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbb
+                                                                                
+
+bbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+                                                                                
+
+ccbbbbccbbbbccbbbbccbbbbccbbbbcc
+                                
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team 
+--------------------------------------------------------------------------------
+-496.25 pt/round:  (P10) ""
+97.75 pt/round: defRealFunct (P0) "random until after 10 rounds"
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-244.85 pt/round:  (P10) ""
+-253.68 pt/round: kuba (P1) "Fights back when attacked"
+ Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cc                                                                              
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                    c                                   
+
+--------------------------------------------------------------------------------
+-492.86 pt/round:  (P10) ""
+95.71 pt/round: youLost (P2) "opposite"
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-487.12 pt/round:  (P10) ""
+85.61 pt/round: Chev (P3) "Cooperate until too many betrayals"
+ BBbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-245.48 pt/round:  (P10) ""
+-253.23 pt/round: AJ (P4) "Figth back hard"
+ BbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cc        c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                           
+
+--------------------------------------------------------------------------------
+-9.83 pt/round:  (P10) ""
+0.28 pt/round: DM (P5) "Last move"
+ CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+bCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-498.55 pt/round:  (P10) ""
+97.98 pt/round: EthanC.py (P6) "HALFNHALF"
+ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccc
+BBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-188.82 pt/round:  (P10) ""
+31.06 pt/round: Jesters (P7) "Red Herring"
+ BbccCCCcCcCcCcCcCcCCcCCCCcccCCCCCcCcCCCCCcCcCcCcCCccCcCCCcCCCccCCcCcCcCcCCCCCCC
+ccbBBCCCBCBCBCBCBCBCCBCCCCBBBCCCCCBCBCCCCCBCBCBCBCCBBCBCCCBCCCBBCCBCBCBCBCCCCCCC
+
+cCcCCCcCcCCCcCcCcCcCcCCCCccCCCcCcCcCcCcCcCcCcCcCCCCCcCcCcCCCcCCCCCcCcCcCCCcCcCcc
+BCBCCCBCBCCCBCBCBCBCBCCCCBBCCCBCBCBCBCBCBCBCBCBCCCCCBCBCBCCCBCCCCCBCBCBCCCBCBCBB
+
+c
+B
+
+--------------------------------------------------------------------------------
+-9.19 pt/round:  (P10) ""
+-4.78 pt/round: June_bug (P8) "Cooperate"
+ bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+c bBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-333.90 pt/round:  (P10) ""
+64.73 pt/round: RDGamblers (P9) "betray than randomness than betray"
+ cccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCcc
+bBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBB
+
+ccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCcc
+BBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBB
+
+--------------------------------------------------------------------------------
+-6.83 pt/round:  (P10) ""
+-3.55 pt/round: Savior (P11) "cooperate first and backstab"
+ bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+c bBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-10.75 pt/round:  (P10) ""
+-1.08 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+ bcccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+cbBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-496.09 pt/round:  (P10) ""
+97.66 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+ cCccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bBCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+96.60 pt/round:  (P10) ""
+-497.57 pt/round: Torrential (P14) "get other points down then keep them down"
+ BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-493.60 pt/round:  (P10) ""
+92.44 pt/round: trustMe (P15) "backstab "
+ Bbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccc
+BBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-250.00 pt/round:  (P10) ""
+-250.00 pt/round: Y (P16) "Last move of their history"
+ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Savior
+--------------------------------------------------------------------------------
+-251.44 pt/round: Savior (P11) "cooperate first and backstab"
+-245.67 pt/round: defRealFunct (P0) "random until after 10 rounds"
+cBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCC
+CCC
+
+--------------------------------------------------------------------------------
+-64.57 pt/round: Savior (P11) "cooperate first and backstab"
+-291.34 pt/round: youLost (P2) "opposite"
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBB
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+0.00 pt/round: AJ (P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-212.62 pt/round: Savior (P11) "cooperate first and backstab"
+-212.62 pt/round: DM (P5) "Last move"
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.56 pt/round: Savior (P11) "cooperate first and backstab"
+-247.81 pt/round: EthanC.py (P6) "HALFNHALF"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-145.37 pt/round: Savior (P11) "cooperate first and backstab"
+-178.70 pt/round: Jesters (P7) "Red Herring"
+CCcbbBcBCCcBcBcBcBcBCCcBCCcbbBCCcBcBcBcbbBcBCCcBcBCcBCcBCCcBCCCCcBCCCcbBcBcBcBcB
+CCBbbcBcCCBcBcBcBcBcCCBcCCBbbcCCBcBcBcBbbcBcCCBcBcCBcCBcCCBcCCCCBcCCCBbcBcBcBcBc
+
+cbBCcBcBcBcBcBcBbBbbBBbBbBbB
+BbcCBcBcBcBcBcBcbcbbccbcbcbc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+0.00 pt/round: June_bug (P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-231.60 pt/round: Savior (P11) "cooperate first and backstab"
+-260.40 pt/round: RDGamblers (P9) "betray than randomness than betray"
+cbbbbbbbbbbbbbbbbbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbBBbbbbbbbbbbBbbbbbbbbb
+BbbbbbbbbbbbbbbbbbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbccbbbbbbbbbbcbbbbbbbbb
+
+bbbBbbbbbbbbbbbBbbbbBbbbbbbbbbbbbbbbbbbbbbbbb
+bbbcbbbbbbbbbbbcbbbbcbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-3.55 pt/round: Savior (P11) "cooperate first and backstab"
+-6.83 pt/round:  (P10) ""
+c bBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Savior (P11) "cooperate first and backstab"
+-246.03 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-246.69 pt/round: Savior (P11) "cooperate first and backstab"
+-243.37 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+cBCCCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BcCCCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Savior (P11) "cooperate first and backstab"
+-245.89 pt/round: Torrential (P14) "get other points down then keep them down"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+0.00 pt/round: trustMe (P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Savior (P11) "cooperate first and backstab"
+-250.00 pt/round: Y (P16) "Last move of their history"
+c                                                                               
+                                                                                
+
+                                                                       
+                                                                       
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team The_Finnegansy
+--------------------------------------------------------------------------------
+-249.25 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-249.25 pt/round: defRealFunct (P0) "random until after 10 rounds"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-243.21 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-251.79 pt/round: kuba (P1) "Fights back when attacked"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cc                                                                              
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                    c                                       
+
+--------------------------------------------------------------------------------
+-75.00 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-275.00 pt/round: youLost (P2) "opposite"
+cbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcb
+BbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBb
+
+BBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBC
+cccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccC
+
+--------------------------------------------------------------------------------
+-244.31 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-251.50 pt/round: Chev (P3) "Cooperate until too many betrayals"
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbb
+bbbbbbb
+
+--------------------------------------------------------------------------------
+-244.66 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-251.40 pt/round: AJ (P4) "Figth back hard"
+CBbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cc        c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbbbbbb
+                  
+
+--------------------------------------------------------------------------------
+-249.37 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-249.37 pt/round: DM (P5) "Last move"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.67 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-247.67 pt/round: EthanC.py (P6) "HALFNHALF"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-76.23 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-335.25 pt/round: Jesters (P7) "Red Herring"
+CBbBBBcBbbBBbBbBBBcBbBBBCCcBbBbBbbbBBBCCcBBBCCcBbBbBbBbBbbbBBBcbbBbBbBbBBBCCcBbB
+CcbcccBcbbccbcbcccBcbcccCCBcbcbcbbbcccCCBcccCCBcbcbcbcbcbbbcccBbbcbcbcbcccCCBcbc
+
+bBbBBBcBBBcBbbbBBBcbbBbBbBbBbBbBBBcBBBcBbBBBcBBBcBBBcBBbbBBBcbbBbBbbbBbBbbbBbBBB
+bcbcccBcccBcbbbcccBbbcbcbcbcbcbcccBcccBcbcccBcccBcccBccbbcccBbbcbcbbbcbcbbbcbccc
+
+cBBBcBbBBBcbBBbBbBbBbBb
+BcccBcbcccBbccbcbcbcbcb
+
+--------------------------------------------------------------------------------
+-246.95 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-250.00 pt/round: June_bug (P8) "Cooperate"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-206.17 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-280.19 pt/round: RDGamblers (P9) "betray than randomness than betray"
+cbbbbbbbbbbBbbbbBbbbbbbbbbbbBbbbbbBbbbbbBbbbbbbBbbbbbbbbbbbbbbbbBbbbbbBBbbbbbBbb
+Bbbbbbbbbbbcbbbbcbbbbbbbbbbbcbbbbbcbbbbbcbbbbbbcbbbbbbbbbbbbbbbbcbbbbbccbbbbbcbb
+
+bbbbbbbbbbbbbbBbbbbbbbbbbbbBbbbbBBbbbbBbbbbbBbbbbbbBbbbbBbbbbbbBbbbbBbbbbb
+bbbbbbbbbbbbbbcbbbbbbbbbbbbcbbbbccbbbbcbbbbbcbbbbbbcbbbbcbbbbbbcbbbbcbbbbb
+
+--------------------------------------------------------------------------------
+-1.08 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-10.75 pt/round:  (P10) ""
+cbBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ bcccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-246.03 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-250.00 pt/round: Savior (P11) "cooperate first and backstab"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.44 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-249.44 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-248.66 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-248.66 pt/round: Torrential (P14) "get other points down then keep them down"
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-244.87 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-250.00 pt/round: trustMe (P15) "backstab "
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-250.00 pt/round: Y (P16) "Last move of their history"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                      
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Tit_for_tat
+--------------------------------------------------------------------------------
+-250.82 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-247.53 pt/round: defRealFunct (P0) "random until after 10 rounds"
+bBccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bcBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-100.76 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-246.21 pt/round: kuba (P1) "Fights back when attacked"
+BcBbcBbcCCCBbbcCCCBbbcCBcCBcCBcCCCBbcBbcBcCCCBbcCCBbcCBbcBbcCCBbcBcBbbbcBcBcBcBc
+c c  c  CCCc   CCCc   Cc Cc Cc CCCc  c  c CCCc  CCc  Cc  c  CCc  c c    c c c c 
+
+CBbbbcBcBbbbcCCCBbcCCCBbbbcCBcCCCBbbbcCCBbcCBbbbcBbb
+Cc    c c    CCCc  CCCc    Cc CCCc    CCc  Cc    c  
+
+--------------------------------------------------------------------------------
+76.03 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-469.42 pt/round: youLost (P2) "opposite"
+bBCbCbBCccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+bcCbCbcCBBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-246.46 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-252.53 pt/round: Chev (P3) "Cooperate until too many betrayals"
+BBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-244.26 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-254.10 pt/round: AJ (P4) "Figth back hard"
+BbbcbcbcbbBbccbbbcbccbcbcbcbcbcccbccbcbbccbcbbcccbbcbcbcbbcbbbcbbccccbcbccbcbbcb
+c         c                                                                     
+
+cbcccccbbbccbbcbcccbcbbcbcccccbbbbccbbcccc
+                                          
+
+--------------------------------------------------------------------------------
+-249.47 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-249.47 pt/round: DM (P5) "Last move"
+bcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-250.00 pt/round: EthanC.py (P6) "HALFNHALF"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-107.95 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-226.14 pt/round: Jesters (P7) "Red Herring"
+BBBBbCCBBbbBcCbCbBbBcBBCbBBCbBbCbbbBCCBbbBcBcBcBCCbBcCbBBcbBbBcbBCcBcCcCcBbCbBBB
+ccccbCCccbbcBCbCbcbcBccCbccCbcbCbbbcCCcbbcBcBcBcCCbcBCbccBbcbcBbcCBcBCBCBcbCbccc
+
+bcbBbCbCcBCCbcbBcCcBbCbCbBCBBBbCbCcBCCbCbBbcBCbBbBCB
+bBbcbCbCBcCCbBbcBCBcbCbCbcCcccbCbCBcCCbCbcbBcCbcbcCc
+
+--------------------------------------------------------------------------------
+-235.66 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-240.31 pt/round: June_bug (P8) "Cooperate"
+BbcBcCCCBbcBcCBbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbBcBCCCcbBcBCcbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-248.11 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-225.38 pt/round: RDGamblers (P9) "betray than randomness than betray"
+bcbbbBcbbbbbbbbbbbbbbbbbbbbbbBccbbbbbbbbbBccbbbBccbbBccbbbbbbbbbbbbbbbbBcbbbbBcc
+bBbbbcBbbbbbbbbbbbbbbbbbbbbbbcBBbbbbbbbbbcBBbbbcBBbbcBBbbbbbbbbbbbbbbbbcBbbbbcBB
+
+bbBBccbbbbbbbbbbbbbbbBccbbBBccbbBBcbbbbbbbbbbbbbbbbB
+bbccBBbbbbbbbbbbbbbbbcBBbbccBBbbccBbbbbbbbbbbbbbbbbc
+
+--------------------------------------------------------------------------------
+97.66 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-496.09 pt/round:  (P10) ""
+bBCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ cCccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-243.37 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-246.69 pt/round: Savior (P11) "cooperate first and backstab"
+BcCCCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBCCCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.44 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-249.44 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+100.00 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-500.00 pt/round: Torrential (P14) "get other points down then keep them down"
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-249.46 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-249.46 pt/round: trustMe (P15) "backstab "
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+-250.00 pt/round: Y (P16) "Last move of their history"
+bcbbbcbbcbbcccbcbccbcbbbbcbcbbbbcbccbccbcbccbbbbcbbcccccccbcbbcbbbccbbccbcccbccc
+                                                                                
+
+cbcccbbccccbbcbccbbccbbbcccbbcbbcbcbbccbbbbccccbccbc
+                                                    
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Torrential
+--------------------------------------------------------------------------------
+-250.00 pt/round: Torrential (P14) "get other points down then keep them down"
+-245.77 pt/round: defRealFunct (P0) "random until after 10 rounds"
+cCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-242.34 pt/round: Torrential (P14) "get other points down then keep them down"
+-252.02 pt/round: kuba (P1) "Fights back when attacked"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cc                                                                              
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbb
+                    c                       
+
+--------------------------------------------------------------------------------
+-500.00 pt/round: Torrential (P14) "get other points down then keep them down"
+100.00 pt/round: youLost (P2) "opposite"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-243.40 pt/round: Torrential (P14) "get other points down then keep them down"
+-251.74 pt/round: Chev (P3) "Cooperate until too many betrayals"
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-244.54 pt/round: Torrential (P14) "get other points down then keep them down"
+-251.44 pt/round: AJ (P4) "Figth back hard"
+CBbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cc        c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbb
+              
+
+--------------------------------------------------------------------------------
+-247.50 pt/round: Torrential (P14) "get other points down then keep them down"
+-247.50 pt/round: DM (P5) "Last move"
+cCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-500.00 pt/round: Torrential (P14) "get other points down then keep them down"
+100.00 pt/round: EthanC.py (P6) "HALFNHALF"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-59.28 pt/round: Torrential (P14) "get other points down then keep them down"
+-384.02 pt/round: Jesters (P7) "Red Herring"
+CBbbbBBBbbbBbBbBbBbBbbbBbBbBbBbBbBbBBBBBbBbBbBbBbBbbbBBBbbBBBBbBbBbBbBbBbBbbbBbB
+Ccbbbcccbbbcbcbcbcbcbbbcbcbcbcbcbcbcccccbcbcbcbcbcbbbcccbbccccbcbcbcbcbcbcbbbcbc
+
+bbbBbBbBbBbBBBbBBBbbbBbBbBbBBBBbBBBBBbBBbBbbbBBBbBbBbBBbbBbBBBbBbBbBbBbBBbbBBBbb
+bbbcbcbcbcbcccbcccbbbcbcbcbccccbcccccbccbcbbbcccbcbcbccbbcbcccbcbcbcbcbccbbcccbb
+
+BBbBbBbBBBbbbBbBbbbBBBbBBBBBbBbBbB
+ccbcbcbcccbbbcbcbbbcccbcccccbcbcbc
+
+--------------------------------------------------------------------------------
+-244.55 pt/round: Torrential (P14) "get other points down then keep them down"
+-250.00 pt/round: June_bug (P8) "Cooperate"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-238.74 pt/round: Torrential (P14) "get other points down then keep them down"
+-250.66 pt/round: RDGamblers (P9) "betray than randomness than betray"
+ccccCBbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbb
+BBBBCcbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbb
+
+bbbbbbbbBbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbBbbbbbbbb
+bbbbbbbbcbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbcbbbbbbbb
+
+--------------------------------------------------------------------------------
+-497.57 pt/round: Torrential (P14) "get other points down then keep them down"
+96.60 pt/round:  (P10) ""
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-245.89 pt/round: Torrential (P14) "get other points down then keep them down"
+-250.00 pt/round: Savior (P11) "cooperate first and backstab"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-248.66 pt/round: Torrential (P14) "get other points down then keep them down"
+-248.66 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-500.00 pt/round: Torrential (P14) "get other points down then keep them down"
+100.00 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-245.04 pt/round: Torrential (P14) "get other points down then keep them down"
+-250.00 pt/round: trustMe (P15) "backstab "
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Torrential (P14) "get other points down then keep them down"
+-250.00 pt/round: Y (P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccccccccccccccccc
+                     
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team trustMe
+--------------------------------------------------------------------------------
+-249.47 pt/round: trustMe (P15) "backstab "
+-249.47 pt/round: defRealFunct (P0) "random until after 10 rounds"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.00 pt/round: trustMe (P15) "backstab "
+0.00 pt/round: kuba (P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+90.50 pt/round: trustMe (P15) "backstab "
+-491.50 pt/round: youLost (P2) "opposite"
+cbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Bbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: trustMe (P15) "backstab "
+0.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+C
+C
+
+--------------------------------------------------------------------------------
+0.00 pt/round: trustMe (P15) "backstab "
+0.00 pt/round: AJ (P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-249.43 pt/round: trustMe (P15) "backstab "
+-249.43 pt/round: DM (P5) "Last move"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.89 pt/round: trustMe (P15) "backstab "
+-247.35 pt/round: EthanC.py (P6) "HALFNHALF"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-46.59 pt/round: trustMe (P15) "backstab "
+-387.50 pt/round: Jesters (P7) "Red Herring"
+CCcBBBbBBBbBbBbBbBbBbBbBbBbbbBbBbBBBBBBbbBBBBBbBbBbBbBbBBBbBbBbBbBbBbbbBbBbBbBbB
+CCBcccbcccbcbcbcbcbcbcbcbcbbbcbcbccccccbbcccccbcbcbcbcbcccbcbcbcbcbcbbbcbcbcbcbc
+
+bBbBbBbBBBBBBbBBBBbBbBBBbbbBBBbbBBbBBBbBBBbbbBBBbbbB
+bcbcbcbccccccbccccbcbcccbbbcccbbccbcccbcccbbbcccbbbc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: trustMe (P15) "backstab "
+0.00 pt/round: June_bug (P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-229.21 pt/round: trustMe (P15) "backstab "
+-263.95 pt/round: RDGamblers (P9) "betray than randomness than betray"
+cbbbBbbbbbbbbbbbbbbbbbbbbbbbBBbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbbbbbbBbbbbBbbbbbbbbb
+Bbbbcbbbbbbbbbbbbbbbbbbbbbbbccbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbbbbbbcbbbbcbbbbbbbbb
+
+bbbbbbbbBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbb
+bbbbbbbbccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbBbbbbbBbbbbbbbbbbb
+bbbbbbbbbbbbcbbbbbcbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+92.44 pt/round: trustMe (P15) "backstab "
+-493.60 pt/round:  (P10) ""
+ccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ Bbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBB
+cccccccccccc
+
+--------------------------------------------------------------------------------
+0.00 pt/round: trustMe (P15) "backstab "
+0.00 pt/round: Savior (P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: trustMe (P15) "backstab "
+-244.87 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.46 pt/round: trustMe (P15) "backstab "
+-249.46 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: trustMe (P15) "backstab "
+-245.04 pt/round: Torrential (P14) "get other points down then keep them down"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: trustMe (P15) "backstab "
+-250.00 pt/round: Y (P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccc
+       
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Y
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: defRealFunct (P0) "random until after 10 rounds"
+                                                                                
+bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                  
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: kuba (P1) "Fights back when attacked"
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+         
+ccccccccc
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: youLost (P2) "opposite"
+                                                                                
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                             
+ccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: Chev (P3) "Cooperate until too many betrayals"
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                              
+cccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: AJ (P4) "Figth back hard"
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                        
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: DM (P5) "Last move"
+                                                                                
+bcccccccccccccccccccccccccccccccccccccccccccccccccbccccccccccccccccccccccccccccc
+
+                                            
+ccccccccccccccccccccbccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: EthanC.py (P6) "HALFNHALF"
+                                                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+          
+bbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: Jesters (P7) "Red Herring"
+                                                                                
+ccbbccbcbbbcbcbcbcbcbbccbcbbccbcbbbcbcbcbcbcbbbcccbcbcbccbccbcccbcbcccbcccccbcbc
+
+                                                                                
+ccbcbcbbbcbcbcbcbcbbbcccbcbcbcbcbcbcccbcbcbcbcbcbcbcccbcccbcbbbcbcbcbcbcccbcbcbc
+
+                           
+ccbcccbcbcbcbcbccbbcbcbbbcc
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: June_bug (P8) "Cooperate"
+                                                                                
+c                                                                               
+
+                                                                                
+                                                                                
+
+                       
+                       
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: RDGamblers (P9) "betray than randomness than betray"
+                                                                                
+bbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbb
+
+                                                                                
+bbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+
+                                
+ccbbbbccbbbbccbbbbccbbbbccbbbbcc
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round:  (P10) ""
+                                                                                
+ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: Savior (P11) "cooperate first and backstab"
+                                                                                
+c                                                                               
+
+                                                                       
+                                                                       
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: The_Finnegansy (P12) "Starts coupreate then betray and digs its way out of betray cycle"
+                                                                                
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                      
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: Tit_for_tat (P13) "Randomness until see betrayal patten in opponent"
+                                                                                
+bcbbbcbbcbbcccbcbccbcbbbbcbcbbbbcbccbccbcbccbbbbcbbcccccccbcbbcbbbccbbccbcccbccc
+
+                                                    
+cbcccbbccccbbcbccbbccbbbcccbbcbbcbcbbccbbbbccccbccbc
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: Torrential (P14) "get other points down then keep them down"
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                     
+ccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.00 pt/round: Y (P16) "Last move of their history"
+-250.00 pt/round: trustMe (P15) "backstab "
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+       
+ccccccc
+
+--------------------------------------------------------------------------------

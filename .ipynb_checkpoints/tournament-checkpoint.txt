@@ -1,0 +1,4168 @@
+--------------------------------------------------------------------------------
+Section 0 - Line up
+--------------------------------------------------------------------------------
+Player 0 (P0): defRealFunct, random until after 10 rounds
+        randomly chooses letters
+Player 1 (P1): kuba, Fights back when attacked
+        Doubles amount of attacks when attacked
+Player 2 (P2): youLost, opposite
+        Do the opposite of what the oppenent did the turn before
+Player 3 (P3): Chev, Cooperate until too many betrayals
+        My strategy draw c until my oppentent backstabs me twice in a row and th
+        en it draws b
+Player 4 (P4): AJ, Figth back hard
+        If attacked, fight back 3x what the opponent attacked
+Player 5 (P5): DM, Last move
+        My first choice is always b, and then depends on opponent's choice. If t
+        heir las choice was 'b' my program will return 'b' in next round, same w
+        ith 'c', also one in every 50s round there is 1 b
+Player 6 (P6): EthanC.py, HALFNHALF
+        The code runs backstab half of the time and cooperate half of the time
+Player 7 (P7): Jesters, Red Herring
+        A set start to throw off the oppenent that then devolves into randomness
+         and constants.
+Player 8 (P8): June_bug, Cooperate
+        My strategy is cooperating unless bakstabbed, use what opponnent used la
+        st round
+Player 9 (P9): RDGamblers, betray than randomness than betray
+        betray 4 times than random spilt and repeat
+Player 10 (P10): , 
+Player 11 (P11): Savior, cooperate first and backstab
+        cooperates first and if the user cooperates first it continues to cooper
+        ate and if the previous turn is backstab it backstabs. If the opponent h
+        as backstabed 40 times in total it backstabs always.
+Player 12 (P12): The_Finnegansy, Starts coupreate then betray and digs its way out of betray cycle
+        My strategy draws c at first then switches to b until it can trust the o
+        ther opponent
+Player 13 (P13): Tit_for_tat, Randomness until see betrayal patten in opponent
+        Randomly chooses b/c until certain patterns are recognized then it acts 
+        accordingly
+Player 14 (P14): Torrential, get other points down then keep them down
+        it starts with c until it gets a chance to put a b to lower the enemy po
+        ints the  is keep them lower with a b
+Player 15 (P15): trustMe, backstab 
+        back stab all the time until i win 
+Player 16 (P16): Y, Last move of their history
+        My code starts with b and their history and then if b in their history r
+        eturns bbb.
+--------------------------------------------------------------------------------
+Section 1 - Player vs. Player
+--------------------------------------------------------------------------------
+Each column shows pts/round earned against each other player:
+             P0     P1     P2     P3     P4     P5     P6     P7     P8     P9    P10    P11    P12    P13    P14    P15    P16
+vs. P0 :      0-254.96688741721854-493.9024390243902-253.06748466257667-253.08641975308643-249.45945945945945-247.953216374269-397.3880597014925-250.9493670886076-270.703125-495.0980392156863-250.85714285714286-249.33333333333334 -250.0 -250.0-249.08256880733944 -250.0
+vs. P1 :-243.04635761589404      0-99.73684210526316    0.0    0.0-3.076923076923077-245.07042253521126-70.16129032258064    0.0-148.0392156862745-244.6153846153846    0.0-242.96296296296296-122.35772357723577-244.72222222222223    0.0 -250.0
+vs. P2 :95.1219512195122-251.31578947368422      089.66666666666667 -250.0-155.1886792452830397.44525547445255-216.260162601626-165.28925619834712-71.23893805309734-492.71844660194176-55.97014925373134-75.4838709677419494.73684210526316 -500.093.26241134751773 -250.0
+vs. P3 :-242.0245398773006    0.0-490.3333333333333      0    0.02.0547945205479454-244.73684210526315-380.2325581395349    0.0-263.4502923976608-485.7142857142857    0.0-244.63276836158192-240.6060606060606-244.44444444444446    0.0 -250.0
+vs. P4 :-245.679012345679    0.0-246.7032967032967    0.0      0-245.65217391304347-245.625-239.6551724137931    0.0-246.9543147208122-243.6936936936937    0.0-243.5374149659864-246.96969696969697-243.6241610738255    0.0 -250.0
+vs. P5 :-249.45945945945945-15.384615384615385-172.16981132075472-10.273972602739725 -250.0      0 -250.0-147.98657718120805-201.5544041450777-243.30985915492957-10.736196319018404-219.23076923076923-249.4818652849741-243.06930693069307-248.2051282051282-249.24242424242425 -250.0
+vs. P6 :-251.46198830409358-253.5211267605634-498.17518248175185-253.7593984962406-253.125 -250.0      0-408.73015873015873-251.5151515151515-269.8019801980198-498.4472049689441-252.23214285714286-251.61290322580646 -250.0 -500.0-251.40449438202248 -250.0
+vs. P7 :-39.17910447761194-254.03225806451613-99.1869918699187-54.651162790697676 -250.0-139.93288590604027-27.77777777777778      0-128.44036697247705-57.69230769230769-162.7450980392157-84.85714285714286-77.13414634146342-104.91071428571429-19.942196531791907-24.074074074074073 -250.0
+vs. P8 :-247.15189873417722    0.0-160.3305785123967    0.0    0.0-198.4455958549223-247.87878787878788-128.44036697247705      0-242.05607476635515-9.057971014492754    0.0-246.51162790697674-247.89156626506025-244.7826086956522    0.0 -250.0
+vs. P9 :-219.140625 -250.0-278.3185840707965-228.36257309941521 -250.0-243.30985915492957-222.27722772277227-293.0769230769231-242.05607476635515      0-334.15841584158414-228.73563218390805-227.43055555555554-245.9375-226.1904761904762-217.79661016949152 -250.0
+vs. P10 :97.05882352941177-253.8461538461538495.6310679611650484.03361344537815-254.50450450450450.306748466257668797.8260869565217325.49019607843137-4.710144927536231563.86138613861386      0-3.9393939393939394-1.07526881720430197.01986754966887-498.743718592964887.25490196078431 -250.0
+vs. P11 :-247.42857142857142    0.0-302.23880597014926    0.0    0.0-219.23076923076923-246.875-249.42857142857142    0.0-259.7701149425287-7.575757575757576      0-245.8041958041958-248.17708333333334-244.87179487179486    0.0 -250.0
+vs. P12 :-249.33333333333334-251.85185185185185-276.7741935483871-251.41242937853107-251.70068027210885-249.4818652849741-247.74193548387098-314.9390243902439 -250.0-264.93055555555554-10.75268817204301 -250.0      0-249.43502824858757-248.49397590361446 -250.0 -250.0
+vs. P13 : -246.0-302.8455284552846-493.42105263157896-251.5151515151515 -250.0-243.06930693069307 -250.0-206.69642857142858-251.50602409638554-230.9375-495.0331125827815-251.30208333333334-249.43502824858757      0 -500.0 -249.2 -250.0
+vs. P14 :-245.23809523809524-251.38888888888889  100.0-251.46198830409358-251.6778523489933-248.2051282051282  100.0-411.84971098265896 -250.0-261.111111111111198.24120603015075 -250.0-248.49397590361446  100.0      0 -250.0 -250.0
+vs. P15 :-249.08256880733944    0.0-493.97163120567376    0.0    0.0-249.24242424242425-248.03370786516854-401.85185185185185    0.0-272.03389830508473-489.2156862745098    0.0-246.90721649484536 -249.2-246.875      0 -250.0
+vs. P16 : -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0 -250.0      0
+TOTAL  :-3032.0447798726314-2589.153100142777-4159.631674816525-1630.8038807374012-2764.094456878693-2941.9335275177846-2678.6985753121467-4091.2066602861173-2246.020789709938-3288.1679014451233-4131.320774599189-2097.1244565125644-3349.83713417483-2656.79797056145-4710.895726731915-1810.2828583670498-4000.0
+--------------------------------------------------------------------------------
+Section 2 - Leaderboard
+--------------------------------------------------------------------------------
+Average points per round:
+Team name (P#):  Score      with strategy name
+Chev      (P3): -95.92964004337654 points with Cooperate until too many betrayals      
+trustMe   (P15): -106.48722696276764 points with backstab                                
+Savior    (P11): -123.36026214779791 points with cooperate first and backstab            
+June_bug  (P8): -132.11886998293753 points with Cooperate                               
+kuba      (P1): -152.30312353781042 points with Fights back when attacked               
+Tit_for_ta(P13): -156.28223356243822 points with Randomness until see betrayal patten in 
+EthanC.py (P6): -157.57050443012628 points with HALFNHALF                               
+AJ        (P4): -162.5937915810996 points with Figth back hard                         
+DM        (P5): -173.05491338339908 points with Last move                               
+defRealFun(P0): -178.35557528662537 points with random until after 10 rounds            
+RDGamblers(P9): -193.42164126147784 points with betray than randomness than betray      
+The_Finneg(P12): -197.04924318675472 points with Starts coupreate then betray and digs it
+Y         (P16): -235.2941176470588 points with Last move of their history              
+Jesters   (P7): -240.65921531094807 points with Red Herring                             
+          (P10): -243.0188690940699 points with                                         
+youLost   (P2): -244.68421616567798 points with opposite                                
+Torrential(P14): -277.11151333717146 points with get other points down then keep them dow
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+defRealFunct--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'defRealFunct' # Only 10 chars displayed.
+strategy_name = 'random until after 10 rounds'
+strategy_description = 'randomly chooses letters'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+	round = len(my_history)
+	if round==1:
+		return('c')
+	else:
+		return('b')
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+kuba--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'kuba' # Only 10 chars displayed.
+strategy_name = 'Fights back when attacked'
+strategy_description = 'Doubles amount of attacks when attacked'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+	if len(my_history)==0 or len(my_history)==100:
+		return('c')
+	elif 'b' == their_history[-1]:
+		return('bb')
+	else:
+		return('c')
+
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+youLost--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'youLost' # Only 10 chars displayed.
+strategy_name = 'opposite'
+strategy_description = 'Do the opposite of what the oppenent did the turn before'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+    if len(my_history) == 0:
+        return 'b'
+    else:
+        if their_history[-1] == 'c':
+            return 'b'
+        else:
+            return 'c'
+
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+Chev--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'Chev' # Only 10 chars displayed.
+strategy_name = 'Cooperate until too many betrayals'
+strategy_description = 'My strategy draw c until my oppentent backstabs me twice in a row and then it draws b'
+
+import random
+
+
+
+
+def move(my_history, their_history, my_score, their_score):
+    if len(my_history) == 0:
+        return 'c'
+    elif 'bb' in their_history:
+        return 'b'
+    elif 'bbb' in their_history:
+        return 'b'
+    else:
+        return 'c'
+
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+AJ--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'AJ' # Only 10 chars displayed.
+strategy_name = 'Figth back hard'
+strategy_description = 'If attacked, fight back 3x what the opponent attacked'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+	if len(my_history)==0 or len(my_history)==10:
+		return('c')
+	elif 'b' in their_history:
+		return('bbb')
+	else:
+		return('c')
+
+
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+DM--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'DM' # Only 10 chars displayed.
+strategy_name = 'Last move'
+strategy_description = "My first choice is always b, and then depends on opponent's choice. If their las choice was 'b' my program will return 'b' in next round, same with 'c', also one in every 50s round there is 1 b"
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+    if len(my_history) == 0:
+        return 'b'
+    elif their_history[-1] == 'b':
+        return 'b'
+
+    if len(my_history) == 50:
+        return 'b'
+    if len(my_history) == 100:
+        return 'b'
+    if len(my_history) == 150:
+        return 'b'
+    if len(my_history) == 200:
+        return 'b'
+    else:
+        return 'c'
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+EthanC--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'EthanC.py' # Only 10 chars displayed.
+strategy_name = 'HALFNHALF'
+strategy_description = 'The code runs backstab half of the time and cooperate half of the time'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+  if len(my_history)== 0:
+    return ('b')
+  elif len(my_history)==(1,100):
+    return ('c')
+  else:
+    return ('b')
+	
+
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+Jesters--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'Jesters' # Only 10 chars displayed.
+strategy_name = 'Red Herring'
+strategy_description = 'A set start to throw off the oppenent that then devolves into randomness and constants.'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+    if len(my_history) == 0:
+        return "c"
+    else:
+        if len(my_history) % 2 == 0:
+            choice = random.choice(["b", "b", "c"])
+            return choice
+        elif len(my_history) % 3 == 0:
+            choice1 = random.choice(["c", "c", "b"])
+            return choice1
+        else:
+            return "c"
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+June_bug--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'June_bug' # Only 10 chars displayed.
+strategy_name = 'Cooperate'
+strategy_description = 'My strategy is cooperating unless bakstabbed, use what opponnent used last round'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+	if len(my_history) == 0:
+		return 'c'
+	else:
+		return their_history[-1]
+	
+
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+RDGamblers--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'RDGamblers' # Only 10 chars displayed.
+strategy_name = 'betray than randomness than betray'
+strategy_description = 'betray 4 times than random spilt and repeat'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+    Me = len(my_history)
+    pattern = (Me % 6 >= 4)
+
+    if Me > 0 and their_history[-1] == 'b' and pattern:
+        if random.random() < 0.25:
+            return 'c'
+        else:
+            return 'b'
+    else:
+        if Me % 6 < 4:
+            return 'b'
+        else:
+            return 'c'
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+robertLewandowski--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = '' # Only 10 chars displayed.
+strategy_name = ''
+strategy_description = ''
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+  if len(my_history)==0:
+    return('bbbbb')
+  elif 'b' in their_history:
+    return('c')
+  else:
+    return('b')	
+
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+savior--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'Savior' # Only 10 chars displayed.
+strategy_name = 'cooperate first and backstab'
+strategy_description = 'cooperates first and if the user cooperates first it continues to cooperate and if the previous turn is backstab it backstabs. If the opponent has backstabed 40 times in total it backstabs always.'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+    b_count = their_history.count('b')
+
+    if len(my_history) == 0:
+        return "c"
+    else:
+        if b_count >= 40:
+            return "b"
+        elif their_history[-1] == "b":
+            return "b"
+        elif their_history[-1] == "c":
+            return "c"
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+The_Finnegansy--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'The_Finnegansy' # Only 10 chars displayed.
+strategy_name = 'Starts coupreate then betray and digs its way out of betray cycle'
+strategy_description = 'My strategy draws c at first then switches to b until it can trust the other opponent'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+    if len(my_history) == 0:
+        return 'c'
+    else:
+        b_count = their_history.count('b')
+
+        if len(their_history) > 3:
+            combined = "".join(their_history)
+            if "ccc" in combined[-3:]:
+                return 'c'
+
+            if b_count > 2:
+                return 'b'
+            else:
+                return 'b'
+        else:
+            return 'b'
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+Tit_for_tat--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'Tit_for_tat' # Only 10 chars displayed.
+strategy_name = 'Randomness until see betrayal patten in opponent'
+strategy_description = 'Randomly chooses b/c until certain patterns are recognized then it acts accordingly'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+    # Tit-for-tat style strategy
+    if len(my_history) == 0:
+        return 'b'  # first move betray
+
+    # If opponent colluded 3 times in a row → betray
+    if len(their_history) >= 3 and their_history[-3:] == "ccc":
+        return 'b'
+
+    # If opponent betrayed 2 times in a row → betray
+    if len(their_history) >= 2 and their_history[-2:] == "bb":
+        return 'b'
+
+    # If we betrayed 4 times in a row → collude
+    if len(my_history) >= 4 and my_history[-4:] == "bbbb":
+        return 'c'
+
+    # Otherwise, randomly choose 'b' or 'c'
+    return random.choice(['b', 'c'])
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+Torrential--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'Torrential' # Only 10 chars displayed.
+strategy_name = 'get other points down then keep them down'
+strategy_description = 'it starts with c until it gets a chance to put a b to lower the enemy points the  is keep them lower with a b'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+    if len(my_history) == 0:
+        return 'c'
+    elif 'c' in their_history:
+        return 'b'
+    elif 'b' in their_history:
+        return 'c'
+    elif len(my_history) > len(their_history):
+        return 'b'
+    else:
+        return 'c'
+
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+trustMe--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'trustMe' # Only 10 chars displayed.
+strategy_name = 'backstab '
+strategy_description = 'back stab all the time until i win '
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+	
+	if "b" in their_history:
+         return 'b'
+	else:
+		return'c'
+
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+Y--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'Y' # Only 10 chars displayed.
+strategy_name = 'Last move of their history'
+strategy_description = 'My code starts with b and their history and then if b in their history returns bbb.'
+
+import random
+
+
+
+#YOUR CODE IN THE MOVE FUNCTION HERE
+def move(my_history, their_history, my_score, their_score):
+	def Dont_Cross_Me():
+	  if len(my_history)==0:
+	    return('b')
+	  elif 'b' in their_history:
+	    return('b')
+	  else:
+	    return('c')
+			
+
+
+
+
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team defRealFunct
+--------------------------------------------------------------------------------
+-243.04635761589404 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-254.96688741721854 pt/round: kuba(P1) "Fights back when attacked"
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+c c                                                                             
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                    c                                                  
+
+--------------------------------------------------------------------------------
+95.1219512195122 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-493.9024390243902 pt/round: youLost(P2) "opposite"
+bCbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+bCbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBB
+cccc
+
+--------------------------------------------------------------------------------
+-242.0245398773006 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-253.06748466257667 pt/round: Chev(P3) "Cooperate until too many betrayals"
+BCBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cCccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbb
+bbb
+
+--------------------------------------------------------------------------------
+-245.679012345679 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-253.08641975308643 pt/round: AJ(P4) "Figth back hard"
+BcbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+c         c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bb
+  
+
+--------------------------------------------------------------------------------
+-249.45945945945945 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-249.45945945945945 pt/round: DM(P5) "Last move"
+bcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.46198830409358 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-247.953216374269 pt/round: EthanC.py(P6) "HALFNHALF"
+bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbb
+bbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-39.17910447761194 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-397.3880597014925 pt/round: Jesters(P7) "Red Herring"
+BCBBBBbBBBbBbBbBbBBBbBbBBBbbbBbBBBbBbBbBbBBBbBBBbBbbbBbBbBbBbBbbbBbBbbBBbBbBbBbB
+cCccccbcccbcbcbcbcccbcbcccbbbcbcccbcbcbcbcccbcccbcbbbcbcbcbcbcbbbcbcbbccbcbcbcbc
+
+BBbBbBbBBBbBbBBBbBbBbBbBbBBBbBBBBBbBbBbBbBBBBBbBbBbBbB
+ccbcbcbcccbcbcccbcbcbcbcbcccbcccccbcbcbcbcccccbcbcbcbc
+
+--------------------------------------------------------------------------------
+-247.15189873417722 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-250.9493670886076 pt/round: June_bug(P8) "Cooperate"
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-219.140625 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-270.703125 pt/round: RDGamblers(P9) "betray than randomness than betray"
+bcbbBbbbbbbbbbbbBbbbbbBBbbbbbBbbbbbbbbbbBbbbbbBbbbbbBbbbbbbBbbbbbbbbbbBbbbbbbbbb
+bBbbcbbbbbbbbbbbcbbbbbccbbbbbcbbbbbbbbbbcbbbbbcbbbbbcbbbbbbcbbbbbbbbbbcbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbBbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbcbbbbbbbb
+
+--------------------------------------------------------------------------------
+97.05882352941177 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-495.0980392156863 pt/round: (P10) ""
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-247.42857142857142 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-250.85714285714286 pt/round: Savior(P11) "cooperate first and backstab"
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.33333333333334 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-249.33333333333334 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-246.0 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-250.0 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+bCbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bCbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-245.23809523809524 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-250.0 pt/round: Torrential(P14) "get other points down then keep them down"
+BCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.08256880733944 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-249.08256880733944 pt/round: trustMe(P15) "backstab "
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: defRealFunct(P0) "random until after 10 rounds"
+-250.0 pt/round: Y(P16) "Last move of their history"
+bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbb
+              
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team kuba
+--------------------------------------------------------------------------------
+-254.96688741721854 pt/round: kuba(P1) "Fights back when attacked"
+-243.04635761589404 pt/round: defRealFunct(P0) "random until after 10 rounds"
+c c                                                                             
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                                                  
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.31578947368422 pt/round: kuba(P1) "Fights back when attacked"
+-99.73684210526316 pt/round: youLost(P2) "opposite"
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  C
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  C
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc 
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+0.0 pt/round: AJ(P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-15.384615384615385 pt/round: kuba(P1) "Fights back when attacked"
+-3.076923076923077 pt/round: DM(P5) "Last move"
+c CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+BcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBcCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCc CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc CCCCCCCC
+CCCCCCCCCCCCCCCCCCCCBcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBcCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-253.5211267605634 pt/round: kuba(P1) "Fights back when attacked"
+-245.07042253521126 pt/round: EthanC.py(P6) "HALFNHALF"
+c                                                                               
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                                         
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-254.03225806451613 pt/round: kuba(P1) "Fights back when attacked"
+-70.16129032258064 pt/round: Jesters(P7) "Red Herring"
+CCc   c CCc CCc c c c CCc c c c Cc  c c CCc c CCCCCc  c CCCCCCc c c c c CCc CCCC
+CCBbbcBcCCBcCCBcBcBcBcCCBcBcBcBcCBbcBcBcCCBcBcCCCCCBbcBcCCCCCCBcBcBcBcBcCCBcCCCC
+
+Cc  CCc c c Cc  c c CCc CCc CCc c c Cc  c c   c c CCCCc c CCc  Cc c   c c   CCc 
+CBbcCCBcBcBcCBbcBcBcCCBcCCBcCCBcBcBcCBbcBcBbbcBcBcCCCCBcBcCCBbcCBcBbbcBcBbbcCCBb
+
+  c c   c c CCc Cc Cc CCc 
+bcBcBbbcBcBcCCBcCBcCBcCCBc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+0.0 pt/round: June_bug(P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: kuba(P1) "Fights back when attacked"
+-148.0392156862745 pt/round: RDGamblers(P9) "betray than randomness than betray"
+c    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc 
+BbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBb
+
+   Cc    Cc    Cc   CCc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc  
+bbcCBbbbcCBbbbcCBbbbCCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbb
+
+--------------------------------------------------------------------------------
+-253.84615384615384 pt/round: kuba(P1) "Fights back when attacked"
+-244.6153846153846 pt/round: (P10) ""
+cc                                                                              
+ Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                             
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCC
+CCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-251.85185185185185 pt/round: kuba(P1) "Fights back when attacked"
+-242.96296296296296 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Cc                                                                              
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                                  
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-302.8455284552846 pt/round: kuba(P1) "Fights back when attacked"
+-122.35772357723577 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+c c  c c    c    c CCCc   c c Cc  c c    c   Cc   c c CCCc  c   c   c  c   c c  
+BcBbcBcBbbbcBbbbcBcCCCBbbcBcBcCBbcBcBbbbcBbbcCBbbcBcBcCCCBbcBbbcBbbcBbcBbbcBcBbb
+
+  c c   c  Cc c c  cc   c c c    c   c CCc 
+bcBcBbbcBbcCBcBcBbcBBbbcBcBcBbbbcBbbcBcCCBb
+
+--------------------------------------------------------------------------------
+-251.38888888888889 pt/round: kuba(P1) "Fights back when attacked"
+-244.72222222222223 pt/round: Torrential(P14) "get other points down then keep them down"
+Cc                                                                              
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    c                                                           
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                    
+bbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+0.0 pt/round: trustMe(P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CC
+CC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: kuba(P1) "Fights back when attacked"
+-250.0 pt/round: Y(P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                 
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team youLost
+--------------------------------------------------------------------------------
+-493.9024390243902 pt/round: youLost(P2) "opposite"
+95.1219512195122 pt/round: defRealFunct(P0) "random until after 10 rounds"
+bCbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bCbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccc
+BBBB
+
+--------------------------------------------------------------------------------
+-99.73684210526316 pt/round: youLost(P2) "opposite"
+-251.31578947368422 pt/round: kuba(P1) "Fights back when attacked"
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  C
+
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  Cc  C
+
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBb
+c  Cc  Cc  Cc  Cc  Cc  Cc  Cc 
+
+--------------------------------------------------------------------------------
+-490.3333333333333 pt/round: youLost(P2) "opposite"
+89.66666666666667 pt/round: Chev(P3) "Cooperate until too many betrayals"
+BBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-246.7032967032967 pt/round: youLost(P2) "opposite"
+-250.0 pt/round: AJ(P4) "Figth back hard"
+BbccccccccCbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c         C                                                                     
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccc
+                      
+
+--------------------------------------------------------------------------------
+-172.16981132075472 pt/round: youLost(P2) "opposite"
+-155.18867924528303 pt/round: DM(P5) "Last move"
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbccCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+
+BbcCBbcCBbcCBbcCBbcCbcCBbc
+cbBCcbBCcbBCcbBCcbBCbBCcbB
+
+--------------------------------------------------------------------------------
+-498.17518248175185 pt/round: youLost(P2) "opposite"
+97.44525547445255 pt/round: EthanC.py(P6) "HALFNHALF"
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-99.1869918699187 pt/round: youLost(P2) "opposite"
+-216.260162601626 pt/round: Jesters(P7) "Red Herring"
+BBbccCbCBBbCBBBBbCBBBbcCbCbCBBbCBBbCbCBBbCBBBBbCbCbcCBBBbcCBbCbccCbCbCBBbCbccCbC
+ccbBBCbCccbCccccbCcccbBCbCbCccbCccbCbCccbCccccbCbCbBCcccbBCcbCbBBCbCbCccbCbBBCbC
+
+bCBBbCbccCbCBbcCbCBBBBbCBbcCbCbCbCbCbcCBBBb
+bCccbCbBBCbCcbBCbCccccbCcbBCbCbCbCbCbBCcccb
+
+--------------------------------------------------------------------------------
+-160.3305785123967 pt/round: youLost(P2) "opposite"
+-165.28925619834712 pt/round: June_bug(P8) "Cooperate"
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+
+--------------------------------------------------------------------------------
+-278.3185840707965 pt/round: youLost(P2) "opposite"
+-71.23893805309734 pt/round: RDGamblers(P9) "betray than randomness than betray"
+bcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbc
+bBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbB
+
+ccCBbcccCBbcccCBbcccCBbcccCBbcccC
+BBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBC
+
+--------------------------------------------------------------------------------
+95.63106796116504 pt/round: youLost(P2) "opposite"
+-492.71844660194176 pt/round: (P10) ""
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-302.23880597014926 pt/round: youLost(P2) "opposite"
+-55.97014925373134 pt/round: Savior(P11) "cooperate first and backstab"
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcc
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-276.7741935483871 pt/round: youLost(P2) "opposite"
+-75.48387096774194 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+BbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBb
+cbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcb
+
+cccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbccc
+BBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBB
+
+--------------------------------------------------------------------------------
+-493.42105263157896 pt/round: youLost(P2) "opposite"
+94.73684210526316 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+bccCbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bBBCbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+100.0 pt/round: youLost(P2) "opposite"
+-500.0 pt/round: Torrential(P14) "get other points down then keep them down"
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-493.97163120567376 pt/round: youLost(P2) "opposite"
+93.26241134751773 pt/round: trustMe(P15) "backstab "
+Bbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: youLost(P2) "opposite"
+-250.0 pt/round: Y(P16) "Last move of their history"
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                   
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Chev
+--------------------------------------------------------------------------------
+-253.06748466257667 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-242.0245398773006 pt/round: defRealFunct(P0) "random until after 10 rounds"
+cCccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BCBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbb
+bbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+89.66666666666667 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-490.3333333333333 pt/round: youLost(P2) "opposite"
+ccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+BBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+0.0 pt/round: AJ(P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-10.273972602739725 pt/round: Chev(P3) "Cooperate until too many betrayals"
+2.0547945205479454 pt/round: DM(P5) "Last move"
+cCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+BCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-253.7593984962406 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-244.73684210526315 pt/round: EthanC.py(P6) "HALFNHALF"
+ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-54.651162790697676 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-380.2325581395349 pt/round: Jesters(P7) "Red Herring"
+CCccbBBBBbbBbBbBbBBBbBbBbBbbbBbBbbbBbBBbbBbBbBBBbBbbBBbBbBbBbBbbBBBBbBbBBBbBbBBB
+CCBBbccccbbcbcbcbcccbcbcbcbbbcbcbbbcbccbbcbcbcccbcbbccbcbcbcbcbbccccbcbcccbcbccc
+
+bBbBbBbbbBbBbBBBBBBBBBBBbBbBbBBBbBbBBBbBbBbbBBbBb
+bcbcbcbbbcbcbcccccccccccbcbcbcccbcbcccbcbcbbccbcb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+0.0 pt/round: June_bug(P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-228.36257309941521 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-263.4502923976608 pt/round: RDGamblers(P9) "betray than randomness than betray"
+ccbbbBbbbbBBbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbbbbbBbbbbbBBbbbbBbbbbbbbbbbbBBbbbbbbbb
+BBbbbcbbbbccbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbbbbbcbbbbbccbbbbcbbbbbbbbbbbccbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+Bbbbbbbbbbb
+cbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+84.03361344537815 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-485.7142857142857 pt/round: (P10) ""
+cccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ BBbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-251.41242937853107 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-244.63276836158192 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.5151515151515 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-240.6060606060606 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+cCCccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BCCBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbb
+bbbbb
+
+--------------------------------------------------------------------------------
+-251.46198830409358 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-244.44444444444446 pt/round: Torrential(P14) "get other points down then keep them down"
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbb
+bbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+0.0 pt/round: trustMe(P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+-250.0 pt/round: Y(P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team AJ
+--------------------------------------------------------------------------------
+-253.08641975308643 pt/round: AJ(P4) "Figth back hard"
+-245.679012345679 pt/round: defRealFunct(P0) "random until after 10 rounds"
+c         c                                                                     
+BcbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+  
+bb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: AJ(P4) "Figth back hard"
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: AJ(P4) "Figth back hard"
+-246.7032967032967 pt/round: youLost(P2) "opposite"
+c         C                                                                     
+BbccccccccCbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                      
+cccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: AJ(P4) "Figth back hard"
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: AJ(P4) "Figth back hard"
+-245.65217391304347 pt/round: DM(P5) "Last move"
+c         C                                                                     
+BcccccccccCcccccccccccccccccccccccccccccccccccccccbccccccccccccccccccccccccccccc
+
+                                                          
+ccccccccccccccccccccbccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-253.125 pt/round: AJ(P4) "Figth back hard"
+-245.625 pt/round: EthanC.py(P6) "HALFNHALF"
+c         c                                                                     
+BbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: AJ(P4) "Figth back hard"
+-239.6551724137931 pt/round: Jesters(P7) "Red Herring"
+CCc       c                                                                     
+CCBcccbcbcBcbcbcccbcbcbcbcbcccbcbcbcbccbbcbcbcbcbcbcccccbbbcbcccccbcccccbcccccbc
+
+                                    
+cbccbcbcbcbcccbccccbbcbcbcbcccbbcccc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: AJ(P4) "Figth back hard"
+0.0 pt/round: June_bug(P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: AJ(P4) "Figth back hard"
+-246.9543147208122 pt/round: RDGamblers(P9) "betray than randomness than betray"
+c         C                                                                     
+BbbbccbbbbCcbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbb
+
+                                                                                
+bbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+
+                                     
+ccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbc
+
+--------------------------------------------------------------------------------
+-254.5045045045045 pt/round: AJ(P4) "Figth back hard"
+-243.6936936936937 pt/round: (P10) ""
+cc        c                                                                     
+ BbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                               
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: AJ(P4) "Figth back hard"
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-251.70068027210885 pt/round: AJ(P4) "Figth back hard"
+-243.5374149659864 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Cc        c                                                                     
+CBbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                   
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: AJ(P4) "Figth back hard"
+-246.96969696969697 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+c         C                                                                     
+BccbbbccbcCccccbbcbbbbccbcbbcbbbbcccbbbbcbcccbbbbcbbbbccbcbccbbbbccbcbccbccbbcbc
+
+                                                                                
+cbbbcbbbccccccbcccbcccccccccbbccbbbbcccbccbcbbcbbccccbccbbbcbcbcccccccbbbccbbcbc
+
+                                      
+bcccbbccbbbcccccccbbbcbcbcbccbbcccbcbc
+
+--------------------------------------------------------------------------------
+-251.6778523489933 pt/round: AJ(P4) "Figth back hard"
+-243.6241610738255 pt/round: Torrential(P14) "get other points down then keep them down"
+Cc        c                                                                     
+CBbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                     
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: AJ(P4) "Figth back hard"
+0.0 pt/round: trustMe(P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: AJ(P4) "Figth back hard"
+-250.0 pt/round: Y(P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccc
+                                      
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team DM
+--------------------------------------------------------------------------------
+-249.45945945945945 pt/round: DM(P5) "Last move"
+-249.45945945945945 pt/round: defRealFunct(P0) "random until after 10 rounds"
+bBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-3.076923076923077 pt/round: DM(P5) "Last move"
+-15.384615384615385 pt/round: kuba(P1) "Fights back when attacked"
+BcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBcCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+c CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCBcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBcCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCc CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc CCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-155.18867924528303 pt/round: DM(P5) "Last move"
+-172.16981132075472 pt/round: youLost(P2) "opposite"
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbccCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+cbBCcbBCcbBCcbBCcbBCbBCcbB
+BbcCBbcCBbcCBbcCBbcCbcCBbc
+
+--------------------------------------------------------------------------------
+2.0547945205479454 pt/round: DM(P5) "Last move"
+-10.273972602739725 pt/round: Chev(P3) "Cooperate until too many betrayals"
+BCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+cCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-245.65217391304347 pt/round: DM(P5) "Last move"
+-250.0 pt/round: AJ(P4) "Figth back hard"
+BcccccccccCcccccccccccccccccccccccccccccccccccccccbccccccccccccccccccccccccccccc
+c         C                                                                     
+
+ccccccccccccccccccccbccccccccccccccccccccccccccccccccccccc
+                                                          
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: DM(P5) "Last move"
+-250.0 pt/round: EthanC.py(P6) "HALFNHALF"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbb
+bbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-139.93288590604027 pt/round: DM(P5) "Last move"
+-147.98657718120805 pt/round: Jesters(P7) "Red Herring"
+BCcBcBcBcbbBcBcBCCcBCcbBCCcbBCCCCcbBcBCCCCcBCCcBcBbBCCcBCCcBCCcBcBcBCcbBcBcBcBCC
+cCBcBcBcBbbcBcBcCCBcCBbcCCBbcCCCCBbcBcCCCCBcCCBcBcbcCCBcCCBcCCBcBcBcCBbcBcBcBcCC
+
+cBcBCCCCCCCCCcbBCCcBBCCCCcbBcBcbbBcBCCcBcBcbbBcBcbbBcBCCcBcBCCcBcBcbb
+BcBcCCCCCCCCCBbcCCBccCCCCBbcBcBbbcBcCCBcBcBbbcBcBbbcBcCCBcBcCCBcBcBbb
+
+--------------------------------------------------------------------------------
+-198.4455958549223 pt/round: DM(P5) "Last move"
+-201.5544041450777 pt/round: June_bug(P8) "Cooperate"
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+
+--------------------------------------------------------------------------------
+-243.30985915492957 pt/round: DM(P5) "Last move"
+-243.30985915492957 pt/round: RDGamblers(P9) "betray than randomness than betray"
+bbbbbbbbbbBCcbbbBcbbbbBcbbbbbBcbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbcCBbbbcBbbbbcBbbbbbcBbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbBcbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbcBbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.3067484662576687 pt/round: DM(P5) "Last move"
+-10.736196319018404 pt/round: (P10) ""
+bCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCC
+
+CCC
+CCC
+
+--------------------------------------------------------------------------------
+-219.23076923076923 pt/round: DM(P5) "Last move"
+-219.23076923076923 pt/round: Savior(P11) "cooperate first and backstab"
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.4818652849741 pt/round: DM(P5) "Last move"
+-249.4818652849741 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-243.06930693069307 pt/round: DM(P5) "Last move"
+-243.06930693069307 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+bBcBCCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bcBcCCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-248.2051282051282 pt/round: DM(P5) "Last move"
+-248.2051282051282 pt/round: Torrential(P14) "get other points down then keep them down"
+BCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.24242424242425 pt/round: DM(P5) "Last move"
+-249.24242424242425 pt/round: trustMe(P15) "backstab "
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: DM(P5) "Last move"
+-250.0 pt/round: Y(P16) "Last move of their history"
+bcccccccccccccccccccccccccccccccccccccccccccccccccbccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccccccccccccccccbccccccccccccccccccccccccccc
+                                                
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team EthanC.py
+--------------------------------------------------------------------------------
+-247.953216374269 pt/round: EthanC.py(P6) "HALFNHALF"
+-251.46198830409358 pt/round: defRealFunct(P0) "random until after 10 rounds"
+bBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbb
+bbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-245.07042253521126 pt/round: EthanC.py(P6) "HALFNHALF"
+-253.5211267605634 pt/round: kuba(P1) "Fights back when attacked"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+c                                                                               
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                    c                                         
+
+--------------------------------------------------------------------------------
+97.44525547445255 pt/round: EthanC.py(P6) "HALFNHALF"
+-498.17518248175185 pt/round: youLost(P2) "opposite"
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-244.73684210526315 pt/round: EthanC.py(P6) "HALFNHALF"
+-253.7593984962406 pt/round: Chev(P3) "Cooperate until too many betrayals"
+BBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-245.625 pt/round: EthanC.py(P6) "HALFNHALF"
+-253.125 pt/round: AJ(P4) "Figth back hard"
+BbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+c         c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: EthanC.py(P6) "HALFNHALF"
+-250.0 pt/round: DM(P5) "Last move"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbb
+bbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-27.77777777777778 pt/round: EthanC.py(P6) "HALFNHALF"
+-408.73015873015873 pt/round: Jesters(P7) "Red Herring"
+BBBBbBBBbbbBBBbbbBbBBBbBBBbBbBBBbBbBBBbbbBBBbBbBbBBBbBbBBBbBBBBBBBbBBbbBBBbBbBbB
+ccccbcccbbbcccbbbcbcccbcccbcbcccbcbcccbbbcccbcbcbcccbcbcccbcccccccbccbbcccbcbcbc
+
+BBBBBBbBbBbBbBBBbBbBbBBBbBBBBBbbBBbBBBbBBBBbBBbBbBbBBBbbbBbBbBbBBBbbbBBBbBbBbBbB
+ccccccbcbcbcbcccbcbcbcccbcccccbbccbcccbccccbccbcbcbcccbbbcbcbcbcccbbbcccbcbcbcbc
+
+bBbBbbbBBBbBbBbBBbBBBBBBbBbBb
+bcbcbbbcccbcbcbccbccccccbcbcb
+
+--------------------------------------------------------------------------------
+-247.87878787878788 pt/round: EthanC.py(P6) "HALFNHALF"
+-251.5151515151515 pt/round: June_bug(P8) "Cooperate"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbb
+bbbbb
+
+--------------------------------------------------------------------------------
+-222.27722772277227 pt/round: EthanC.py(P6) "HALFNHALF"
+-269.8019801980198 pt/round: RDGamblers(P9) "betray than randomness than betray"
+bbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbBBbbbbbbbbbbbBbbbbBbbbbbbbbbbbbbbb
+bbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbccbbbbbbbbbbbcbbbbcbbbbbbbbbbbbbbb
+
+bbbBbbbbBbbbbbbbbbbbb
+bbbcbbbbcbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+97.82608695652173 pt/round: EthanC.py(P6) "HALFNHALF"
+-498.4472049689441 pt/round: (P10) ""
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-246.875 pt/round: EthanC.py(P6) "HALFNHALF"
+-252.23214285714286 pt/round: Savior(P11) "cooperate first and backstab"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-247.74193548387098 pt/round: EthanC.py(P6) "HALFNHALF"
+-251.61290322580646 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: EthanC.py(P6) "HALFNHALF"
+-250.0 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+100.0 pt/round: EthanC.py(P6) "HALFNHALF"
+-500.0 pt/round: Torrential(P14) "get other points down then keep them down"
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBB
+ccccc
+
+--------------------------------------------------------------------------------
+-248.03370786516854 pt/round: EthanC.py(P6) "HALFNHALF"
+-251.40449438202248 pt/round: trustMe(P15) "backstab "
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: EthanC.py(P6) "HALFNHALF"
+-250.0 pt/round: Y(P16) "Last move of their history"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bb
+  
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Jesters
+--------------------------------------------------------------------------------
+-397.3880597014925 pt/round: Jesters(P7) "Red Herring"
+-39.17910447761194 pt/round: defRealFunct(P0) "random until after 10 rounds"
+cCccccbcccbcbcbcbcccbcbcccbbbcbcccbcbcbcbcccbcccbcbbbcbcbcbcbcbbbcbcbbccbcbcbcbc
+BCBBBBbBBBbBbBbBbBBBbBbBBBbbbBbBBBbBbBbBbBBBbBBBbBbbbBbBbBbBbBbbbBbBbbBBbBbBbBbB
+
+ccbcbcbcccbcbcccbcbcbcbcbcccbcccccbcbcbcbcccccbcbcbcbc
+BBbBbBbBBBbBbBBBbBbBbBbBbBBBbBBBBBbBbBbBbBBBBBbBbBbBbB
+
+--------------------------------------------------------------------------------
+-70.16129032258064 pt/round: Jesters(P7) "Red Herring"
+-254.03225806451613 pt/round: kuba(P1) "Fights back when attacked"
+CCBbbcBcCCBcCCBcBcBcBcCCBcBcBcBcCBbcBcBcCCBcBcCCCCCBbcBcCCCCCCBcBcBcBcBcCCBcCCCC
+CCc   c CCc CCc c c c CCc c c c Cc  c c CCc c CCCCCc  c CCCCCCc c c c c CCc CCCC
+
+CBbcCCBcBcBcCBbcBcBcCCBcCCBcCCBcBcBcCBbcBcBbbcBcBcCCCCBcBcCCBbcCBcBbbcBcBbbcCCBb
+Cc  CCc c c Cc  c c CCc CCc CCc c c Cc  c c   c c CCCCc c CCc  Cc c   c c   CCc 
+
+bcBcBbbcBcBcCCBcCBcCBcCCBc
+  c c   c c CCc Cc Cc CCc 
+
+--------------------------------------------------------------------------------
+-216.260162601626 pt/round: Jesters(P7) "Red Herring"
+-99.1869918699187 pt/round: youLost(P2) "opposite"
+ccbBBCbCccbCccccbCcccbBCbCbCccbCccbCbCccbCccccbCbCbBCcccbBCcbCbBBCbCbCccbCbBBCbC
+BBbccCbCBBbCBBBBbCBBBbcCbCbCBBbCBBbCbCBBbCBBBBbCbCbcCBBBbcCBbCbccCbCbCBBbCbccCbC
+
+bCccbCbBBCbCcbBCbCccccbCcbBCbCbCbCbCbBCcccb
+bCBBbCbccCbCBbcCbCBBBBbCBbcCbCbCbCbCbcCBBBb
+
+--------------------------------------------------------------------------------
+-380.2325581395349 pt/round: Jesters(P7) "Red Herring"
+-54.651162790697676 pt/round: Chev(P3) "Cooperate until too many betrayals"
+CCBBbccccbbcbcbcbcccbcbcbcbbbcbcbbbcbccbbcbcbcccbcbbccbcbcbcbcbbccccbcbcccbcbccc
+CCccbBBBBbbBbBbBbBBBbBbBbBbbbBbBbbbBbBBbbBbBbBBBbBbbBBbBbBbBbBbbBBBBbBbBBBbBbBBB
+
+bcbcbcbbbcbcbcccccccccccbcbcbcccbcbcccbcbcbbccbcb
+bBbBbBbbbBbBbBBBBBBBBBBBbBbBbBBBbBbBBBbBbBbbBBbBb
+
+--------------------------------------------------------------------------------
+-239.6551724137931 pt/round: Jesters(P7) "Red Herring"
+-250.0 pt/round: AJ(P4) "Figth back hard"
+CCBcccbcbcBcbcbcccbcbcbcbcbcccbcbcbcbccbbcbcbcbcbcbcccccbbbcbcccccbcccccbcccccbc
+CCc       c                                                                     
+
+cbccbcbcbcbcccbccccbbcbcbcbcccbbcccc
+                                    
+
+--------------------------------------------------------------------------------
+-147.98657718120805 pt/round: Jesters(P7) "Red Herring"
+-139.93288590604027 pt/round: DM(P5) "Last move"
+cCBcBcBcBbbcBcBcCCBcCBbcCCBbcCCCCBbcBcCCCCBcCCBcBcbcCCBcCCBcCCBcBcBcCBbcBcBcBcCC
+BCcBcBcBcbbBcBcBCCcBCcbBCCcbBCCCCcbBcBCCCCcBCCcBcBbBCCcBCCcBCCcBcBcBCcbBcBcBcBCC
+
+BcBcCCCCCCCCCBbcCCBccCCCCBbcBcBbbcBcCCBcBcBbbcBcBbbcBcCCBcBcCCBcBcBbb
+cBcBCCCCCCCCCcbBCCcBBCCCCcbBcBcbbBcBCCcBcBcbbBcBcbbBcBCCcBcBCCcBcBcbb
+
+--------------------------------------------------------------------------------
+-408.73015873015873 pt/round: Jesters(P7) "Red Herring"
+-27.77777777777778 pt/round: EthanC.py(P6) "HALFNHALF"
+ccccbcccbbbcccbbbcbcccbcccbcbcccbcbcccbbbcccbcbcbcccbcbcccbcccccccbccbbcccbcbcbc
+BBBBbBBBbbbBBBbbbBbBBBbBBBbBbBBBbBbBBBbbbBBBbBbBbBBBbBbBBBbBBBBBBBbBBbbBBBbBbBbB
+
+ccccccbcbcbcbcccbcbcbcccbcccccbbccbcccbccccbccbcbcbcccbbbcbcbcbcccbbbcccbcbcbcbc
+BBBBBBbBbBbBbBBBbBbBbBBBbBBBBBbbBBbBBBbBBBBbBBbBbBbBBBbbbBbBbBbBBBbbbBBBbBbBbBbB
+
+bcbcbbbcccbcbcbccbccccccbcbcb
+bBbBbbbBBBbBbBbBBbBBBBBBbBbBb
+
+--------------------------------------------------------------------------------
+-128.44036697247705 pt/round: Jesters(P7) "Red Herring"
+-128.44036697247705 pt/round: June_bug(P8) "Cooperate"
+CCBcBcBcBcBcBcBcCCCCBcBcBcBcBcBcBbbcCCBbbcCCCBbcBcCCCCCCCCCCBcCCBcBcBcBcBcBbcCCC
+CCcBcBcBcBcBcBcBCCCCcBcBcBcBcBcBcbbBCCcbbBCCCcbBcBCCCCCCCCCCcBCCcBcBcBcBcBcbBCCC
+
+BcCCBcBcBcCCBbbcCCCCCCBcCCCCC
+cBCCcBcBcBCCcbbBCCCCCCcBCCCCC
+
+--------------------------------------------------------------------------------
+-293.0769230769231 pt/round: Jesters(P7) "Red Herring"
+-57.69230769230769 pt/round: RDGamblers(P9) "betray than randomness than betray"
+ccccBcccbcBcccccCCbcccBcccbbcCbcbbCCccbcCCbcbcBCccbcCCbcbcCCbcbcCCbcbcBCbcbbbcbc
+BBBBcBBBbBcBBBBBCCbBBBcBBBbbBCbBbbCCBBbBCCbBbBcCBBbBCCbBbBCCbBbBCCbBbBcCbBbbbBbB
+
+ccBcbcbcBcbccbCCbcbcCCbcbcCCccbcBCbcbcBCbcbcCCccbc
+BBcBbBbBcBbBBbCCbBbBCCbBbBCCBBbBcCbBbBcCbBbBCCBBbB
+
+--------------------------------------------------------------------------------
+25.49019607843137 pt/round: Jesters(P7) "Red Herring"
+-162.7450980392157 pt/round: (P10) ""
+ccbBBCCCBBCCCCCCCCCCBCBCCCBBBCBCCCCCBCBBBCBCBCBCBCBBCCBCCCBCCCBCBCCCCCCCBCBCCCBC
+ BbccCCCccCCCCCCCCCCcCcCCCcccCcCCCCCcCcccCcCcCcCcCccCCcCCCcCCCcCcCCCCCCCcCcCCCcC
+
+BCCCBCCCBCCCBCCCCCBBCCCCBCCCBCBCCCBCBCBCCCCCCCBCCCBCCCBBCCBCCCBCBCCBBCBCC
+cCCCcCCCcCCCcCCCCCccCCCCcCCCcCcCCCcCcCcCCCCCCCcCCCcCCCccCCcCCCcCcCCccCcCC
+
+--------------------------------------------------------------------------------
+-249.42857142857142 pt/round: Jesters(P7) "Red Herring"
+-84.85714285714286 pt/round: Savior(P11) "cooperate first and backstab"
+CCBcCCBcBbcCCCCBbcBcCBcCBcBcCCCCBcBcBcCCCCBcCCBcBcCCCCBcBcBcCCCBbcCCBbbcBcBbcCBc
+CCcBCCcBcbBCCCCcbBcBCcBCcBcBCCCCcBcBcBCCCCcBCCcBcBCCCCcBcBcBCCCcbBCCcbbBcBcbBCcB
+
+BbbcCCBcCCBcBcBcBcCCBcBcBbccbcbcbcbcccccbcbcccbcbcbcccbcccccccccccccbccccbccbcbc
+cbbBCCcBCCcBcBcBcBCCcBcBcbBBbBbBbBbBBBBBbBbBBBbBbBbBBBbBBBBBBBBBBBBBbBBBBbBBbBbB
+
+bcbcccbcccbbbcc
+bBbBBBbBBBbbbBB
+
+--------------------------------------------------------------------------------
+-314.9390243902439 pt/round: Jesters(P7) "Red Herring"
+-77.13414634146342 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+CcbcbcbcbcccBcbbbcccBbbcbcccCCBcbbbcbcbcccCCBcbcbcbbbcbcbcbcbcccBcbcbcbcbcbcccBc
+CBbBbBbBbBBBcBbbbBBBcbbBbBBBCCcBbbbBbBbBBBCCcBbBbBbbbBbBbBbBbBBBcBbBbBbBbBbBBBcB
+
+bcccBcccCCBcbbbcccBcbcbcbbbcbcbbbcbcbcbcbcbbbcccCBbcbcbcbcbcbcccCCCCCCCCCCBcbcbb
+bBBBcBBBCCcBbbbBBBcBbBbBbbbBbBbbbBbBbBbBbBbbbBBBCcbBbBbBbBbBbBBBCCCCCCCCCCcBbBbb
+
+bccc
+bBBB
+
+--------------------------------------------------------------------------------
+-206.69642857142858 pt/round: Jesters(P7) "Red Herring"
+-104.91071428571429 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+cCBcBcBCBbbcCCbCbCbCbbcCBcCCccccbCBcBCccccbCBcccbCbcBcBCbCBcCCbccCccbCBcBcccccbC
+BCcBcBcCcbbBCCbCbCbCbbBCcBCCBBBBbCcBcCBBBBbCcBBBbCbBcBcCbCcBCCbBBCBBbCcBcBBBBBbC
+
+CCbcbCbBcCBCCcccccbBbcBcBCBCbCBB
+CCbBbCbcBCcCCBBBBBbcbBcBcCcCbCcc
+
+--------------------------------------------------------------------------------
+-411.84971098265896 pt/round: Jesters(P7) "Red Herring"
+-19.942196531791907 pt/round: Torrential(P14) "get other points down then keep them down"
+Ccbcccbcccccbcbcccccccccccccccbcbcbccccbccbcbbbcbcccbcccbcbcbcbbccccbbbcccccccbc
+CBbBBBbBBBBBbBbBBBBBBBBBBBBBBBbBbBbBBBBbBBbBbbbBbBBBbBBBbBbBbBbbBBBBbbbBBBBBBBbB
+
+ccbcbcbbbcccbcccbcccbcbccbbcbcbcbcbcccccccbbccbccbccbcbcbcbcbcbcbcbcbcbcbcbcbccc
+BBbBbBbbbBBBbBBBbBBBbBbBBbbBbBbBbBbBBBBBBBbbBBbBBbBBbBbBbBbBbBbBbBbBbBbBbBbBbBBB
+
+ccccbcccbcbcb
+BBBBbBBBbBbBb
+
+--------------------------------------------------------------------------------
+-401.85185185185185 pt/round: Jesters(P7) "Red Herring"
+-24.074074074074073 pt/round: trustMe(P15) "backstab "
+CCBcbcbcbcbcbcbcbcbcbcbcccbcccbcbcbcbcbcbccccbccccccccccccbcbccbccccbcccbcbccccc
+CCcBbBbBbBbBbBbBbBbBbBbBBBbBBBbBbBbBbBbBbBBBBbBBBBBBBBBBBBbBbBBbBBBBbBBBbBbBBBBB
+
+bcbcbcbbbcccccbcccbbccbccbbc
+bBbBbBbbbBBBBBbBBBbbBBbBBbbB
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Jesters(P7) "Red Herring"
+-250.0 pt/round: Y(P16) "Last move of their history"
+ccbbccbcbcbcbcbbbcbcbbccbccbccbcbbbcccbbbcbcccbcbcbcbcbcbcbcbcbcccbcbbccccbcccbc
+                                                                                
+
+bcbcbcbbccbcbcbcccbbccbccbccccbbbcccbbccb
+                                         
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team June_bug
+--------------------------------------------------------------------------------
+-250.9493670886076 pt/round: June_bug(P8) "Cooperate"
+-247.15189873417722 pt/round: defRealFunct(P0) "random until after 10 rounds"
+cBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: June_bug(P8) "Cooperate"
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-165.28925619834712 pt/round: June_bug(P8) "Cooperate"
+-160.3305785123967 pt/round: youLost(P2) "opposite"
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+
+--------------------------------------------------------------------------------
+0.0 pt/round: June_bug(P8) "Cooperate"
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.0 pt/round: June_bug(P8) "Cooperate"
+0.0 pt/round: AJ(P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-201.5544041450777 pt/round: June_bug(P8) "Cooperate"
+-198.4455958549223 pt/round: DM(P5) "Last move"
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+
+--------------------------------------------------------------------------------
+-251.5151515151515 pt/round: June_bug(P8) "Cooperate"
+-247.87878787878788 pt/round: EthanC.py(P6) "HALFNHALF"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbb
+bbbbb
+
+--------------------------------------------------------------------------------
+-128.44036697247705 pt/round: June_bug(P8) "Cooperate"
+-128.44036697247705 pt/round: Jesters(P7) "Red Herring"
+CCcBcBcBcBcBcBcBCCCCcBcBcBcBcBcBcbbBCCcbbBCCCcbBcBCCCCCCCCCCcBCCcBcBcBcBcBcbBCCC
+CCBcBcBcBcBcBcBcCCCCBcBcBcBcBcBcBbbcCCBbbcCCCBbcBcCCCCCCCCCCBcCCBcBcBcBcBcBbcCCC
+
+cBCCcBcBcBCCcbbBCCCCCCcBCCCCC
+BcCCBcBcBcCCBbbcCCCCCCBcCCCCC
+
+--------------------------------------------------------------------------------
+-242.05607476635515 pt/round: June_bug(P8) "Cooperate"
+-242.05607476635515 pt/round: RDGamblers(P9) "betray than randomness than betray"
+cbbbbBcbbbbbbbbbbbbbbbBCcbbbBcbbbbbbbbbbbbbbbbbbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbb
+BbbbbcBbbbbbbbbbbbbbbbcCBbbbcBbbbbbbbbbbbbbbbbbbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbBcbbbB
+bbbbbbbbbbbbbbbbbbbbbcBbbbc
+
+--------------------------------------------------------------------------------
+-4.7101449275362315 pt/round: June_bug(P8) "Cooperate"
+-9.057971014492754 pt/round: (P10) ""
+c bBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.0 pt/round: June_bug(P8) "Cooperate"
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: June_bug(P8) "Cooperate"
+-246.51162790697674 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbb
+bbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.50602409638554 pt/round: June_bug(P8) "Cooperate"
+-247.89156626506025 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbb
+bbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: June_bug(P8) "Cooperate"
+-244.7826086956522 pt/round: Torrential(P14) "get other points down then keep them down"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: June_bug(P8) "Cooperate"
+0.0 pt/round: trustMe(P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCC
+CCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: June_bug(P8) "Cooperate"
+-250.0 pt/round: Y(P16) "Last move of their history"
+c                                                                               
+                                                                                
+
+                                                              
+                                                              
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team RDGamblers
+--------------------------------------------------------------------------------
+-270.703125 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-219.140625 pt/round: defRealFunct(P0) "random until after 10 rounds"
+bBbbcbbbbbbbbbbbcbbbbbccbbbbbcbbbbbbbbbbcbbbbbcbbbbbcbbbbbbcbbbbbbbbbbcbbbbbbbbb
+bcbbBbbbbbbbbbbbBbbbbbBBbbbbbBbbbbbbbbbbBbbbbbBbbbbbBbbbbbbBbbbbbbbbbbBbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbcbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbBbbbbbbbb
+
+--------------------------------------------------------------------------------
+-148.0392156862745 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-250.0 pt/round: kuba(P1) "Fights back when attacked"
+BbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBb
+c    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc 
+
+bbcCBbbbcCBbbbcCBbbbCCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbbbcCBbb
+   Cc    Cc    Cc   CCc    Cc    Cc    Cc    Cc    Cc    Cc    Cc    Cc  
+
+--------------------------------------------------------------------------------
+-71.23893805309734 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-278.3185840707965 pt/round: youLost(P2) "opposite"
+bBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbB
+bcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbc
+
+BBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBC
+ccCBbcccCBbcccCBbcccCBbcccCBbcccC
+
+--------------------------------------------------------------------------------
+-263.4502923976608 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-228.36257309941521 pt/round: Chev(P3) "Cooperate until too many betrayals"
+BBbbbcbbbbccbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbbbbbcbbbbbccbbbbcbbbbbbbbbbbccbbbbbbbb
+ccbbbBbbbbBBbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbbbbbBbbbbbBBbbbbBbbbbbbbbbbbBBbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+cbbbbbbbbbb
+Bbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-246.9543147208122 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-250.0 pt/round: AJ(P4) "Figth back hard"
+BbbbccbbbbCcbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbb
+c         C                                                                     
+
+bbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+                                                                                
+
+ccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbc
+                                     
+
+--------------------------------------------------------------------------------
+-243.30985915492957 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-243.30985915492957 pt/round: DM(P5) "Last move"
+bbbbbbbbbbcCBbbbcBbbbbcBbbbbbcBbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbBCcbbbBcbbbbBcbbbbbBcbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbcBbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbBcbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-269.8019801980198 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-222.27722772277227 pt/round: EthanC.py(P6) "HALFNHALF"
+bbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbccbbbbbbbbbbbcbbbbcbbbbbbbbbbbbbbb
+bbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbBBbbbbbbbbbbbBbbbbBbbbbbbbbbbbbbbb
+
+bbbcbbbbcbbbbbbbbbbbb
+bbbBbbbbBbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-57.69230769230769 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-293.0769230769231 pt/round: Jesters(P7) "Red Herring"
+BBBBcBBBbBcBBBBBCCbBBBcBBBbbBCbBbbCCBBbBCCbBbBcCBBbBCCbBbBCCbBbBCCbBbBcCbBbbbBbB
+ccccBcccbcBcccccCCbcccBcccbbcCbcbbCCccbcCCbcbcBCccbcCCbcbcCCbcbcCCbcbcBCbcbbbcbc
+
+BBcBbBbBcBbBBbCCbBbBCCbBbBCCBBbBcCbBbBcCbBbBCCBBbB
+ccBcbcbcBcbccbCCbcbcCCbcbcCCccbcBCbcbcBCbcbcCCccbc
+
+--------------------------------------------------------------------------------
+-242.05607476635515 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-242.05607476635515 pt/round: June_bug(P8) "Cooperate"
+BbbbbcBbbbbbbbbbbbbbbbcCBbbbcBbbbbbbbbbbbbbbbbbbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbBcbbbbbbbbbbbbbbbBCcbbbBcbbbbbbbbbbbbbbbbbbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbcBbbbc
+bbbbbbbbbbbbbbbbbbbbbBcbbbB
+
+--------------------------------------------------------------------------------
+63.86138613861386 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-334.15841584158414 pt/round: (P10) ""
+bBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBB
+ cccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCcc
+
+BBCCBBBBCCBBBBCCBBBBC
+ccCCccccCCccccCCccccC
+
+--------------------------------------------------------------------------------
+-259.7701149425287 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-228.73563218390805 pt/round: Savior(P11) "cooperate first and backstab"
+BbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbcCBbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbBCcbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbccbbbbcbbbbbcbbbbbbcbbbbcbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbb
+bbbbbbbbBBbbbbBbbbbbBbbbbbbBbbbbBbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbb
+
+cbbbbbbbbbbbbb
+Bbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-264.93055555555554 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-227.43055555555554 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbcbbbbbcbbbbbbbbbbccbb
+cbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbBbbbbbBbbbbbbbbbbBBbb
+
+bbccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbcb
+bbBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbBb
+
+--------------------------------------------------------------------------------
+-230.9375 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-245.9375 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+bBbbbcBbbbbbbbbbbbbbbbbbbbbbbcBBbbcCBbbbbbbbbbbbbbbbcBBbbbcBBbbbbbbbbbbbbbbbbbbb
+bcbbbBcbbbbbbbbbbbbbbbbbbbbbbBccbbBCcbbbbbbbbbbbbbbbBccbbbBccbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbcCbBbbbbbbbbbbbbbbbbbbbbcBbbbbcCbBbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbBCbcbbbbbbbbbbbbbbbbbbbbBcbbbbBCbcbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-261.1111111111111 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-226.1904761904762 pt/round: Torrential(P14) "get other points down then keep them down"
+BBBBCcbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbcbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbb
+ccccCBbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbBbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbb
+
+bbbbbbbbbcbbbbbbbbbbbcbbbbccbbbbcbbbbbbbbbbbcbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbcbbbb
+bbbbbbbbbBbbbbbbbbbbbBbbbbBBbbbbBbbbbbbbbbbbBbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbBbbbb
+
+bbbbbbbbbbbbbcbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbBbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-272.03389830508473 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-217.79661016949152 pt/round: trustMe(P15) "backstab "
+Bbbbcbbbbbbcbbbbbbbbbbcbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbBbbbbbbBbbbbbbbbbbBbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbcbbbbccbbbbbbbbbbcbbbbbccbbbbbbbbbbbcbbbbbbbbbbbcbbbbcbbbbbbcbbbbcbbbbbcbbbbb
+bbbBbbbbBBbbbbbbbbbbBbbbbbBBbbbbbbbbbbbBbbbbbbbbbbbBbbbbBbbbbbbBbbbbBbbbbbBbbbbb
+
+bcbbbbbbbbbbbbbbb
+bBbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: RDGamblers(P9) "betray than randomness than betray"
+-250.0 pt/round: Y(P16) "Last move of their history"
+bbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbb
+                                                                                
+
+bbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+                                                                                
+
+ccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+                                    
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team 
+--------------------------------------------------------------------------------
+-495.0980392156863 pt/round: (P10) ""
+97.05882352941177 pt/round: defRealFunct(P0) "random until after 10 rounds"
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-244.6153846153846 pt/round: (P10) ""
+-253.84615384615384 pt/round: kuba(P1) "Fights back when attacked"
+ Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cc                                                                              
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                    c                             
+
+--------------------------------------------------------------------------------
+-492.71844660194176 pt/round: (P10) ""
+95.63106796116504 pt/round: youLost(P2) "opposite"
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-485.7142857142857 pt/round: (P10) ""
+84.03361344537815 pt/round: Chev(P3) "Cooperate until too many betrayals"
+ BBbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-243.6936936936937 pt/round: (P10) ""
+-254.5045045045045 pt/round: AJ(P4) "Figth back hard"
+ BbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cc        c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                               
+
+--------------------------------------------------------------------------------
+-10.736196319018404 pt/round: (P10) ""
+0.3067484662576687 pt/round: DM(P5) "Last move"
+ CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+bCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCcCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCBCCCCCCCCC
+
+CCC
+CCC
+
+--------------------------------------------------------------------------------
+-498.4472049689441 pt/round: (P10) ""
+97.82608695652173 pt/round: EthanC.py(P6) "HALFNHALF"
+ ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-162.7450980392157 pt/round: (P10) ""
+25.49019607843137 pt/round: Jesters(P7) "Red Herring"
+ BbccCCCccCCCCCCCCCCcCcCCCcccCcCCCCCcCcccCcCcCcCcCccCCcCCCcCCCcCcCCCCCCCcCcCCCcC
+ccbBBCCCBBCCCCCCCCCCBCBCCCBBBCBCCCCCBCBBBCBCBCBCBCBBCCBCCCBCCCBCBCCCCCCCBCBCCCBC
+
+cCCCcCCCcCCCcCCCCCccCCCCcCCCcCcCCCcCcCcCCCCCCCcCCCcCCCccCCcCCCcCcCCccCcCC
+BCCCBCCCBCCCBCCCCCBBCCCCBCCCBCBCCCBCBCBCCCCCCCBCCCBCCCBBCCBCCCBCBCCBBCBCC
+
+--------------------------------------------------------------------------------
+-9.057971014492754 pt/round: (P10) ""
+-4.7101449275362315 pt/round: June_bug(P8) "Cooperate"
+ bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+c bBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-334.15841584158414 pt/round: (P10) ""
+63.86138613861386 pt/round: RDGamblers(P9) "betray than randomness than betray"
+ cccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCccccCCcc
+bBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBBBBCCBB
+
+ccCCccccCCccccCCccccC
+BBCCBBBBCCBBBBCCBBBBC
+
+--------------------------------------------------------------------------------
+-7.575757575757576 pt/round: (P10) ""
+-3.9393939393939394 pt/round: Savior(P11) "cooperate first and backstab"
+ bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+c bBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCC
+CCCCC
+
+--------------------------------------------------------------------------------
+-10.75268817204301 pt/round: (P10) ""
+-1.075268817204301 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+ bcccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+cbBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-495.0331125827815 pt/round: (P10) ""
+97.01986754966887 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+98.24120603015075 pt/round: (P10) ""
+-498.7437185929648 pt/round: Torrential(P14) "get other points down then keep them down"
+ BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-489.2156862745098 pt/round: (P10) ""
+87.25490196078431 pt/round: trustMe(P15) "backstab "
+ Bbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: (P10) ""
+-250.0 pt/round: Y(P16) "Last move of their history"
+ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+                           
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Savior
+--------------------------------------------------------------------------------
+-250.85714285714286 pt/round: Savior(P11) "cooperate first and backstab"
+-247.42857142857142 pt/round: defRealFunct(P0) "random until after 10 rounds"
+cBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCC
+CCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-55.97014925373134 pt/round: Savior(P11) "cooperate first and backstab"
+-302.23880597014926 pt/round: youLost(P2) "opposite"
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBB
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+0.0 pt/round: AJ(P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-219.23076923076923 pt/round: Savior(P11) "cooperate first and backstab"
+-219.23076923076923 pt/round: DM(P5) "Last move"
+cBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcB
+BcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBcBc
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-252.23214285714286 pt/round: Savior(P11) "cooperate first and backstab"
+-246.875 pt/round: EthanC.py(P6) "HALFNHALF"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-84.85714285714286 pt/round: Savior(P11) "cooperate first and backstab"
+-249.42857142857142 pt/round: Jesters(P7) "Red Herring"
+CCcBCCcBcbBCCCCcbBcBCcBCcBcBCCCCcBcBcBCCCCcBCCcBcBCCCCcBcBcBCCCcbBCCcbbBcBcbBCcB
+CCBcCCBcBbcCCCCBbcBcCBcCBcBcCCCCBcBcBcCCCCBcCCBcBcCCCCBcBcBcCCCBbcCCBbbcBcBbcCBc
+
+cbbBCCcBCCcBcBcBcBCCcBcBcbBBbBbBbBbBBBBBbBbBBBbBbBbBBBbBBBBBBBBBBBBBbBBBBbBBbBbB
+BbbcCCBcCCBcBcBcBcCCBcBcBbccbcbcbcbcccccbcbcccbcbcbcccbcccccccccccccbccccbccbcbc
+
+bBbBBBbBBBbbbBB
+bcbcccbcccbbbcc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+0.0 pt/round: June_bug(P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-228.73563218390805 pt/round: Savior(P11) "cooperate first and backstab"
+-259.7701149425287 pt/round: RDGamblers(P9) "betray than randomness than betray"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbBCcbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbb
+BbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbcCBbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbBBbbbbBbbbbbBbbbbbbBbbbbBbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbb
+bbbbbbbbccbbbbcbbbbbcbbbbbbcbbbbcbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbb
+
+Bbbbbbbbbbbbbb
+cbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-3.9393939393939394 pt/round: Savior(P11) "cooperate first and backstab"
+-7.575757575757576 pt/round: (P10) ""
+c bBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCC
+CCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Savior(P11) "cooperate first and backstab"
+-245.8041958041958 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.30208333333334 pt/round: Savior(P11) "cooperate first and backstab"
+-248.17708333333334 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Savior(P11) "cooperate first and backstab"
+-244.87179487179486 pt/round: Torrential(P14) "get other points down then keep them down"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+0.0 pt/round: trustMe(P15) "backstab "
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Savior(P11) "cooperate first and backstab"
+-250.0 pt/round: Y(P16) "Last move of their history"
+c                                                                               
+                                                                                
+
+                                                                                
+                                                                                
+
+                                      
+                                      
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team The_Finnegansy
+--------------------------------------------------------------------------------
+-249.33333333333334 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-249.33333333333334 pt/round: defRealFunct(P0) "random until after 10 rounds"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-242.96296296296296 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-251.85185185185185 pt/round: kuba(P1) "Fights back when attacked"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cc                                                                              
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                    c                                  
+
+--------------------------------------------------------------------------------
+-75.48387096774194 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-276.7741935483871 pt/round: youLost(P2) "opposite"
+cbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcb
+BbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBb
+
+BBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBBCcbBBB
+cccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbcccCBbccc
+
+--------------------------------------------------------------------------------
+-244.63276836158192 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-251.41242937853107 pt/round: Chev(P3) "Cooperate until too many betrayals"
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-243.5374149659864 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-251.70068027210885 pt/round: AJ(P4) "Figth back hard"
+CBbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cc        c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                   
+
+--------------------------------------------------------------------------------
+-249.4818652849741 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-249.4818652849741 pt/round: DM(P5) "Last move"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.61290322580646 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-247.74193548387098 pt/round: EthanC.py(P6) "HALFNHALF"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-77.13414634146342 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-314.9390243902439 pt/round: Jesters(P7) "Red Herring"
+CBbBbBbBbBBBcBbbbBBBcbbBbBBBCCcBbbbBbBbBBBCCcBbBbBbbbBbBbBbBbBBBcBbBbBbBbBbBBBcB
+CcbcbcbcbcccBcbbbcccBbbcbcccCCBcbbbcbcbcccCCBcbcbcbbbcbcbcbcbcccBcbcbcbcbcbcccBc
+
+bBBBcBBBCCcBbbbBBBcBbBbBbbbBbBbbbBbBbBbBbBbbbBBBCcbBbBbBbBbBbBBBCCCCCCCCCCcBbBbb
+bcccBcccCCBcbbbcccBcbcbcbbbcbcbbbcbcbcbcbcbbbcccCBbcbcbcbcbcbcccCCCCCCCCCCBcbcbb
+
+bBBB
+bccc
+
+--------------------------------------------------------------------------------
+-246.51162790697674 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-250.0 pt/round: June_bug(P8) "Cooperate"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbb
+bbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-227.43055555555554 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-264.93055555555554 pt/round: RDGamblers(P9) "betray than randomness than betray"
+cbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbBbbbbbBbbbbbbbbbbBBbb
+Bbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbcbbbbbcbbbbbbbbbbccbb
+
+bbBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbBb
+bbccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbcb
+
+--------------------------------------------------------------------------------
+-1.075268817204301 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-10.75268817204301 pt/round: (P10) ""
+cbBBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+ bcccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-245.8041958041958 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-250.0 pt/round: Savior(P11) "cooperate first and backstab"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.43502824858757 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-249.43502824858757 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+cbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-248.49397590361446 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-248.49397590361446 pt/round: Torrential(P14) "get other points down then keep them down"
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbb
+bbbbbb
+
+--------------------------------------------------------------------------------
+-246.90721649484536 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-250.0 pt/round: trustMe(P15) "backstab "
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+-250.0 pt/round: Y(P16) "Last move of their history"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                                
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                             
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Tit_for_tat
+--------------------------------------------------------------------------------
+-250.0 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-246.0 pt/round: defRealFunct(P0) "random until after 10 rounds"
+bCbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bCbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-122.35772357723577 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-302.8455284552846 pt/round: kuba(P1) "Fights back when attacked"
+BcBbcBcBbbbcBbbbcBcCCCBbbcBcBcCBbcBcBbbbcBbbcCBbbcBcBcCCCBbcBbbcBbbcBbcBbbcBcBbb
+c c  c c    c    c CCCc   c c Cc  c c    c   Cc   c c CCCc  c   c   c  c   c c  
+
+bcBcBbbcBbcCBcBcBbcBBbbcBcBcBbbbcBbbcBcCCBb
+  c c   c  Cc c c  cc   c c c    c   c CCc 
+
+--------------------------------------------------------------------------------
+94.73684210526316 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-493.42105263157896 pt/round: youLost(P2) "opposite"
+bBBCbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+bccCbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-240.6060606060606 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-251.5151515151515 pt/round: Chev(P3) "Cooperate until too many betrayals"
+BCCBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cCCccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbb
+bbbbb
+
+--------------------------------------------------------------------------------
+-246.96969696969697 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-250.0 pt/round: AJ(P4) "Figth back hard"
+BccbbbccbcCccccbbcbbbbccbcbbcbbbbcccbbbbcbcccbbbbcbbbbccbcbccbbbbccbcbccbccbbcbc
+c         C                                                                     
+
+cbbbcbbbccccccbcccbcccccccccbbccbbbbcccbccbcbbcbbccccbccbbbcbcbcccccccbbbccbbcbc
+                                                                                
+
+bcccbbccbbbcccccccbbbcbcbcbccbbcccbcbc
+                                      
+
+--------------------------------------------------------------------------------
+-243.06930693069307 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-243.06930693069307 pt/round: DM(P5) "Last move"
+bcBcCCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bBcBCCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-250.0 pt/round: EthanC.py(P6) "HALFNHALF"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-104.91071428571429 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-206.69642857142858 pt/round: Jesters(P7) "Red Herring"
+BCcBcBcCcbbBCCbCbCbCbbBCcBCCBBBBbCcBcCBBBBbCcBBBbCbBcBcCbCcBCCbBBCBBbCcBcBBBBBbC
+cCBcBcBCBbbcCCbCbCbCbbcCBcCCccccbCBcBCccccbCBcccbCbcBcBCbCBcCCbccCccbCBcBcccccbC
+
+CCbBbCbcBCcCCBBBBBbcbBcBcCcCbCcc
+CCbcbCbBcCBCCcccccbBbcBcBCBCbCBB
+
+--------------------------------------------------------------------------------
+-247.89156626506025 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-251.50602409638554 pt/round: June_bug(P8) "Cooperate"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbb
+bbbbbb
+
+--------------------------------------------------------------------------------
+-245.9375 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-230.9375 pt/round: RDGamblers(P9) "betray than randomness than betray"
+bcbbbBcbbbbbbbbbbbbbbbbbbbbbbBccbbBCcbbbbbbbbbbbbbbbBccbbbBccbbbbbbbbbbbbbbbbbbb
+bBbbbcBbbbbbbbbbbbbbbbbbbbbbbcBBbbcCBbbbbbbbbbbbbbbbcBBbbbcBBbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbBCbcbbbbbbbbbbbbbbbbbbbbBcbbbbBCbcbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbcCbBbbbbbbbbbbbbbbbbbbbbcBbbbbcCbBbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+97.01986754966887 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-495.0331125827815 pt/round: (P10) ""
+bCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-248.17708333333334 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-251.30208333333334 pt/round: Savior(P11) "cooperate first and backstab"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.43502824858757 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-249.43502824858757 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Bbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+100.0 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-500.0 pt/round: Torrential(P14) "get other points down then keep them down"
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-249.2 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-249.2 pt/round: trustMe(P15) "backstab "
+Bbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+-250.0 pt/round: Y(P16) "Last move of their history"
+bbbbcbbcbbcccbccbbbbcbccccbbccccbcbbccbcbbbccbbccbcbcbbbbcbcccbcbcccccbbbcbbccbb
+                                                                                
+
+bbcbcccbcbcbcccccbbbccccbbbbcbccbcccccccbbbcccbcbccbbbbcbcbccbbccbcccbbcbbbcbcbc
+                                                                                
+
+ccbccbcbbbcbcbcccbcbb
+                     
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Torrential
+--------------------------------------------------------------------------------
+-250.0 pt/round: Torrential(P14) "get other points down then keep them down"
+-245.23809523809524 pt/round: defRealFunct(P0) "random until after 10 rounds"
+cCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BCbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-244.72222222222223 pt/round: Torrential(P14) "get other points down then keep them down"
+-251.38888888888889 pt/round: kuba(P1) "Fights back when attacked"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cc                                                                              
+
+bbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                    c                                                           
+
+bbbbbbbbbbbbbbbbbbbb
+                    
+
+--------------------------------------------------------------------------------
+-500.0 pt/round: Torrential(P14) "get other points down then keep them down"
+100.0 pt/round: youLost(P2) "opposite"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-244.44444444444446 pt/round: Torrential(P14) "get other points down then keep them down"
+-251.46198830409358 pt/round: Chev(P3) "Cooperate until too many betrayals"
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbb
+bbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-243.6241610738255 pt/round: Torrential(P14) "get other points down then keep them down"
+-251.6778523489933 pt/round: AJ(P4) "Figth back hard"
+CBbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cc        c                                                                     
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                                                                     
+
+--------------------------------------------------------------------------------
+-248.2051282051282 pt/round: Torrential(P14) "get other points down then keep them down"
+-248.2051282051282 pt/round: DM(P5) "Last move"
+cCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-500.0 pt/round: Torrential(P14) "get other points down then keep them down"
+100.0 pt/round: EthanC.py(P6) "HALFNHALF"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccc
+BBBBB
+
+--------------------------------------------------------------------------------
+-19.942196531791907 pt/round: Torrential(P14) "get other points down then keep them down"
+-411.84971098265896 pt/round: Jesters(P7) "Red Herring"
+CBbBBBbBBBBBbBbBBBBBBBBBBBBBBBbBbBbBBBBbBBbBbbbBbBBBbBBBbBbBbBbbBBBBbbbBBBBBBBbB
+Ccbcccbcccccbcbcccccccccccccccbcbcbccccbccbcbbbcbcccbcccbcbcbcbbccccbbbcccccccbc
+
+BBbBbBbbbBBBbBBBbBBBbBbBBbbBbBbBbBbBBBBBBBbbBBbBBbBBbBbBbBbBbBbBbBbBbBbBbBbBbBBB
+ccbcbcbbbcccbcccbcccbcbccbbcbcbcbcbcccccccbbccbccbccbcbcbcbcbcbcbcbcbcbcbcbcbccc
+
+BBBBbBBBbBbBb
+ccccbcccbcbcb
+
+--------------------------------------------------------------------------------
+-244.7826086956522 pt/round: Torrential(P14) "get other points down then keep them down"
+-250.0 pt/round: June_bug(P8) "Cooperate"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-226.1904761904762 pt/round: Torrential(P14) "get other points down then keep them down"
+-261.1111111111111 pt/round: RDGamblers(P9) "betray than randomness than betray"
+ccccCBbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbBbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbb
+BBBBCcbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbcbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbb
+
+bbbbbbbbbBbbbbbbbbbbbBbbbbBBbbbbBbbbbbbbbbbbBbbbbbBbbbbbbbbbbbbbbbbbBbbbbbbBbbbb
+bbbbbbbbbcbbbbbbbbbbbcbbbbccbbbbcbbbbbbbbbbbcbbbbbcbbbbbbbbbbbbbbbbbcbbbbbbcbbbb
+
+bbbbbbbbbbbbbBbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbcbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-498.7437185929648 pt/round: Torrential(P14) "get other points down then keep them down"
+98.24120603015075 pt/round: (P10) ""
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+ BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-244.87179487179486 pt/round: Torrential(P14) "get other points down then keep them down"
+-250.0 pt/round: Savior(P11) "cooperate first and backstab"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-248.49397590361446 pt/round: Torrential(P14) "get other points down then keep them down"
+-248.49397590361446 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbb
+bbbbbb
+
+--------------------------------------------------------------------------------
+-500.0 pt/round: Torrential(P14) "get other points down then keep them down"
+100.0 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-246.875 pt/round: Torrential(P14) "get other points down then keep them down"
+-250.0 pt/round: trustMe(P15) "backstab "
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Torrential(P14) "get other points down then keep them down"
+-250.0 pt/round: Y(P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+cccccccccccccccccccccccccccccccccc
+                                  
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team trustMe
+--------------------------------------------------------------------------------
+-249.08256880733944 pt/round: trustMe(P15) "backstab "
+-249.08256880733944 pt/round: defRealFunct(P0) "random until after 10 rounds"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: trustMe(P15) "backstab "
+0.0 pt/round: kuba(P1) "Fights back when attacked"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CC
+CC
+
+--------------------------------------------------------------------------------
+93.26241134751773 pt/round: trustMe(P15) "backstab "
+-493.97163120567376 pt/round: youLost(P2) "opposite"
+cbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Bbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: trustMe(P15) "backstab "
+0.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.0 pt/round: trustMe(P15) "backstab "
+0.0 pt/round: AJ(P4) "Figth back hard"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-249.24242424242425 pt/round: trustMe(P15) "backstab "
+-249.24242424242425 pt/round: DM(P5) "Last move"
+cBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.40449438202248 pt/round: trustMe(P15) "backstab "
+-248.03370786516854 pt/round: EthanC.py(P6) "HALFNHALF"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-24.074074074074073 pt/round: trustMe(P15) "backstab "
+-401.85185185185185 pt/round: Jesters(P7) "Red Herring"
+CCcBbBbBbBbBbBbBbBbBbBbBBBbBBBbBbBbBbBbBbBBBBbBBBBBBBBBBBBbBbBBbBBBBbBBBbBbBBBBB
+CCBcbcbcbcbcbcbcbcbcbcbcccbcccbcbcbcbcbcbccccbccccccccccccbcbccbccccbcccbcbccccc
+
+bBbBbBbbbBBBBBbBBBbbBBbBBbbB
+bcbcbcbbbcccccbcccbbccbccbbc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: trustMe(P15) "backstab "
+0.0 pt/round: June_bug(P8) "Cooperate"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCC
+CCCC
+
+--------------------------------------------------------------------------------
+-217.79661016949152 pt/round: trustMe(P15) "backstab "
+-272.03389830508473 pt/round: RDGamblers(P9) "betray than randomness than betray"
+cbbbBbbbbbbBbbbbbbbbbbBbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbcbbbbbbcbbbbbbbbbbcbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbBbbbbBBbbbbbbbbbbBbbbbbBBbbbbbbbbbbbBbbbbbbbbbbbBbbbbBbbbbbbBbbbbBbbbbbBbbbbb
+bbbcbbbbccbbbbbbbbbbcbbbbbccbbbbbbbbbbbcbbbbbbbbbbbcbbbbcbbbbbbcbbbbcbbbbbcbbbbb
+
+bBbbbbbbbbbbbbbbb
+bcbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+87.25490196078431 pt/round: trustMe(P15) "backstab "
+-489.2156862745098 pt/round: (P10) ""
+ccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ Bbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: trustMe(P15) "backstab "
+0.0 pt/round: Savior(P11) "cooperate first and backstab"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: trustMe(P15) "backstab "
+-246.90721649484536 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-249.2 pt/round: trustMe(P15) "backstab "
+-249.2 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+cbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: trustMe(P15) "backstab "
+-246.875 pt/round: Torrential(P14) "get other points down then keep them down"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: trustMe(P15) "backstab "
+-250.0 pt/round: Y(P16) "Last move of their history"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                                                                                
+
+ccccccccccccccccccccccccccccccccccccccccc
+                                         
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Y
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: defRealFunct(P0) "random until after 10 rounds"
+                                                                                
+bcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+              
+bbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: kuba(P1) "Fights back when attacked"
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                 
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: youLost(P2) "opposite"
+                                                                                
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                   
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: Chev(P3) "Cooperate until too many betrayals"
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: AJ(P4) "Figth back hard"
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                      
+cccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: DM(P5) "Last move"
+                                                                                
+bcccccccccccccccccccccccccccccccccccccccccccccccccbccccccccccccccccccccccccccccc
+
+                                                
+ccccccccccccccccccccbccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: EthanC.py(P6) "HALFNHALF"
+                                                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                                                
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+  
+bb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: Jesters(P7) "Red Herring"
+                                                                                
+ccbbccbcbcbcbcbbbcbcbbccbccbccbcbbbcccbbbcbcccbcbcbcbcbcbcbcbcbcccbcbbccccbcccbc
+
+                                         
+bcbcbcbbccbcbcbcccbbccbccbccccbbbcccbbccb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: June_bug(P8) "Cooperate"
+                                                                                
+c                                                                               
+
+                                                              
+                                                              
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: RDGamblers(P9) "betray than randomness than betray"
+                                                                                
+bbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbb
+
+                                                                                
+bbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+
+                                    
+ccbbbbccbbbbccbbbbccbbbbccbbbbccbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: (P10) ""
+                                                                                
+ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                           
+bbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: Savior(P11) "cooperate first and backstab"
+                                                                                
+c                                                                               
+
+                                                                                
+                                                                                
+
+                                      
+                                      
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: The_Finnegansy(P12) "Starts coupreate then betray and digs its way out of betray cycle"
+                                                                                
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+                                                             
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: Tit_for_tat(P13) "Randomness until see betrayal patten in opponent"
+                                                                                
+bbbbcbbcbbcccbccbbbbcbccccbbccccbcbbccbcbbbccbbccbcbcbbbbcbcccbcbcccccbbbcbbccbb
+
+                                                                                
+bbcbcccbcbcbcccccbbbccccbbbbcbccbcccccccbbbcccbcbccbbbbcbcbccbbccbcccbbcbbbcbcbc
+
+                     
+ccbccbcbbbcbcbcccbcbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: Torrential(P14) "get other points down then keep them down"
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                  
+cccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Y(P16) "Last move of their history"
+-250.0 pt/round: trustMe(P15) "backstab "
+                                                                                
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+                                         
+ccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
