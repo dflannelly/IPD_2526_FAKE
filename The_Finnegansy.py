@@ -22,9 +22,9 @@ def move(my_history, their_history, my_score, their_score):
 	if len(my_history)==0:
     return('c')
 
-  else:
-    b_count = their_history.count('b')
-    if len(their_history)> 3:
+  	else:
+		b_count = their_history.count('b')
+    	if len(their_history)> 3:
 
       combined = "".join(their_history)
       if "ccc" in combined[-3:]:
