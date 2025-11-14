@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'ETHANC.py' # Only 10 chars displayed.
+strategy_name = 'HALFNHALF'
+strategy_description = 'The code runs backstab half of the time and cooperate half of the time'
 
 import random
 
@@ -18,6 +18,12 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
+  if len(my_history)== 0:
+    return ('b')
+  elif len(my_history)==(1,100):
+    return ('c')
+  else:
+    return ('b')
 	
 
 
