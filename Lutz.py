@@ -1,20 +1,9 @@
-####
-# Each team's file must define four tokens:
-#     team_name: a string
-#     strategy_name: a string
-#     strategy_description: a string
-#     move: A function that returns 'c' or 'b'
-####
-
-
-#YOUR TEAM DETAILS HERE
 team_name = 'MasonTeam' # Only 10 chars displayed.
-strategy_name = 'Dont_Cross_Me'
+strategy_name = 'Mason_Game_Code'
 strategy_description = 'Depending on what letter you type in you either gain or loss points'
 
 import random
-
-def game():
+def Mason_Game_Code():
   counter = 0
   global my_history
   global their_history
@@ -30,46 +19,44 @@ def game():
   game_length = random.randint(100,150)
 
   for i in range(game_length):
-     choice1 = Dont_Cross_Me()
-     choice2 = wild_card()
+     choice1 = Mason_Game_Code()
+     choice2 = WildChoice()
 
      my_history += choice1
      their_history += choice2
 
-     release = 0
-     reward = 100
-     punishment = -250
-     severe_punishment = -500
+     no_punishment= 0
+     good_reward = 100
+     bad_punishment = -250
+     very_bad_punishment = -500
 
      if choice1 == 'c' and choice2 =='c':
-       my_score +=  release
-       their_score += release
+       my_score +=  no_punishment
+       their_score += no_punishment
 
      elif choice1 == 'b' and choice2 =='b':
-       my_score += punishment
-       their_score += punishment
+       my_score +=  bad_punishment
+       their_score +=  bad_punishment
 
      elif choice1 == 'c' and choice2 =='b':
-       my_score += severe_punishment
-       their_score += reward
+       my_score += very_bad_punishment
+       their_score += good_reward
 
      elif choice1 == 'b' and choice2 =='c':
-       my_score += reward
-       their_score += severe_punishment
-
+       my_score += good_reward
+       their_score += very_bad_punishment
      counter +=1
 
-  print("Broccoli Bruisers :", my_score)
-  print("Wild Card :",their_score)
+  print("Chesse Doodle:", my_score)
+  print("Wild: Choice",their_score)
 
-  print("Broccoli Bruisers: ",my_history)
-  print("Wild Card: ", their_history)
-game()
-
+  print("Chesse Doodle: ",my_history)
+  print("Wild Choice: ", their_history)
+Mason_Game_Code()
 
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
-def move(my_history, their_history, my_score, their_score):
+def Mason_Game_Code(): 
   if len(my_history)==0:
     return('c')
 
@@ -77,8 +64,6 @@ def move(my_history, their_history, my_score, their_score):
     return('b')
   else:
     return('c')
-	
-
 
 
 
