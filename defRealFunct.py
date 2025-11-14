@@ -19,9 +19,8 @@ import random
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
 	round = len(my_history)
-	if round <=10:
-		choice = ['c','b','b','b']
-		return(random.choice(choice))
+	if round==1:
+		return('c')
 	else:
 		return('b')
 

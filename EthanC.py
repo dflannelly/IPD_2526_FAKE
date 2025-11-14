@@ -8,7 +8,7 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = 'ETHANC.py' # Only 10 chars displayed.
+team_name = 'EthanC.py' # Only 10 chars displayed.
 strategy_name = 'HALFNHALF'
 strategy_description = 'The code runs backstab half of the time and cooperate half of the time'
 
