@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'youLost' # Only 10 chars displayed.
+strategy_name = 'opposite'
+strategy_description = 'Do the opposite of what the oppenent did the turn before'
 
 import random
 
@@ -18,7 +18,13 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-	
+	if len(my_history) == 0:
+    	return 'b'
+	if len(their_history) -1 == 'c':
+    	return 'b'
+	else:
+    	return 'c'
+    
 
 
 
