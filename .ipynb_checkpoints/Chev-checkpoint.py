@@ -8,25 +8,26 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = 'defRealFunct' # Only 10 chars displayed.
-strategy_name = 'random until after 10 rounds'
-strategy_description = 'randomly chooses letters'
+team_name = 'Chev' # Only 10 chars displayed.
+strategy_name = 'Cooperate until too many betrayals'
+strategy_description = 'My strategy draw c until my oppentent backstabs me twice in a row and then it draws b'
 
 import random
 
 
 
-#YOUR CODE IN THE MOVE FUNCTION HERE
+
 def move(my_history, their_history, my_score, their_score):
-	round = len(my_history)
-	if round <=10:
-		choice = ['c','b','b','b']
-		return(random.choice(choice))
-	else:
+	if len(my_history) == 0:
+    	return('c')
+  	elif 'bb' in their_history:
+    	return('b')
+	elif 'bbb' in their_history:
 		return('b')
+	else:
+    	return('c')
 
 
-    
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
     from this module. Prints error if return value != result.
