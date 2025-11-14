@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'Jesters' # Only 10 chars displayed.
+strategy_name = 'Red Herring'
+strategy_description = 'A set start to throw off the oppenent that then devolves into randomness and constants.'
 
 import random
 
@@ -18,8 +18,22 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-	
+	if len(my_history)==0:
+    	return "c"
 
+  	else:
+
+	    if len(my_history)%2 ==0:
+	      choice = random.choice(["b","b","c"])
+	      return choice
+	
+	    elif len(my_history)%3 ==0:
+	      choice1 = random.choice(["c","c","b"])
+	      return choice1
+	
+	    else:
+	      return "c"
+	
 
 
 
