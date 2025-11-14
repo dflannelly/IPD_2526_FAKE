@@ -9,7 +9,7 @@
 
 #YOUR TEAM DETAILS HERE
 team_name = 'defRealFunct' # Only 10 chars displayed.
-strategy_name = 'random kind of'
+strategy_name = 'random until after 10 rounds'
 strategy_description = 'randomly chooses letters'
 
 import random
