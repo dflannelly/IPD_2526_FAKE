@@ -1,0 +1,2917 @@
+--------------------------------------------------------------------------------
+Section 0 - Line up
+--------------------------------------------------------------------------------
+Player 0 (P0): Better TFT, Better Tit for Tat
+        It is Tit for Tat so it picks the move the opponent did last. It also gi
+        ves out 2 c after a bad pattern repeats. It also changes c,b,c,b loops t
+        o b,b,b,b loops
+Player 1 (P1): GACA_FHA, GACA
+        Returns c, if the opponent's history indicates that they have returned b
+         for a while the GACA will also return b.
+Player 2 (P2): deez, 99.99% betrayal
+        will betray you 99.99% of the time
+Player 3 (P3): Digital Destroyers, Nice-but-not-nice
+        The first output is always to collude. As it analyses its history, it tr
+        ies to be nice after betraying five times at most. But the strategy of t
+        he program is to be nice but not gullible, so it also betrays back after
+         the opponent betrays twice continuously. Just so that the program doesn
+        t get into a loop, there is also a random choice in which it will pick b
+        etray 3 out of 5 times.
+Player 4 (P4): GameTheory, Randomness unless you backstab
+        If the opponent colludes than the algorithm randomly selects c or b for 
+        the next round. If the opponent backstabs, than the algorithm will alway
+        s backstab back. 
+Player 5 (P5): Flan, Randomness unless you backstab
+        If the opponent colludes than the algorithm randomly selects c or b for 
+        the next round. If the opponent backstabs, than the algorithm will alway
+        s backstab back. 
+Player 6 (P6): hallo_Mami, bye bye mami backstab if opponent cooperating, be random otherwise
+        Will take advantage of cooperative programs. Will also use the power of 
+        randomness with evens and odds determining cooperation or backstabbing
+Player 7 (P7): I hope I win, my_strategy
+        How does this strategy decide?
+Player 8 (P8): Judgement, Ratio-based choice
+        If the opponent has mostly cooperated, cooperate back. Otherwise, backst
+        ab.
+Player 9 (P9): Perilous Plum, Randomness leaning towards betrays
+        The first output starts with a betray and attacks from the start. From t
+        here, many of the rounds (including every 20 rounds) pull from a random 
+        list that favors betraying over colluding, making it unpredictable and p
+        atternless.
+Player 10 (P10): Sadness, The Winning Strategy
+        On the first round, it betrays. If its losing, it betrays, and if its wi
+        nning it has a 66.67% chance to collude. If the opponent has betrayed in
+         the last 2 rounds or colludes twice in a row, it betrays. Other than th
+        at, it colludes.
+Player 11 (P11): TheThinkR, BrainPower!!!
+        It Uses its Brain Power
+Player 12 (P12): Wyche Winners, Betrayal
+        This strategy will win every round because I am mostly betraying instead
+         of cooperating.
+Player 13 (P13): Mvaiio, Protocol
+        Enemy History
+--------------------------------------------------------------------------------
+Section 1 - Player vs. Player
+--------------------------------------------------------------------------------
+Each column shows pts/round earned against each other player:
+             P0     P1     P2     P3     P4     P5     P6     P7     P8     P9    P10    P11    P12    P13
+vs. P0 :      0    0.0-244.6875 -162.5-247.24409448818898-247.10743801652893-3.883495145631068-245.4198473282443    0.0-203.50877192982455    0.0-3.2663316582914574 -162.5-19.366197183098592
+vs. P1 :    0.0      0-259.1503267973856-170.67307692307693-248.2051282051282-236.5625-3.6036036036036037-240.59405940594058    0.0-341.3888888888889    0.0  -6.25-176.12612612612614-17.36111111111111
+vs. P2 :-248.4375-235.62091503267973      0-489.2086330935252 -250.0-244.9748743718593-497.23756906077347-243.1547619047619-273.2044198895028-325.16129032258067 -245.6-247.01492537313433-498.2758620689655-475.5244755244755
+vs. P3 : -162.5-176.4423076923076893.5251798561151      0-158.28220858895705-63.40782122905028-496.7320261437908597.3529411764706-108.92857142857143-83.78378378378379-148.4076433121019279.79274611398964  100.0-469.82758620689657
+vs. P4 :-251.96850393700788-251.28205128205127 -250.0-165.64417177914112      0 -250.0-5.025125628140704-251.47058823529412-96.08695652173913-197.46835443037975-251.92307692307693-8.620689655172415-164.03508771929825-15.957446808510639
+vs. P5 :-252.06611570247935-251.5625-251.00502512562815-274.5810055865922 -250.0      0-239.0532544378698-248.70466321243524-247.41935483870967-270.5882352941176 -250.0-239.22413793103448-276.3157894736842-278.2608695652174
+vs. P6 :-3.883495145631068-3.603603603603603799.447513812154799.34640522875817-2.010050251256281244.97041420118343      099.24812030075188    0.068.14159292035399    0.096.61016949152543  100.0-14.204545454545455
+vs. P7 : -250.0-252.47524752475246-253.86904761904762-495.5882352941176-247.94117647058823-248.70466321243524-496.2406015037594      0-312.962962962963-327.6536312849162 -250.0-255.43478260869566-495.2247191011236-483.0508474576271
+vs. P8 :    0.0    0.0-213.53591160220995-226.78571428571428-85.65217391304348-193.2258064516129    0.0-157.40740740740742      0-251.4388489208633    0.0-168.53146853146853-237.12871287128712-17.24137931034483
+vs. P9 :-203.50877192982455-118.05555555555556-139.3548387096774-251.35135135135135-193.67088607594937-167.9144385026738-367.2566371681416-139.9441340782123-165.10791366906474      0-199.53271028037383-140.35714285714286-271.484375-313.1868131868132
+vs. P10 :    0.0    0.0 -250.4-175.15923566878982-247.30769230769232-245.23809523809524    0.0-246.20253164556962    0.0-205.14018691588785      0-7.232704402515723 -170.0-15.527950310559007
+vs. P11 :-3.2663316582914574 -21.25-247.01492537313433-476.6839378238342-1.7241379310344827-208.18965517241378-483.0508474576271-239.1304347826087-248.25174825174824-320.35714285714283-3.459119496855346      0-468.503937007874-481.7073170731707
+vs. P12 : -162.5-176.1261261261261497.58620689655173 -500.0-160.52631578947367-59.21052631578947 -500.094.66292134831461-112.37623762376238-55.859375-148.181818181818270.07874015748031      0-476.37795275590554
+vs. P13 :-19.366197183098592-17.3611111111111174.1258741258741268.10344827586206-12.7659574468085129.565217391304348-14.20454545454545579.66101694915254-17.2413793103448346.15384615384615-15.52795031055900778.0487804878048871.65354330708661      0
+TOTAL  :-1557.4969155563326-1503.7794179281875-1744.3328005363876-3220.7255083015225-2105.3298214681204-2090.0001869179714-3106.2877056038833-1641.1034282257847-1581.5795444964062-2468.053070554185-1512.632318504785-751.4017467666554-2647.941066061272-3077.5944919482754
+--------------------------------------------------------------------------------
+Section 2 - Leaderboard
+--------------------------------------------------------------------------------
+Average points per round:
+Team name (P#):  Score      with strategy name
+TheThinkR (P11): -53.671553340475384 points with BrainPower!!!                           
+GACA_FHA  (P1): -107.4128155662991 points with GACA                                    
+Sadness   (P10): -108.04516560748463 points with The Winning Strategy                    
+Better TFT(P0): -111.24977968259519 points with Better Tit for Tat                      
+Judgement (P8): -112.96996746402901 points with Ratio-based choice                      
+I hope I w(P7): -117.22167344469891 points with my_strategy                             
+deez      (P2): -124.5952000383134 points with 99.99% betrayal                         
+Flan      (P5): -149.28572763699796 points with Randomness unless you backstab          
+GameTheory(P4): -150.38070153343716 points with Randomness unless you backstab          
+Perilous P(P9): -176.28950503958464 points with Randomness leaning towards betrays      
+Wyche Winn(P12): -189.13864757580515 points with Betrayal                                
+Mvaiio    (P13): -219.82817799630539 points with Protocol                                
+hallo_Mami(P6): -221.87769325742025 points with bye bye mami backstab if opponent cooper
+Digital De(P3): -230.05182202153733 points with Nice-but-not-nice                       
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+BetterTFT--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'Better TFT' # Only 10 chars displayed.
+strategy_name = 'Better Tit for Tat'
+strategy_description = 'It is Tit for Tat so it picks the move the opponent did last. It also gives out 2 c after a bad pattern repeats. It also changes c,b,c,b loops to b,b,b,b loops'
+
+# NEEDS TO BE RERUN BEFORE EVERY MATCH (global variables need to be reset)
+# NEEDS TO BE RERUN BEFORE EVERY MATCH (global variables need to be reset)
+# NEEDS TO BE RERUN BEFORE EVERY MATCH (global variables need to be reset)
+
+OnceandDone = 0
+times = 1
+betray = 0
+import random
+def move(my_history, their_history, my_score, their_score):
+    # NEEDS TO BE RERUN BEFORE EVERY MATCH (global variables need to be reset)
+    global OnceandDone
+    global times
+    global betray
+    
+    if len(my_history) == 0:
+        return('c')
+
+    if OnceandDone == 1:
+        OnceandDone += 1
+        return('c')
+
+    if len(my_history) >= 5 and times <= 3:
+        if their_history[-4:-1] == my_history[-5:-2] and their_history[-4:-1] != ['c','c','c','c']:
+            OnceandDone = 1
+            times += 1
+            return('c')
+
+    if betray >= 1:
+        if betray == 1:
+            betray += 1
+            return('b')
+        if their_history[-1] == 'c':
+            betray = 0
+            OnceandDone = 1
+            return('c')
+        else:
+            return('b')
+            
+    if len(my_history) >= 5 and times > 3:
+        if their_history[-4:-1] == my_history[-5:-2] and their_history[-4:-1] == ['b','c','b','c']:
+            betray = 1
+            return('b')
+
+    if their_history[-1] == 'b':
+        return('b')
+    if their_history[-1] == 'c':
+        return('c')
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+CrashProne--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'GACA_FHA' # Only 10 chars displayed.
+strategy_name = 'GACA'
+strategy_description = "Returns c, if the opponent's history indicates that they have returned b for a while the GACA will also return b."
+import random
+def move(my_history, their_history, my_score, their_score):
+    if(len(my_history) == 0):
+       return('c')
+    else:
+       b_tot = their_history.count('b')
+       c_tot = their_history.count('c')
+       if(b_tot > c_tot):
+         return('b')
+       else:
+         return('c')
+       if(their_history[-5] == 'b''b''b''b''b'):
+         return('c')
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+Deez--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: "deez"
+#     strategy_name: "99.99% betrayal"
+#     strategy_description: "will betray you 99.99% of the time"
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'deez' # Only 10 chars displayed.
+strategy_name = '99.99% betrayal'
+strategy_description = 'will betray you 99.99% of the time'
+
+import random
+def move(my_history, their_history, my_score, their_score):
+  if random.randint(0,100) >1 :
+    return('b')
+  else:
+    return('c')
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+DigitalDestroyers--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'Digital Destroyers' # Only 10 chars displayed.
+strategy_name = 'Nice-but-not-nice'
+strategy_description = 'The first output is always to collude. As it analyses its history, it tries to be nice after betraying five times at most. But the strategy of the program is to be nice but not gullible, so it also betrays back after the opponent betrays twice continuously. Just so that the program doesnt get into a loop, there is also a random choice in which it will pick betray 3 out of 5 times.'
+import random
+def move(my_history, their_history, my_score, their_score):
+    list1=['b', 'c', 'b', 'c', 'b']
+    
+    if len(my_history)>=5 and my_history[-5:]==['b', 'b', 'b', 'b', 'b']:
+        return 'c'
+    
+    if len(my_history)==0:
+        return 'c'
+    
+    else:
+        if their_history[-1]=='c':
+            return 'b'
+        elif len(their_history) >=2 and their_history[-2:]==['b', 'b']:
+            return 'b'
+        elif len(their_history) >=2 and (their_history[-2:]==['c', 'b']) or (their_history[-2:]==['b', 'c']):
+            return random.choice(list1)
+        else:
+            return 'c'
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+Jonas--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+team_name = 'GameTheory' # Only 10 chars displayed.
+strategy_name = 'Randomness unless you backstab'
+strategy_description = 'If the opponent colludes than the algorithm randomly selects c or b for the next round. If the opponent backstabs, than the algorithm will always backstab back. '
+
+import random
+
+def move(my_history, their_history, my_score, their_score):
+  if len(my_history)==0:
+    return('b')
+  elif len(their_history) >3 and their_history == ['b','c','b']:
+    return('c')
+  elif 'b' in their_history[-1:]:
+    return('b')
+  elif their_history[-2:] == 'c':
+    return ('b')
+  elif their_history[-2:] == 'b':
+    return 'b'
+  else:
+    return('c')
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+flan--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+team_name = 'Flan' # Only 10 chars displayed.
+strategy_name = 'Randomness unless you backstab'
+strategy_description = 'If the opponent colludes than the algorithm randomly selects c or b for the next round. If the opponent backstabs, than the algorithm will always backstab back. '
+
+import random
+
+def move(my_history, their_history, my_score, their_score):
+    ''' Arguments accepted: my_history, their_history are strings.
+    my_score, their_score are ints.
+    
+    Make my move.
+    Returns 'c' or 'b'. 
+    '''
+
+    # my_history: a string with one letter (c or b) per round that has been played with this opponent.
+    # their_history: a string of the same length as history, possibly empty. 
+    # The first round between these two players is my_history[0] and their_history[0].
+    # The most recent round is my_history[-1] and their_history[-1].
+    
+    # Analyze my_history and their_history and/or my_score and their_score.
+    # Decide whether to return 'c' or 'b'.
+    if len(my_history) == 0:
+        return random.choice(['c','b'])
+    elif their_history[-1] == 'b':
+        return 'b'
+    else:
+        return random.choice(['c','b'])
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+HalloMami--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'hallo_Mami' # Only 10 chars displayed.
+strategy_name = 'bye bye mami backstab if opponent cooperating, be random otherwise'
+strategy_description = 'Will take advantage of cooperative programs. Will also use the power of randomness with evens and odds determining cooperation or backstabbing'
+
+import random
+def move(my_history, their_history, my_score, their_score):
+ 
+      number = random.randint(0,623)
+
+      if my_history[-1:] == ('c'):
+            return('c')
+        
+      elif len(their_history) >= 2 and their_history[-2:] == ['c','c']:
+            return('b')
+        
+      elif number % 2 == 0:
+            return('b')
+        
+      else:
+            return('c')
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+IHopeIWin--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'I hope I win' # Only 10 chars displayed.
+strategy_name = 'my_strategy'
+strategy_description = 'How does this strategy decide?'
+import random
+def move(my_history, their_history, my_score, their_score):
+    if len(my_history) == 0:
+        pick = "c"
+        return pick
+    elif my_score > their_score + 600 and their_history[-5:-1] == ["c", "c", "c", "c", "c"]:
+        pick = "c"
+        return pick
+    else:
+        pick = "b"
+        return pick
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+Judgement--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+import random
+
+team_name = 'Judgement' # Only 10 chars displayed.
+strategy_name = 'Ratio-based choice'
+strategy_description = 'If the opponent has mostly cooperated, cooperate back. Otherwise, backstab.'
+    
+def move(my_history, their_history, my_score, their_score):
+   if len(my_history) < 5:
+      return('c')
+   else:
+      theirC = their_history.count('c')
+      theirB = their_history.count('b')
+      if theirC > 0 and theirB > 0:
+        theirRatio = theirC / theirB
+        if theirRatio >= 1.5:
+          pick = random.choice(('b','c','c','c','c'))
+          return(pick)
+        else:
+          pick = random.choice(('b','b','b','b','c'))
+          return(pick)
+      elif theirC == 0:
+        return('b')
+      elif theirB == 0:
+        return('c')
+      else:
+        return('b')
+
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')             
+--------------------------------------------------------------------------------
+PerilousPlum--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'Perilous Plum' # Only 10 chars displayed.
+strategy_name = 'Randomness leaning towards betrays'
+strategy_description = 'The first output starts with a betray and attacks from the start. From there, many of the rounds (including every 20 rounds) pull from a random list that favors betraying over colluding, making it unpredictable and patternless.'
+import random
+
+def move(my_history, their_history, my_score, their_score):
+  list1 = ['b', 'b', 'b', 'c', 'c']
+  list2 = ['b', 'b', 'c']
+  if len(my_history) == 0:
+    return('b')
+  if len(my_history) == 1:
+    return random.choice(list1)
+  if len(my_history) >= 3:
+    return random.choice(list2)
+  if len(my_history)%20 == 0:
+      return random.choice(list1)
+  if their_history[-1] == 'c':
+    return 'c'
+  if their_history[-1]== 'b':
+    return 'b'
+  if their_history[-2]=='b':
+    return 'b'
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+Sadness--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'Sadness' # Only 10 chars displayed.
+strategy_name = 'The Winning Strategy'
+strategy_description = 'On the first round, it betrays. If its losing, it betrays, and if its winning it has a 66.67% chance to collude. If the opponent has betrayed in the last 2 rounds or colludes twice in a row, it betrays. Other than that, it colludes.'
+import random
+def move(my_history, their_history, my_score, their_score):
+      if their_score > my_score:
+            return 'b'
+      elif my_score > (their_score + 600):
+            return random.choice(('b','c','c'))
+      else:
+        if len(my_history) == 0:
+          return('c')
+        elif their_history[-1] == 'b':
+          return('b')
+        elif len(their_history) > 2 and their_history[-2] == 'b':
+          return('b')
+        elif len(their_history) > 1 and their_history[-2:] == ['c','c']:
+          return('b')
+        else:
+          return('c')
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+TheThinkR--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'TheThinkR' # Only 10 chars displayed.
+strategy_name = 'BrainPower!!!'
+strategy_description = 'It Uses its Brain Power'
+import random
+def move(my_history, their_history, my_score, their_score):
+  if their_history[-2:]==['c','c'] and 'b' in their_history:
+    return('c')
+  elif their_history.count('b')>=6:
+    return('b')
+  elif len(my_history)<=2 and 'b' in their_history:
+    return('b')
+  elif their_history[-2:]==['b','b']:
+    return('b')
+  elif len(their_history)>3 and 'b' not in their_history:
+    return('b')
+  else:
+    return('c')
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+WycheWinners--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'Wyche Winners' 
+strategy_name = 'Betrayal'
+strategy_description = 'This strategy will win every round because I am mostly betraying instead of cooperating.'
+import random
+def move(my_history, their_history, my_score, their_score):
+    if len(my_history) ==0:
+        return('b')
+    elif their_history[-1]=='c':
+        return('b')
+    else:
+        return('c')
+        
+    if their_history[-2] == 'b':
+        pick = random.choice(('b','c'))
+        return(pick)
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+IMLOSING--------------------------------------------------------------------------------
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+team_name = 'Mvaiio' # Only 10 chars displayed.
+strategy_name = 'Protocol'
+strategy_description = 'Enemy History'
+import random
+def move(my_history, their_history, my_score, their_score):
+   if len(my_history) ==0:
+      return('c')
+   elif len(my_history)>10:
+      if their_history[-10:] ==['c','c','c','c','c','c','c','c','c','c']:
+         return('b')
+      else:
+         return('c')
+
+    
+def test_move(my_history, their_history, my_score, their_score, result):
+    '''calls move(my_history, their_history, my_score, their_score)
+    from this module. Prints error if return value != result.
+    Returns True or False, dpending on whether result was as expected.
+    '''
+    real_result = move(my_history, their_history, my_score, their_score)
+    if real_result == result:
+        return True
+    else:
+        print("move(" +
+            ", ".join(["'"+my_history+"'", "'"+their_history+"'",
+                       str(my_score), str(their_score)])+
+            ") returned " + "'" + real_result + "'" +
+            " and should have returned '" + result + "'")
+        return False
+
+if __name__ == '__main__':
+     
+    # Test 1: Betray on first move.
+    if test_move(my_history='',
+              their_history='', 
+              my_score=0,
+              their_score=0,
+              result='b'):
+         print('Test passed')
+     # Test 2: Continue betraying if they collude despite being betrayed.
+    test_move(my_history='bbb',
+              their_history='ccc', 
+              # Note the scores are for testing move().
+              # The history and scores don't need to match unless
+              # that is relevant to the test of move(). Here,
+              # the simulation (if working correctly) would have awarded 
+              # 300 to me and -750 to them. This test will pass if and only if
+              # move('bbb', 'ccc', 0, 0) returns 'b'.
+              my_score=0, 
+              their_score=0,
+              result='b')     
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Better TFT
+--------------------------------------------------------------------------------
+0.0 pt/round: Better TFT(P0) "Better Tit for Tat"
+0.0 pt/round: GACA_FHA(P1) "GACA"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-248.4375 pt/round: Better TFT(P0) "Better Tit for Tat"
+-244.6875 pt/round: deez(P2) "99.99% betrayal"
+cbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbbBcbbbbbbbbbbbBcbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbbcBbbbbbbbbbbbcBbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-162.5 pt/round: Better TFT(P0) "Better Tit for Tat"
+-162.5 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+CcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbB
+CBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbc
+
+CcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbB
+CBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbc
+
+--------------------------------------------------------------------------------
+-251.96850393700788 pt/round: Better TFT(P0) "Better Tit for Tat"
+-247.24409448818898 pt/round: GameTheory(P4) "Randomness unless you backstab"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-252.06611570247935 pt/round: Better TFT(P0) "Better Tit for Tat"
+-247.10743801652893 pt/round: Flan(P5) "Randomness unless you backstab"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-3.883495145631068 pt/round: Better TFT(P0) "Better Tit for Tat"
+-3.883495145631068 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+cBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+BcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Better TFT(P0) "Better Tit for Tat"
+-245.4198473282443 pt/round: I hope I win(P7) "my_strategy"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Better TFT(P0) "Better Tit for Tat"
+0.0 pt/round: Judgement(P8) "Ratio-based choice"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-203.50877192982455 pt/round: Better TFT(P0) "Better Tit for Tat"
+-203.50877192982455 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+cbbbbbbbBCcbbBCcbbbBcbBcBcbbbBcbbbbBcbBcbbBcbbBcbBCCcbbbBCCCcbbbbBcbBCCcbbbBcbbb
+BbbbbbbbcCBbbcCBbbbcBbcBcBbbbcBbbbbcBbcBbbcBbbcBbcCCBbbbcCCCBbbbbcBbcCCBbbbcBbbb
+
+BCcbbBcbbBcbbbBcbbbBCCcbBcbbBcbbbB
+cCBbbcBbbcBbbbcBbbbcCCBbcBbbcBbbbc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Better TFT(P0) "Better Tit for Tat"
+0.0 pt/round: Sadness(P10) "The Winning Strategy"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-3.2663316582914574 pt/round: Better TFT(P0) "Better Tit for Tat"
+-3.2663316582914574 pt/round: TheThinkR(P11) "BrainPower!!!"
+CCCCcbBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCBbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-162.5 pt/round: Better TFT(P0) "Better Tit for Tat"
+-162.5 pt/round: Wyche Winners(P12) "Betrayal"
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+
+cbBCcbBCcbBCcbBCcbBCcbBC
+BbcCBbcCBbcCBbcCBbcCBbcC
+
+--------------------------------------------------------------------------------
+-19.366197183098592 pt/round: Better TFT(P0) "Better Tit for Tat"
+-19.366197183098592 pt/round: Mvaiio(P13) "Protocol"
+Cc          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C          cCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team GACA_FHA
+--------------------------------------------------------------------------------
+0.0 pt/round: GACA_FHA(P1) "GACA"
+0.0 pt/round: Better TFT(P0) "Better Tit for Tat"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-235.62091503267973 pt/round: GACA_FHA(P1) "GACA"
+-259.1503267973856 pt/round: deez(P2) "99.99% betrayal"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbb
+
+bbbbbbbbbbbbbbbbBbbbbbbbBbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbb
+bbbbbbbbbbbbbbbbcbbbbbbbcbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbb
+
+--------------------------------------------------------------------------------
+-176.44230769230768 pt/round: GACA_FHA(P1) "GACA"
+-170.67307692307693 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+CccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCc
+CBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCB
+
+cbBBCccbBBCccbBBCccbBBCc
+BbccCBBbccCBBbccCBBbccCB
+
+--------------------------------------------------------------------------------
+-251.28205128205127 pt/round: GACA_FHA(P1) "GACA"
+-248.2051282051282 pt/round: GameTheory(P4) "Randomness unless you backstab"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.5625 pt/round: GACA_FHA(P1) "GACA"
+-236.5625 pt/round: Flan(P5) "Randomness unless you backstab"
+CcCCcccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBCCBBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-3.6036036036036037 pt/round: GACA_FHA(P1) "GACA"
+-3.6036036036036037 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+cBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+BcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-252.47524752475246 pt/round: GACA_FHA(P1) "GACA"
+-240.59405940594058 pt/round: I hope I win(P7) "my_strategy"
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: GACA_FHA(P1) "GACA"
+0.0 pt/round: Judgement(P8) "Ratio-based choice"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-118.05555555555556 pt/round: GACA_FHA(P1) "GACA"
+-341.3888888888889 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+cBcBcbBbbBBbbbbBBbbbBbbbbBbbBBbBbbbbbBbBBbbbbbbbbbbBbbBbbBbbbbbbbBBBbbBbbbBBBbbb
+BcBcBbcbbccbbbbccbbbcbbbbcbbccbcbbbbbcbccbbbbbbbbbbcbbcbbcbbbbbbbcccbbcbbbcccbbb
+
+bBbbbBbbBbbBbbBBBBbBBbBbbBbBbbbBBbbbbBbBBBbBbBBBbbBBBbBbbBbbBBbbBbbbBbBBBbbbbbBB
+bcbbbcbbcbbcbbccccbccbcbbcbcbbbccbbbbcbcccbcbcccbbcccbcbbcbbccbbcbbbcbcccbbbbbcc
+
+bBBbBBbbbBbbBbBbbBbb
+bccbccbbbcbbcbcbbcbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: GACA_FHA(P1) "GACA"
+0.0 pt/round: Sadness(P10) "The Winning Strategy"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-21.25 pt/round: GACA_FHA(P1) "GACA"
+-6.25 pt/round: TheThinkR(P11) "BrainPower!!!"
+CCCCcccccbBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCBBBBBbccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-176.12612612612614 pt/round: GACA_FHA(P1) "GACA"
+-176.12612612612614 pt/round: Wyche Winners(P12) "Betrayal"
+cbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccb
+BbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBb
+
+BBCccbBBCccbBBCccbBBCccbBBCccbB
+ccCBBbccCBBbccCBBbccCBBbccCBBbc
+
+--------------------------------------------------------------------------------
+-17.36111111111111 pt/round: GACA_FHA(P1) "GACA"
+-17.36111111111111 pt/round: Mvaiio(P13) "Protocol"
+CccccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team deez
+--------------------------------------------------------------------------------
+-244.6875 pt/round: deez(P2) "99.99% betrayal"
+-248.4375 pt/round: Better TFT(P0) "Better Tit for Tat"
+BbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBbbbbbcBbbbbbbbbbbbcBbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcbbbbbBcbbbbbbbbbbbBcbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-259.1503267973856 pt/round: deez(P2) "99.99% betrayal"
+-235.62091503267973 pt/round: GACA_FHA(P1) "GACA"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbb
+
+bbbbbbbbbbbbbbbbcbbbbbbbcbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbb
+bbbbbbbbbbbbbbbbBbbbbbbbBbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbb
+
+--------------------------------------------------------------------------------
+93.5251798561151 pt/round: deez(P2) "99.99% betrayal"
+-489.2086330935252 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+BBBBBBBBBBBBBCbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCbBBBBBBBBB
+cccccccccccccCbccccccccccccccccccccccccccccccccccccccccccccccccccccccCbccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: deez(P2) "99.99% betrayal"
+-250.0 pt/round: GameTheory(P4) "Randomness unless you backstab"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-251.00502512562815 pt/round: deez(P2) "99.99% betrayal"
+-244.9748743718593 pt/round: Flan(P5) "Randomness unless you backstab"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbcBbbbbbbbbbbbcBbbbbbbbbbbbcb
+bbbbbbbbbbbBcbbbbbbbbbbbBcbbbbbbbbbbbBb
+
+--------------------------------------------------------------------------------
+99.4475138121547 pt/round: deez(P2) "99.99% betrayal"
+-497.23756906077347 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBCBBBB
+ccccccccccccccccCcccc
+
+--------------------------------------------------------------------------------
+-253.86904761904762 pt/round: deez(P2) "99.99% betrayal"
+-243.1547619047619 pt/round: I hope I win(P7) "my_strategy"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbcb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbBb
+
+bbbbbbbbcbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbBbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbb
+bbbbbbbb
+
+--------------------------------------------------------------------------------
+-213.53591160220995 pt/round: deez(P2) "99.99% betrayal"
+-273.2044198895028 pt/round: Judgement(P8) "Ratio-based choice"
+BBBBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cccccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbBbcbcbbBbBBbbBbBbBbBbbbBbbbbbbbBbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbcbBbBbbcbccbbcbcbcbcbbbcbbbbbbbcbb
+
+bbBBbBbbbbbbbbBBbbBbb
+bbccbcbbbbbbbbccbbcbb
+
+--------------------------------------------------------------------------------
+-139.3548387096774 pt/round: deez(P2) "99.99% betrayal"
+-325.16129032258067 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+bbbbbbbbbBbbBBBbBbBbbbBBbbBbbbbbbBbbbBBbbbbbbbbbbbbbBbbbBbbBbBBBbBbbbbBbBbbbbbBb
+bbbbbbbbbcbbcccbcbcbbbccbbcbbbbbbcbbbccbbbbbbbbbbbbbcbbbcbbcbcccbcbbbbcbcbbbbbcb
+
+bbbBbbBbBbbbBbBbbbbBbbBbbBBBbbcBBbBbbBbBbbBbbbBbBbBbBbBbBbCBbbBBbbBbbbbBbbb
+bbbcbbcbcbbbcbcbbbbcbbcbbcccbbBccbcbbcbcbbcbbbcbcbcbcbcbcbCcbbccbbcbbbbcbbb
+
+--------------------------------------------------------------------------------
+-250.4 pt/round: deez(P2) "99.99% betrayal"
+-245.6 pt/round: Sadness(P10) "The Winning Strategy"
+Bbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-247.01492537313433 pt/round: deez(P2) "99.99% betrayal"
+-247.01492537313433 pt/round: TheThinkR(P11) "BrainPower!!!"
+BbbBBBbbbbbbbbbbcbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbb
+cbbcccbbbbbbbbbbBbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+97.58620689655173 pt/round: deez(P2) "99.99% betrayal"
+-498.2758620689655 pt/round: Wyche Winners(P12) "Betrayal"
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+74.12587412587412 pt/round: deez(P2) "99.99% betrayal"
+-475.5244755244755 pt/round: Mvaiio(P13) "Protocol"
+BbbbbbbbbbbCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCBBBB
+c          CcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccCcccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Digital Destroyers
+--------------------------------------------------------------------------------
+-162.5 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+-162.5 pt/round: Better TFT(P0) "Better Tit for Tat"
+CBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbc
+CcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbB
+
+CBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbc
+CcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbB
+
+--------------------------------------------------------------------------------
+-170.67307692307693 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+-176.44230769230768 pt/round: GACA_FHA(P1) "GACA"
+CBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCB
+CccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCc
+
+BbccCBBbccCBBbccCBBbccCB
+cbBBCccbBBCccbBBCccbBBCc
+
+--------------------------------------------------------------------------------
+-489.2086330935252 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+93.5251798561151 pt/round: deez(P2) "99.99% betrayal"
+cccccccccccccCbccccccccccccccccccccccccccccccccccccccccccccccccccccccCbccccccccc
+BBBBBBBBBBBBBCbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCbBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-165.64417177914112 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+-158.28220858895705 pt/round: GameTheory(P4) "Randomness unless you backstab"
+ccCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+BBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+
+bcC
+bBC
+
+--------------------------------------------------------------------------------
+-274.5810055865922 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+-63.40782122905028 pt/round: Flan(P5) "Randomness unless you backstab"
+CBbccCbcccccCbcccCbcccCBbccCbcCbcCbcCBbccCBbcccCBbccCbcCBbccCBbccCbcccccCBbccCbc
+CcbBBCbBBBBBCbBBBCbBBBCcbBBCbBCbBCbBCcbBBCcbBBBCcbBBCbBCcbBBCcbBBCbBBBBBCcbBBCbB
+
+cccCBbcccCbccCBbcccCBbcCBbccCBbccCBbccCBbcccccCBbcccCbccCBbcCBbccCbccccCBbcCBbcC
+BBBCcbBBBCbBBCcbBBBCcbBCcbBBCcbBBCcbBBCcbBBBBBCcbBBBCbBBCcbBCcbBBCbBBBBCcbBCcbBC
+
+bcCbcCbcCbccccCBbcc
+bBCbBCbBCbBBBBCcbBB
+
+--------------------------------------------------------------------------------
+99.34640522875817 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+-496.73202614379085 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+CBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-495.5882352941176 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+97.3529411764706 pt/round: I hope I win(P7) "my_strategy"
+Cbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+CbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccc
+BBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-226.78571428571428 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+-108.92857142857143 pt/round: Judgement(P8) "Ratio-based choice"
+CBBBBbCBbcccccccCbcCBBBbccCbCbcccCBbCbccCbcccCBbccCBbccCBbCbCbccCBbCbCbccccCbcCB
+CccccbCcbBBBBBBBCbBCcccbBBCbCbBBBCcbCbBBCbBBBCcbBBCcbBBCcbCbCbBBCcbCbCbBBBBCbBCc
+
+bCbCBbccccCBBbccccCBBbccCBBbcccc
+bCbCcbBBBBCccbBBBBCccbBBCccbBBBB
+
+--------------------------------------------------------------------------------
+-251.35135135135135 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+-83.78378378378379 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+ccCBbcccCbccCBbcccCBbcccCbccccCBBbCbcccCbCBBBbcccCBBBbCBBBbccccCBbcCbcCbCbCbcccc
+BBCcbBBBCbBBCcbBBBCcbBBBCbBBBBCccbCbBBBCbCcccbBBBCcccbCcccbBBBBCcbBCbBCbCbCbBBBB
+
+ccCbcccccccCbCbCBbccCbccCbCbCbc
+BBCbBBBBBBBCbCbCcbBBCbBBCbCbCbB
+
+--------------------------------------------------------------------------------
+-175.15923566878982 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+-148.40764331210192 pt/round: Sadness(P10) "The Winning Strategy"
+CBbccCBbcccccCbCBBBBbccCbCBBbcCbCBbcCBbcCbCbCBbcCbCBbcCbcCBbcCBBbcCBbcCBbccCBbCB
+CcbBBCcbBBBBBCbCccccbBBCbCccbBCbCcbBCcbBCbCbCcbBCbCcbBCbBCcbBCccbBCcbBCcbBBCcbCc
+
+bcCBbcCBbccCbcCBbCBBbcCbccCBbCBBbcCbCBbcCBbcCBbcCBbcCBbcCbCBbcCBbcCBbcccCbccc
+bBCcbBCcbBBCbBCcbCccbBCbBBCcbCccbBCbCcbBCcbBCcbBCcbBCcbBCbCcbBCcbBCcbBBBCbBBB
+
+--------------------------------------------------------------------------------
+-476.6839378238342 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+79.79274611398964 pt/round: TheThinkR(P11) "BrainPower!!!"
+CBbCBBBBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+CcbCccccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-500.0 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+100.0 pt/round: Wyche Winners(P12) "Betrayal"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+68.10344827586206 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+-469.82758620689657 pt/round: Mvaiio(P13) "Protocol"
+CbcccccccccCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+C          Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team GameTheory
+--------------------------------------------------------------------------------
+-247.24409448818898 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-251.96850393700788 pt/round: Better TFT(P0) "Better Tit for Tat"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-248.2051282051282 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-251.28205128205127 pt/round: GACA_FHA(P1) "GACA"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-250.0 pt/round: deez(P2) "99.99% betrayal"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-158.28220858895705 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-165.64417177914112 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+BBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+ccCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+
+bBC
+bcC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-250.0 pt/round: Flan(P5) "Randomness unless you backstab"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-2.0100502512562812 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-5.025125628140704 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+bbBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-247.94117647058823 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-251.47058823529412 pt/round: I hope I win(P7) "my_strategy"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbb
+bbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-85.65217391304348 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-96.08695652173913 pt/round: Judgement(P8) "Ratio-based choice"
+BBCCCCCCCCCcBCCCCcBCCcBCCCcBCCCCcbBcBcBCcBCCcBCCcBcbBCCCCcbBcBCCcBCCCCCCCCCCCCCC
+ccCCCCCCCCCBcCCCCBcCCBcCCCBcCCCCBbcBcBcCBcCCBcCCBcBbcCCCCBbcBcCCBcCCCCCCCCCCCCCC
+
+CCCcbbBcBCCCcBCCcBCCCcBcBCCCCcBcBCC
+CCCBbbcBcCCCBcCCBcCCCBcBcCCCCBcBcCC
+
+--------------------------------------------------------------------------------
+-193.67088607594937 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-197.46835443037975 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+bbbbbBcBcbBcbbbbbbbBCCcbBcBcBcbBCCCCcBCcBCcbbBCcbbbbBcBcBcBCcbBCcbbbbbbbbbbbbbbb
+bbbbbcBcBbcBbbbbbbbcCCBbcBcBcBbcCCCCBcCBcCBbbcCBbbbbcBcBcBcCBbcCBbbbbbbbbbbbbbbb
+
+bBCcBCcbbbbBcbBCcBCcBcbBcBCcbBcBcbbbbbbbbbbbBcbBCcbbBCCcbbbbBcBcBcbbbbbBCCcbbB
+bcCBcCBbbbbcBbcCBcCBcBbcBcCBbcBcBbbbbbbbbbbbcBbcCBbbcCCBbbbbcBcBcBbbbbbcCCBbbc
+
+--------------------------------------------------------------------------------
+-247.30769230769232 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-251.92307692307693 pt/round: Sadness(P10) "The Winning Strategy"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-1.7241379310344827 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-8.620689655172415 pt/round: TheThinkR(P11) "BrainPower!!!"
+BbbBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+cbbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCC
+CCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-160.52631578947367 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-164.03508771929825 pt/round: Wyche Winners(P12) "Betrayal"
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+
+bBCcbBCcbBC
+bcCBbcCBbcC
+
+--------------------------------------------------------------------------------
+-12.76595744680851 pt/round: GameTheory(P4) "Randomness unless you backstab"
+-15.957446808510639 pt/round: Mvaiio(P13) "Protocol"
+BbcccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+c          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Flan
+--------------------------------------------------------------------------------
+-247.10743801652893 pt/round: Flan(P5) "Randomness unless you backstab"
+-252.06611570247935 pt/round: Better TFT(P0) "Better Tit for Tat"
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-236.5625 pt/round: Flan(P5) "Randomness unless you backstab"
+-251.5625 pt/round: GACA_FHA(P1) "GACA"
+CBCCBBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CcCCcccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-244.9748743718593 pt/round: Flan(P5) "Randomness unless you backstab"
+-251.00502512562815 pt/round: deez(P2) "99.99% betrayal"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBcb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcBb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbBcbbbbbbbbbbbBcbbbbbbbbbbbBb
+bbbbbbbbbbbcBbbbbbbbbbbbcBbbbbbbbbbbbcb
+
+--------------------------------------------------------------------------------
+-63.40782122905028 pt/round: Flan(P5) "Randomness unless you backstab"
+-274.5810055865922 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+CcbBBCbBBBBBCbBBBCbBBBCcbBBCbBCbBCbBCcbBBCcbBBBCcbBBCbBCcbBBCcbBBCbBBBBBCcbBBCbB
+CBbccCbcccccCbcccCbcccCBbccCbcCbcCbcCBbccCBbcccCBbccCbcCBbccCBbccCbcccccCBbccCbc
+
+BBBCcbBBBCbBBCcbBBBCcbBCcbBBCcbBBCcbBBCcbBBBBBCcbBBBCbBBCcbBCcbBBCbBBBBCcbBCcbBC
+cccCBbcccCbccCBbcccCBbcCBbccCBbccCBbccCBbcccccCBbcccCbccCBbcCBbccCbccccCBbcCBbcC
+
+bBCbBCbBCbBBBBCcbBB
+bcCbcCbcCbccccCBbcc
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Flan(P5) "Randomness unless you backstab"
+-250.0 pt/round: GameTheory(P4) "Randomness unless you backstab"
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+44.97041420118343 pt/round: Flan(P5) "Randomness unless you backstab"
+-239.0532544378698 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+cBBCBCCCCCCBBCCBBBCBBBCCCBBCCBCCBCBBBBBCCCBCBCBCBCBBCBBBCCBBCBCCCBCCBBBCBCBBBCBC
+BccCcCCCCCCccCCcccCcccCCCccCCcCCcCcccccCCCcCcCcCcCccCcccCCccCcCCCcCCcccCcCcccCcC
+
+BCBCCCBCBCCBCBBBCBCCCBCBBCCCCBCCBCCCBBBCBCCBCBCBCBBCCBCCBCCBBCCCCBBBCBBBBBBCBCCC
+cCcCCCcCcCCcCcccCcCCCcCccCCCCcCCcCCCcccCcCCcCcCcCccCCcCCcCCccCCCCcccCccccccCcCCC
+
+CBCCBCBCC
+CcCCcCcCC
+
+--------------------------------------------------------------------------------
+-248.70466321243524 pt/round: Flan(P5) "Randomness unless you backstab"
+-248.70466321243524 pt/round: I hope I win(P7) "my_strategy"
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-193.2258064516129 pt/round: Flan(P5) "Randomness unless you backstab"
+-247.41935483870967 pt/round: Judgement(P8) "Ratio-based choice"
+CBBCBCCcBbbbBbbbbbBbbBCbbBcbbbbbbbbbbbBcbbbBCcbBcbbBCbBcbbbBcbbbbBcbbBBCcbbbbBbb
+CccCcCCBcbbbcbbbbbcbbcCbbcBbbbbbbbbbbbcBbbbcCBbcBbbcCbcBbbbcBbbbbcBbbccCBbbbbcbb
+
+bBcbBcBcbbbbBcbBcbbbbbbbbBcbbbbbbbbbbbbBbbBbbbbBBcbBcbbbbbBcBbbbBbbbbbbbbBc
+bcBbcBcBbbbbcBbcBbbbbbbbbcBbbbbbbbbbbbbcbbcbbbbccBbcBbbbbbcBcbbbcbbbbbbbbcB
+
+--------------------------------------------------------------------------------
+-167.9144385026738 pt/round: Flan(P5) "Randomness unless you backstab"
+-270.5882352941176 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+bbbbBbBbBbbbBcbbbbbbbbBbbBbbBbBbbBcbBbbbBbbbbbbbbbbBcBbBcbbbbbbBcbbbBcBCbbbBbBbb
+bbbbcbcbcbbbcBbbbbbbbbcbbcbbcbcbbcBbcbbbcbbbbbbbbbbcBcbcBbbbbbbcBbbbcBcCbbbcbcbb
+
+bbbbBcbbBbbbBBbBCbbBCcBBCbBcbBcBbbbbbbbBBbbbbBbbBcBBbbbbBcBcbbbBbbbbbBcBCbBcbBCB
+bbbbcBbbcbbbccbcCbbcCBccCbcBbcBcbbbbbbbccbbbbcbbcBccbbbbcBcBbbbcbbbbbcBcCbcBbcCc
+
+BbBcbBcbBCbbbbbbbbBBCcBCcbb
+cbcBbcBbcCbbbbbbbbccCBcCBbb
+
+--------------------------------------------------------------------------------
+-245.23809523809524 pt/round: Flan(P5) "Randomness unless you backstab"
+-250.0 pt/round: Sadness(P10) "The Winning Strategy"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-208.18965517241378 pt/round: Flan(P5) "Randomness unless you backstab"
+-239.22413793103448 pt/round: TheThinkR(P11) "BrainPower!!!"
+CCBBCCCBCCBCCCBCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CCccCCCcCCcCCCcCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-59.21052631578947 pt/round: Flan(P5) "Randomness unless you backstab"
+-276.3157894736842 pt/round: Wyche Winners(P12) "Betrayal"
+bBCbBBBCbBCcbBCbBCcbBCcbBCcbBCbBBBBCcbBBCbBBCcbBBCcbBCbBBBCbBBCbBCcbBBBCcbBCbBBC
+bcCbcccCbcCBbcCbcCBbcCBbcCBbcCbccccCBbccCbccCBbccCBbcCbcccCbccCbcCBbcccCBbcCbccC
+
+bBBBBBCcbBCcbBBCbBCbBCbBBBCbBBBBBBCcbBBBCbBBCbBCcbBCcbBBBCbBBBBCbBBBCcbB
+bcccccCBbcCBbccCbcCbcCbcccCbccccccCBbcccCbccCbcCBbcCBbcccCbccccCbcccCBbc
+
+--------------------------------------------------------------------------------
+29.565217391304348 pt/round: Flan(P5) "Randomness unless you backstab"
+-278.2608695652174 pt/round: Mvaiio(P13) "Protocol"
+CcbbbbcccbcCCBBBCCCBCCBBCBBBCCCBBBCBBCBCBBCCBBCBBBBCCCBBBCCBCBCBBCCBBCCBBBBBBCCC
+C          CCcccCCCcCCccCcccCCCcccCccCcCccCCccCccccCCCcccCCcCcCccCCccCCccccccCCC
+
+CCBBBBCBBBBBCBCCBCBBBBBBCCBCBCCCCBB
+CCccccCcccccCcCCcCccccccCCcCcCCCCcc
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team hallo_Mami
+--------------------------------------------------------------------------------
+-3.883495145631068 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+-3.883495145631068 pt/round: Better TFT(P0) "Better Tit for Tat"
+BcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+cBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-3.6036036036036037 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+-3.6036036036036037 pt/round: GACA_FHA(P1) "GACA"
+BcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+cBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-497.23756906077347 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+99.4475138121547 pt/round: deez(P2) "99.99% betrayal"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccCcccc
+BBBBBBBBBBBBBBBBCBBBB
+
+--------------------------------------------------------------------------------
+-496.73202614379085 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+99.34640522875817 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+CBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-5.025125628140704 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+-2.0100502512562812 pt/round: GameTheory(P4) "Randomness unless you backstab"
+bbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+bbBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-239.0532544378698 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+44.97041420118343 pt/round: Flan(P5) "Randomness unless you backstab"
+BccCcCCCCCCccCCcccCcccCCCccCCcCCcCcccccCCCcCcCcCcCccCcccCCccCcCCCcCCcccCcCcccCcC
+cBBCBCCCCCCBBCCBBBCBBBCCCBBCCBCCBCBBBBBCCCBCBCBCBCBBCBBBCCBBCBCCCBCCBBBCBCBBBCBC
+
+cCcCCCcCcCCcCcccCcCCCcCccCCCCcCCcCCCcccCcCCcCcCcCccCCcCCcCCccCCCCcccCccccccCcCCC
+BCBCCCBCBCCBCBBBCBCCCBCBBCCCCBCCBCCCBBBCBCCBCBCBCBBCCBCCBCCBBCCCCBBBCBBBBBBCBCCC
+
+CcCCcCcCC
+CBCCBCBCC
+
+--------------------------------------------------------------------------------
+-496.2406015037594 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+99.24812030075188 pt/round: I hope I win(P7) "my_strategy"
+Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+CBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+0.0 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+0.0 pt/round: Judgement(P8) "Ratio-based choice"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-367.2566371681416 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+68.14159292035399 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+bbccccccccccCCcCcccccccccccCCcCcCCccccCCcccCcccccCCcccccccccCcccCccccccccCccCcCC
+bbBBBBBBBBBBCCBCBBBBBBBBBBBCCBCBCCBBBBCCBBBCBBBBBCCBBBBBBBBBCBBBCBBBBBBBBCBBCBCC
+
+CcccccccccCcCCCcCCcccCCccccccCccc
+CBBBBBBBBBCBCCCBCCBBBCCBBBBBBCBBB
+
+--------------------------------------------------------------------------------
+0.0 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+0.0 pt/round: Sadness(P10) "The Winning Strategy"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-483.0508474576271 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+96.61016949152543 pt/round: TheThinkR(P11) "BrainPower!!!"
+CCCCcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+CCCCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-500.0 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+100.0 pt/round: Wyche Winners(P12) "Betrayal"
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-14.204545454545455 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+-14.204545454545455 pt/round: Mvaiio(P13) "Protocol"
+CccccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team I hope I win
+--------------------------------------------------------------------------------
+-245.4198473282443 pt/round: I hope I win(P7) "my_strategy"
+-250.0 pt/round: Better TFT(P0) "Better Tit for Tat"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-240.59405940594058 pt/round: I hope I win(P7) "my_strategy"
+-252.47524752475246 pt/round: GACA_FHA(P1) "GACA"
+CBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-243.1547619047619 pt/round: I hope I win(P7) "my_strategy"
+-253.86904761904762 pt/round: deez(P2) "99.99% betrayal"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbBb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbcb
+
+bbbbbbbbBbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbcbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbb
+bbbbbbbb
+
+--------------------------------------------------------------------------------
+97.3529411764706 pt/round: I hope I win(P7) "my_strategy"
+-495.5882352941176 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+CbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Cbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBB
+cccccccccc
+
+--------------------------------------------------------------------------------
+-251.47058823529412 pt/round: I hope I win(P7) "my_strategy"
+-247.94117647058823 pt/round: GameTheory(P4) "Randomness unless you backstab"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbb
+bbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-248.70466321243524 pt/round: I hope I win(P7) "my_strategy"
+-248.70466321243524 pt/round: Flan(P5) "Randomness unless you backstab"
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+99.24812030075188 pt/round: I hope I win(P7) "my_strategy"
+-496.2406015037594 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+CBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-157.40740740740742 pt/round: I hope I win(P7) "my_strategy"
+-312.962962962963 pt/round: Judgement(P8) "Ratio-based choice"
+CBBBBbbbBbbbbbbbbbbbbBBbBbBbbbbbbBbBbbbBbbBbbbBbbBbbbbbbbbBbbbbBbbbbBbbBbbbbbbbB
+Cccccbbbcbbbbbbbbbbbbccbcbcbbbbbbcbcbbbcbbcbbbcbbcbbbbbbbbcbbbbcbbbbcbbcbbbbbbbc
+
+bBbBbbbbBbBBBBbbbBbBbbBbbBbbbbbBBbbbbbBbbbbbbbbbbbbbbbB
+bcbcbbbbcbccccbbbcbcbbcbbcbbbbbccbbbbbcbbbbbbbbbbbbbbbc
+
+--------------------------------------------------------------------------------
+-139.9441340782123 pt/round: I hope I win(P7) "my_strategy"
+-327.6536312849162 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+cbbbbbbBbbbbbbbbBbBBBBBbbBbbBbBbbbBbbbbbBbBBbBbbBBbbBbbbbbBbbbBbbBBBBbbbbbbbbbBB
+Bbbbbbbcbbbbbbbbcbcccccbbcbbcbcbbbcbbbbbcbccbcbbccbbcbbbbbcbbbcbbccccbbbbbbbbbcc
+
+bbbbbBbbbbBBBBBbbbbBbbbbbbbBBBBbBbbBBbBbBbbbbbbbbbbbBbBbBbbbbbBbBbbBbBbbbbBbbbbB
+bbbbbcbbbbcccccbbbbcbbbbbbbccccbcbbccbcbcbbbbbbbbbbbcbcbcbbbbbcbcbbcbcbbbbcbbbbc
+
+BBbBbbBbbbbbbbbbBbB
+ccbcbbcbbbbbbbbbcbc
+
+--------------------------------------------------------------------------------
+-246.20253164556962 pt/round: I hope I win(P7) "my_strategy"
+-250.0 pt/round: Sadness(P10) "The Winning Strategy"
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-239.1304347826087 pt/round: I hope I win(P7) "my_strategy"
+-255.43478260869566 pt/round: TheThinkR(P11) "BrainPower!!!"
+CBbBBBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Ccbccccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+94.66292134831461 pt/round: I hope I win(P7) "my_strategy"
+-495.2247191011236 pt/round: Wyche Winners(P12) "Betrayal"
+cbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Bbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBB
+cccccccccccccccccc
+
+--------------------------------------------------------------------------------
+79.66101694915254 pt/round: I hope I win(P7) "my_strategy"
+-483.0508474576271 pt/round: Mvaiio(P13) "Protocol"
+CbbbbbbbbbbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+C          ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBB
+ccccccccccccccccc
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Judgement
+--------------------------------------------------------------------------------
+0.0 pt/round: Judgement(P8) "Ratio-based choice"
+0.0 pt/round: Better TFT(P0) "Better Tit for Tat"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Judgement(P8) "Ratio-based choice"
+0.0 pt/round: GACA_FHA(P1) "GACA"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-273.2044198895028 pt/round: Judgement(P8) "Ratio-based choice"
+-213.53591160220995 pt/round: deez(P2) "99.99% betrayal"
+cccccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+BBBBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbcbBbBbbcbccbbcbcbcbcbbbcbbbbbbbcbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbBbcbcbbBbBBbbBbBbBbBbbbBbbbbbbbBbb
+
+bbccbcbbbbbbbbccbbcbb
+bbBBbBbbbbbbbbBBbbBbb
+
+--------------------------------------------------------------------------------
+-108.92857142857143 pt/round: Judgement(P8) "Ratio-based choice"
+-226.78571428571428 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+CccccbCcbBBBBBBBCbBCcccbBBCbCbBBBCcbCbBBCbBBBCcbBBCcbBBCcbCbCbBBCcbCbCbBBBBCbBCc
+CBBBBbCBbcccccccCbcCBBBbccCbCbcccCBbCbccCbcccCBbccCBbccCBbCbCbccCBbCbCbccccCbcCB
+
+bCbCcbBBBBCccbBBBBCccbBBCccbBBBB
+bCbCBbccccCBBbccccCBBbccCBBbcccc
+
+--------------------------------------------------------------------------------
+-96.08695652173913 pt/round: Judgement(P8) "Ratio-based choice"
+-85.65217391304348 pt/round: GameTheory(P4) "Randomness unless you backstab"
+ccCCCCCCCCCBcCCCCBcCCBcCCCBcCCCCBbcBcBcCBcCCBcCCBcBbcCCCCBbcBcCCBcCCCCCCCCCCCCCC
+BBCCCCCCCCCcBCCCCcBCCcBCCCcBCCCCcbBcBcBCcBCCcBCCcBcbBCCCCcbBcBCCcBCCCCCCCCCCCCCC
+
+CCCBbbcBcCCCBcCCBcCCCBcBcCCCCBcBcCC
+CCCcbbBcBCCCcBCCcBCCCcBcBCCCCcBcBCC
+
+--------------------------------------------------------------------------------
+-247.41935483870967 pt/round: Judgement(P8) "Ratio-based choice"
+-193.2258064516129 pt/round: Flan(P5) "Randomness unless you backstab"
+CccCcCCBcbbbcbbbbbcbbcCbbcBbbbbbbbbbbbcBbbbcCBbcBbbcCbcBbbbcBbbbbcBbbccCBbbbbcbb
+CBBCBCCcBbbbBbbbbbBbbBCbbBcbbbbbbbbbbbBcbbbBCcbBcbbBCbBcbbbBcbbbbBcbbBBCcbbbbBbb
+
+bcBbcBcBbbbbcBbcBbbbbbbbbcBbbbbbbbbbbbbcbbcbbbbccBbcBbbbbbcBcbbbcbbbbbbbbcB
+bBcbBcBcbbbbBcbBcbbbbbbbbBcbbbbbbbbbbbbBbbBbbbbBBcbBcbbbbbBcBbbbBbbbbbbbbBc
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Judgement(P8) "Ratio-based choice"
+0.0 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-312.962962962963 pt/round: Judgement(P8) "Ratio-based choice"
+-157.40740740740742 pt/round: I hope I win(P7) "my_strategy"
+Cccccbbbcbbbbbbbbbbbbccbcbcbbbbbbcbcbbbcbbcbbbcbbcbbbbbbbbcbbbbcbbbbcbbcbbbbbbbc
+CBBBBbbbBbbbbbbbbbbbbBBbBbBbbbbbbBbBbbbBbbBbbbBbbBbbbbbbbbBbbbbBbbbbBbbBbbbbbbbB
+
+bcbcbbbbcbccccbbbcbcbbcbbcbbbbbccbbbbbcbbbbbbbbbbbbbbbc
+bBbBbbbbBbBBBBbbbBbBbbBbbBbbbbbBBbbbbbBbbbbbbbbbbbbbbbB
+
+--------------------------------------------------------------------------------
+-165.10791366906474 pt/round: Judgement(P8) "Ratio-based choice"
+-251.4388489208633 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+ccCCcBBbbcBbbbbbbcbBbbBbBbbBbbBbBBccbBbBcBbBBbccbcBcbBBbbbbbBbCbBBBbBCBccBBbbcBc
+BBCCBccbbBcbbbbbbBbcbbcbcbbcbbcbccBBbcbcBcbccbBBbBcBbccbbbbbcbCbcccbcCcBBccbbBcB
+
+BbBcbbcbcbbBbbbCBbbCcBbbbcBbbbBcBCbCcbbbBBBbbbBbBBbbCbBBCbb
+cbcBbbBbBbbcbbbCcbbCBcbbbBcbbbcBcCbCBbbbcccbbbcbccbbCbccCbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Judgement(P8) "Ratio-based choice"
+0.0 pt/round: Sadness(P10) "The Winning Strategy"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-248.25174825174824 pt/round: Judgement(P8) "Ratio-based choice"
+-168.53146853146853 pt/round: TheThinkR(P11) "BrainPower!!!"
+CCCCcccbBCCCCBCBCCBCCCCCCCBccccbbbcccbbbbbbbbbbbbbbbbbbbccbbbbbcbbcbbbbbbbcbbbbb
+CCCCBBBbcCCCCcCcCCcCCCCCCCcBBBBbbbBBBbbbbbbbbbbbbbbbbbbbBBbbbbbBbbBbbbbbbbBbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbcbbcbbcbbbbcbbbcbbbcbbcbbbcbbbbbbbbbbbbbc
+bbbbbbbbbbbbbbbbbbbbbbBbbBbbBbbbbBbbbBbbbBbbBbbbBbbbbbbbbbbbbbB
+
+--------------------------------------------------------------------------------
+-112.37623762376238 pt/round: Judgement(P8) "Ratio-based choice"
+-237.12871287128712 pt/round: Wyche Winners(P12) "Betrayal"
+cccccbBBBBBBBBBCbBCccbBBBCccbBBBBCcbBBCcccbCbBBBBCcbBBBCbBBCccbBBCcbBBCcbBCcbBBB
+BBBBBbcccccccccCbcCBBbcccCBBbccccCBbccCBBBbCbccccCBbcccCbccCBBbccCBbccCBbcCBbccc
+
+BCccbBBBCbCcbBCcbBBBC
+cCBBbcccCbCBbcCBbcccC
+
+--------------------------------------------------------------------------------
+-17.24137931034483 pt/round: Judgement(P8) "Ratio-based choice"
+-17.24137931034483 pt/round: Mvaiio(P13) "Protocol"
+CccccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Perilous Plum
+--------------------------------------------------------------------------------
+-203.50877192982455 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-203.50877192982455 pt/round: Better TFT(P0) "Better Tit for Tat"
+BbbbbbbbcCBbbcCBbbbcBbcBcBbbbcBbbbbcBbcBbbcBbbcBbcCCBbbbcCCCBbbbbcBbcCCBbbbcBbbb
+cbbbbbbbBCcbbBCcbbbBcbBcBcbbbBcbbbbBcbBcbbBcbbBcbBCCcbbbBCCCcbbbbBcbBCCcbbbBcbbb
+
+cCBbbcBbbcBbbbcBbbbcCCBbcBbbcBbbbc
+BCcbbBcbbBcbbbBcbbbBCCcbBcbbBcbbbB
+
+--------------------------------------------------------------------------------
+-341.3888888888889 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-118.05555555555556 pt/round: GACA_FHA(P1) "GACA"
+BcBcBbcbbccbbbbccbbbcbbbbcbbccbcbbbbbcbccbbbbbbbbbbcbbcbbcbbbbbbbcccbbcbbbcccbbb
+cBcBcbBbbBBbbbbBBbbbBbbbbBbbBBbBbbbbbBbBBbbbbbbbbbbBbbBbbBbbbbbbbBBBbbBbbbBBBbbb
+
+bcbbbcbbcbbcbbccccbccbcbbcbcbbbccbbbbcbcccbcbcccbbcccbcbbcbbccbbcbbbcbcccbbbbbcc
+bBbbbBbbBbbBbbBBBBbBBbBbbBbBbbbBBbbbbBbBBBbBbBBBbbBBBbBbbBbbBBbbBbbbBbBBBbbbbbBB
+
+bccbccbbbcbbcbcbbcbb
+bBBbBBbbbBbbBbBbbBbb
+
+--------------------------------------------------------------------------------
+-325.16129032258067 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-139.3548387096774 pt/round: deez(P2) "99.99% betrayal"
+bbbbbbbbbcbbcccbcbcbbbccbbcbbbbbbcbbbccbbbbbbbbbbbbbcbbbcbbcbcccbcbbbbcbcbbbbbcb
+bbbbbbbbbBbbBBBbBbBbbbBBbbBbbbbbbBbbbBBbbbbbbbbbbbbbBbbbBbbBbBBBbBbbbbBbBbbbbbBb
+
+bbbcbbcbcbbbcbcbbbbcbbcbbcccbbBccbcbbcbcbbcbbbcbcbcbcbcbcbCcbbccbbcbbbbcbbb
+bbbBbbBbBbbbBbBbbbbBbbBbbBBBbbcBBbBbbBbBbbBbbbBbBbBbBbBbBbCBbbBBbbBbbbbBbbb
+
+--------------------------------------------------------------------------------
+-83.78378378378379 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-251.35135135135135 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+BBCcbBBBCbBBCcbBBBCcbBBBCbBBBBCccbCbBBBCbCcccbBBBCcccbCcccbBBBBCcbBCbBCbCbCbBBBB
+ccCBbcccCbccCBbcccCBbcccCbccccCBBbCbcccCbCBBBbcccCBBBbCBBBbccccCBbcCbcCbCbCbcccc
+
+BBCbBBBBBBBCbCbCcbBBCbBBCbCbCbB
+ccCbcccccccCbCbCBbccCbccCbCbCbc
+
+--------------------------------------------------------------------------------
+-197.46835443037975 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-193.67088607594937 pt/round: GameTheory(P4) "Randomness unless you backstab"
+bbbbbcBcBbcBbbbbbbbcCCBbcBcBcBbcCCCCBcCBcCBbbcCBbbbbcBcBcBcCBbcCBbbbbbbbbbbbbbbb
+bbbbbBcBcbBcbbbbbbbBCCcbBcBcBcbBCCCCcBCcBCcbbBCcbbbbBcBcBcBCcbBCcbbbbbbbbbbbbbbb
+
+bcCBcCBbbbbcBbcCBcCBcBbcBcCBbcBcBbbbbbbbbbbbcBbcCBbbcCCBbbbbcBcBcBbbbbbcCCBbbc
+bBCcBCcbbbbBcbBCcBCcBcbBcBCcbBcBcbbbbbbbbbbbBcbBCcbbBCCcbbbbBcBcBcbbbbbBCCcbbB
+
+--------------------------------------------------------------------------------
+-270.5882352941176 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-167.9144385026738 pt/round: Flan(P5) "Randomness unless you backstab"
+bbbbcbcbcbbbcBbbbbbbbbcbbcbbcbcbbcBbcbbbcbbbbbbbbbbcBcbcBbbbbbbcBbbbcBcCbbbcbcbb
+bbbbBbBbBbbbBcbbbbbbbbBbbBbbBbBbbBcbBbbbBbbbbbbbbbbBcBbBcbbbbbbBcbbbBcBCbbbBbBbb
+
+bbbbcBbbcbbbccbcCbbcCBccCbcBbcBcbbbbbbbccbbbbcbbcBccbbbbcBcBbbbcbbbbbcBcCbcBbcCc
+bbbbBcbbBbbbBBbBCbbBCcBBCbBcbBcBbbbbbbbBBbbbbBbbBcBBbbbbBcBcbbbBbbbbbBcBCbBcbBCB
+
+cbcBbcBbcCbbbbbbbbccCBcCBbb
+BbBcbBcbBCbbbbbbbbBBCcBCcbb
+
+--------------------------------------------------------------------------------
+68.14159292035399 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-367.2566371681416 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+bbBBBBBBBBBBCCBCBBBBBBBBBBBCCBCBCCBBBBCCBBBCBBBBBCCBBBBBBBBBCBBBCBBBBBBBBCBBCBCC
+bbccccccccccCCcCcccccccccccCCcCcCCccccCCcccCcccccCCcccccccccCcccCccccccccCccCcCC
+
+CBBBBBBBBBCBCCCBCCBBBCCBBBBBBCBBB
+CcccccccccCcCCCcCCcccCCccccccCccc
+
+--------------------------------------------------------------------------------
+-327.6536312849162 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-139.9441340782123 pt/round: I hope I win(P7) "my_strategy"
+Bbbbbbbcbbbbbbbbcbcccccbbcbbcbcbbbcbbbbbcbccbcbbccbbcbbbbbcbbbcbbccccbbbbbbbbbcc
+cbbbbbbBbbbbbbbbBbBBBBBbbBbbBbBbbbBbbbbbBbBBbBbbBBbbBbbbbbBbbbBbbBBBBbbbbbbbbbBB
+
+bbbbbcbbbbcccccbbbbcbbbbbbbccccbcbbccbcbcbbbbbbbbbbbcbcbcbbbbbcbcbbcbcbbbbcbbbbc
+bbbbbBbbbbBBBBBbbbbBbbbbbbbBBBBbBbbBBbBbBbbbbbbbbbbbBbBbBbbbbbBbBbbBbBbbbbBbbbbB
+
+ccbcbbcbbbbbbbbbcbc
+BBbBbbBbbbbbbbbbBbB
+
+--------------------------------------------------------------------------------
+-251.4388489208633 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-165.10791366906474 pt/round: Judgement(P8) "Ratio-based choice"
+BBCCBccbbBcbbbbbbBbcbbcbcbbcbbcbccBBbcbcBcbccbBBbBcBbccbbbbbcbCbcccbcCcBBccbbBcB
+ccCCcBBbbcBbbbbbbcbBbbBbBbbBbbBbBBccbBbBcBbBBbccbcBcbBBbbbbbBbCbBBBbBCBccBBbbcBc
+
+cbcBbbBbBbbcbbbCcbbCBcbbbBcbbbcBcCbCBbbbcccbbbcbccbbCbccCbb
+BbBcbbcbcbbBbbbCBbbCcBbbbcBbbbBcBCbCcbbbBBBbbbBbBBbbCbBBCbb
+
+--------------------------------------------------------------------------------
+-205.14018691588785 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-199.53271028037383 pt/round: Sadness(P10) "The Winning Strategy"
+BbbbcbbccBbbcbCCBcBcBbbbbbcCCbbbcBBbbbbcBcCBcCBcBbbcBbcBbcbbCCBbcbBbcBbbbbbbcCbC
+cbbbBbbBBcbbBbCCcBcBcbbbbbBCCbbbBccbbbbBcBCcBCcBcbbBcbBcbBbbCCcbBbcbBcbbbbbbBCbC
+
+cBBbbbcbBcBcbCBbbccbBBbbbbb
+BccbbbBbcBcBbCcbbBBbccbbbbb
+
+--------------------------------------------------------------------------------
+-320.35714285714283 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-140.35714285714286 pt/round: TheThinkR(P11) "BrainPower!!!"
+BbbCBBBbbbcbbbccbbcbbcbcccccbbbbcbcbccbcccbbbbbbbbcbccbbbcbccbbbbbbbbbccbbcccbcb
+cbbCcccbbbBbbbBBbbBbbBbBBBBBbbbbBbBbBBbBBBbbbbbbbbBbBBbbbBbBBbbbbbbbbbBBbbBBBbBb
+
+cbbbbbcccbbbcbbbbbbbbbcccbbbbcbcbbbbccbbbbbbbccbbcbcbbbbbbcb
+BbbbbbBBBbbbBbbbbbbbbbBBBbbbbBbBbbbbBBbbbbbbbBBbbBbBbbbbbbBb
+
+--------------------------------------------------------------------------------
+-55.859375 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-271.484375 pt/round: Wyche Winners(P12) "Betrayal"
+bCcbBBCcbBBBBCcbBBCbCbBCbBBBCbBCbBCcbBCbBBBBCbBBBCbBBBBBBCbCcbCbCbBBCcbBCbBCbBCb
+bCBbccCBbccccCBbccCbCbcCbcccCbcCbcCBbcCbccccCbcccCbccccccCbCBbCbCbccCBbcCbcCbcCb
+
+BBBBBCbCcbBBBBCbBBCbCbBBCbBBBBBCbBBCcbBCbCbBBCcc
+cccccCbCBbccccCbccCbCbccCbcccccCbccCBbcCbCbccCBB
+
+--------------------------------------------------------------------------------
+46.15384615384615 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+-313.1868131868132 pt/round: Mvaiio(P13) "Protocol"
+Bb bccbbcbcCBBCCCBBCBBBBCCCCBCBBCBCBBBBBBBBCBBBCBCCBBCBBBCCBBCBBBBCBCCBCBBBBCBCC
+c          CccCCCccCccccCCCCcCccCcCccccccccCcccCcCCccCcccCCccCccccCcCCcCccccCcCC
+
+BCCCBBBCCBBBBBBCBCCBBBBCCBCBCCBBBCBCCBCBBBBBBBBBCBCCBBCBBBBBCCCBCBBCBCBBCBCBCBBB
+cCCCcccCCccccccCcCCccccCCcCcCCcccCcCCcCcccccccccCcCCccCcccccCCCcCccCcCccCcCcCccc
+
+BBCBCBCBBCBBBBBBCBBBBC
+ccCcCcCccCccccccCccccC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Sadness
+--------------------------------------------------------------------------------
+0.0 pt/round: Sadness(P10) "The Winning Strategy"
+0.0 pt/round: Better TFT(P0) "Better Tit for Tat"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Sadness(P10) "The Winning Strategy"
+0.0 pt/round: GACA_FHA(P1) "GACA"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-245.6 pt/round: Sadness(P10) "The Winning Strategy"
+-250.4 pt/round: deez(P2) "99.99% betrayal"
+cbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbBcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbcBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-148.40764331210192 pt/round: Sadness(P10) "The Winning Strategy"
+-175.15923566878982 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+CcbBBCcbBBBBBCbCccccbBBCbCccbBCbCcbBCcbBCbCbCcbBCbCcbBCbBCcbBCccbBCcbBCcbBBCcbCc
+CBbccCBbcccccCbCBBBBbccCbCBBbcCbCBbcCBbcCbCbCBbcCbCBbcCbcCBbcCBBbcCBbcCBbccCBbCB
+
+bBCcbBCcbBBCbBCcbCccbBCbBBCcbCccbBCbCcbBCcbBCcbBCcbBCcbBCbCcbBCcbBCcbBBBCbBBB
+bcCBbcCBbccCbcCBbCBBbcCbccCBbCBBbcCbCBbcCBbcCBbcCBbcCBbcCbCBbcCBbcCBbcccCbccc
+
+--------------------------------------------------------------------------------
+-251.92307692307693 pt/round: Sadness(P10) "The Winning Strategy"
+-247.30769230769232 pt/round: GameTheory(P4) "Randomness unless you backstab"
+cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Sadness(P10) "The Winning Strategy"
+-245.23809523809524 pt/round: Flan(P5) "Randomness unless you backstab"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Sadness(P10) "The Winning Strategy"
+0.0 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-250.0 pt/round: Sadness(P10) "The Winning Strategy"
+-246.20253164556962 pt/round: I hope I win(P7) "my_strategy"
+Ccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+0.0 pt/round: Sadness(P10) "The Winning Strategy"
+0.0 pt/round: Judgement(P8) "Ratio-based choice"
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-199.53271028037383 pt/round: Sadness(P10) "The Winning Strategy"
+-205.14018691588785 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+cbbbBbbBBcbbBbCCcBcBcbbbbbBCCbbbBccbbbbBcBCcBCcBcbbBcbBcbBbbCCcbBbcbBcbbbbbbBCbC
+BbbbcbbccBbbcbCCBcBcBbbbbbcCCbbbcBBbbbbcBcCBcCBcBbbcBbcBbcbbCCBbcbBbcBbbbbbbcCbC
+
+BccbbbBbcBcBbCcbbBBbccbbbbb
+cBBbbbcbBcBcbCBbbccbBBbbbbb
+
+--------------------------------------------------------------------------------
+-3.459119496855346 pt/round: Sadness(P10) "The Winning Strategy"
+-7.232704402515723 pt/round: TheThinkR(P11) "BrainPower!!!"
+CCCCcbBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCBbccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-148.1818181818182 pt/round: Sadness(P10) "The Winning Strategy"
+-170.0 pt/round: Wyche Winners(P12) "Betrayal"
+cbBBCcbBBCcbBCbCcbBCbBBCbBBCbCbCccbBBCcccccbBCbBCcbCbCbCcbBCcbBCcbBCcbBCcbBCbBCc
+BbccCBbccCBbcCbCBbcCbccCbccCbCbCBBbccCBBBBBbcCbcCBbCbCbCBbcCBbcCBbcCBbcCBbcCbcCB
+
+cbBBCbCcbBCbBCbCccbCbCcbBCbBBC
+BbccCbCBbcCbcCbCBBbCbCBbcCbccC
+
+--------------------------------------------------------------------------------
+-15.527950310559007 pt/round: Sadness(P10) "The Winning Strategy"
+-15.527950310559007 pt/round: Mvaiio(P13) "Protocol"
+CccccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+C          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team TheThinkR
+--------------------------------------------------------------------------------
+-3.2663316582914574 pt/round: TheThinkR(P11) "BrainPower!!!"
+-3.2663316582914574 pt/round: Better TFT(P0) "Better Tit for Tat"
+CCCCBbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCcbBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-6.25 pt/round: TheThinkR(P11) "BrainPower!!!"
+-21.25 pt/round: GACA_FHA(P1) "GACA"
+CCCCBBBBBbccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCcccccbBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-247.01492537313433 pt/round: TheThinkR(P11) "BrainPower!!!"
+-247.01492537313433 pt/round: deez(P2) "99.99% betrayal"
+cbbcccbbbbbbbbbbBbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbb
+BbbBBBbbbbbbbbbbcbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+79.79274611398964 pt/round: TheThinkR(P11) "BrainPower!!!"
+-476.6839378238342 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+CcbCccccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+CBbCBBBBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-8.620689655172415 pt/round: TheThinkR(P11) "BrainPower!!!"
+-1.7241379310344827 pt/round: GameTheory(P4) "Randomness unless you backstab"
+cbbcCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+BbbBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCC
+CCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-239.22413793103448 pt/round: TheThinkR(P11) "BrainPower!!!"
+-208.18965517241378 pt/round: Flan(P5) "Randomness unless you backstab"
+CCccCCCcCCcCCCcCcbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CCBBCCCBCCBCCCBCBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+96.61016949152543 pt/round: TheThinkR(P11) "BrainPower!!!"
+-483.0508474576271 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+CCCCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+CCCCcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-255.43478260869566 pt/round: TheThinkR(P11) "BrainPower!!!"
+-239.1304347826087 pt/round: I hope I win(P7) "my_strategy"
+Ccbccccbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+CBbBBBBbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbbb
+bbbbbbbbbbbbbbbbbbbbbbbb
+
+--------------------------------------------------------------------------------
+-168.53146853146853 pt/round: TheThinkR(P11) "BrainPower!!!"
+-248.25174825174824 pt/round: Judgement(P8) "Ratio-based choice"
+CCCCBBBbcCCCCcCcCCcCCCCCCCcBBBBbbbBBBbbbbbbbbbbbbbbbbbbbBBbbbbbBbbBbbbbbbbBbbbbb
+CCCCcccbBCCCCBCBCCBCCCCCCCBccccbbbcccbbbbbbbbbbbbbbbbbbbccbbbbbcbbcbbbbbbbcbbbbb
+
+bbbbbbbbbbbbbbbbbbbbbbBbbBbbBbbbbBbbbBbbbBbbBbbbBbbbbbbbbbbbbbB
+bbbbbbbbbbbbbbbbbbbbbbcbbcbbcbbbbcbbbcbbbcbbcbbbcbbbbbbbbbbbbbc
+
+--------------------------------------------------------------------------------
+-140.35714285714286 pt/round: TheThinkR(P11) "BrainPower!!!"
+-320.35714285714283 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+cbbCcccbbbBbbbBBbbBbbBbBBBBBbbbbBbBbBBbBBBbbbbbbbbBbBBbbbBbBBbbbbbbbbbBBbbBBBbBb
+BbbCBBBbbbcbbbccbbcbbcbcccccbbbbcbcbccbcccbbbbbbbbcbccbbbcbccbbbbbbbbbccbbcccbcb
+
+BbbbbbBBBbbbBbbbbbbbbbBBBbbbbBbBbbbbBBbbbbbbbBBbbBbBbbbbbbBb
+cbbbbbcccbbbcbbbbbbbbbcccbbbbcbcbbbbccbbbbbbbccbbcbcbbbbbbcb
+
+--------------------------------------------------------------------------------
+-7.232704402515723 pt/round: TheThinkR(P11) "BrainPower!!!"
+-3.459119496855346 pt/round: Sadness(P10) "The Winning Strategy"
+CCCCBbccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCcbBBCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+70.07874015748031 pt/round: TheThinkR(P11) "BrainPower!!!"
+-468.503937007874 pt/round: Wyche Winners(P12) "Betrayal"
+cbBCccccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+BbcCBBBBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+78.04878048780488 pt/round: TheThinkR(P11) "BrainPower!!!"
+-481.7073170731707 pt/round: Mvaiio(P13) "Protocol"
+CcccbbbbbbbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+C          ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBB
+cccc
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Wyche Winners
+--------------------------------------------------------------------------------
+-162.5 pt/round: Wyche Winners(P12) "Betrayal"
+-162.5 pt/round: Better TFT(P0) "Better Tit for Tat"
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+
+BbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcC
+cbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBC
+
+BbcCBbcCBbcCBbcCBbcCBbcC
+cbBCcbBCcbBCcbBCcbBCcbBC
+
+--------------------------------------------------------------------------------
+-176.12612612612614 pt/round: Wyche Winners(P12) "Betrayal"
+-176.12612612612614 pt/round: GACA_FHA(P1) "GACA"
+BbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBbccCBBb
+cbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccbBBCccb
+
+ccCBBbccCBBbccCBBbccCBBbccCBBbc
+BBCccbBBCccbBBCccbBBCccbBBCccbB
+
+--------------------------------------------------------------------------------
+-498.2758620689655 pt/round: Wyche Winners(P12) "Betrayal"
+97.58620689655173 pt/round: deez(P2) "99.99% betrayal"
+bccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+bBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+100.0 pt/round: Wyche Winners(P12) "Betrayal"
+-500.0 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-164.03508771929825 pt/round: Wyche Winners(P12) "Betrayal"
+-160.52631578947367 pt/round: GameTheory(P4) "Randomness unless you backstab"
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+
+bcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCBbcCB
+bBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCcbBCc
+
+bcCBbcCBbcC
+bBCcbBCcbBC
+
+--------------------------------------------------------------------------------
+-276.3157894736842 pt/round: Wyche Winners(P12) "Betrayal"
+-59.21052631578947 pt/round: Flan(P5) "Randomness unless you backstab"
+bcCbcccCbcCBbcCbcCBbcCBbcCBbcCbccccCBbccCbccCBbccCBbcCbcccCbccCbcCBbcccCBbcCbccC
+bBCbBBBCbBCcbBCbBCcbBCcbBCcbBCbBBBBCcbBBCbBBCcbBBCcbBCbBBBCbBBCbBCcbBBBCcbBCbBBC
+
+bcccccCBbcCBbccCbcCbcCbcccCbccccccCBbcccCbccCbcCBbcCBbcccCbccccCbcccCBbc
+bBBBBBCcbBCcbBBCbBCbBCbBBBCbBBBBBBCcbBBBCbBBCbBCcbBCcbBBBCbBBBBCbBBBCcbB
+
+--------------------------------------------------------------------------------
+100.0 pt/round: Wyche Winners(P12) "Betrayal"
+-500.0 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+-495.2247191011236 pt/round: Wyche Winners(P12) "Betrayal"
+94.66292134831461 pt/round: I hope I win(P7) "my_strategy"
+Bbcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccc
+BBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-237.12871287128712 pt/round: Wyche Winners(P12) "Betrayal"
+-112.37623762376238 pt/round: Judgement(P8) "Ratio-based choice"
+BBBBBbcccccccccCbcCBBbcccCBBbccccCBbccCBBBbCbccccCBbcccCbccCBBbccCBbccCBbcCBbccc
+cccccbBBBBBBBBBCbBCccbBBBCccbBBBBCcbBBCcccbCbBBBBCcbBBBCbBBCccbBBCcbBBCcbBCcbBBB
+
+cCBBbcccCbCBbcCBbcccC
+BCccbBBBCbCcbBCcbBBBC
+
+--------------------------------------------------------------------------------
+-271.484375 pt/round: Wyche Winners(P12) "Betrayal"
+-55.859375 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+bCBbccCBbccccCBbccCbCbcCbcccCbcCbcCBbcCbccccCbcccCbccccccCbCBbCbCbccCBbcCbcCbcCb
+bCcbBBCcbBBBBCcbBBCbCbBCbBBBCbBCbBCcbBCbBBBBCbBBBCbBBBBBBCbCcbCbCbBBCcbBCbBCbBCb
+
+cccccCbCBbccccCbccCbCbccCbcccccCbccCBbcCbCbccCBB
+BBBBBCbCcbBBBBCbBBCbCbBBCbBBBBBCbBBCcbBCbCbBBCcc
+
+--------------------------------------------------------------------------------
+-170.0 pt/round: Wyche Winners(P12) "Betrayal"
+-148.1818181818182 pt/round: Sadness(P10) "The Winning Strategy"
+BbccCBbccCBbcCbCBbcCbccCbccCbCbCBBbccCBBBBBbcCbcCBbCbCbCBbcCBbcCBbcCBbcCBbcCbcCB
+cbBBCcbBBCcbBCbCcbBCbBBCbBBCbCbCccbBBCcccccbBCbBCcbCbCbCcbBCcbBCcbBCcbBCcbBCbBCc
+
+BbccCbCBbcCbcCbCBBbCbCBbcCbccC
+cbBBCbCcbBCbBCbCccbCbCcbBCbBBC
+
+--------------------------------------------------------------------------------
+-468.503937007874 pt/round: Wyche Winners(P12) "Betrayal"
+70.07874015748031 pt/round: TheThinkR(P11) "BrainPower!!!"
+BbcCBBBBbccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+cbBCccccbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+71.65354330708661 pt/round: Wyche Winners(P12) "Betrayal"
+-476.37795275590554 pt/round: Mvaiio(P13) "Protocol"
+BbcccccccccCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+c          Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+ccccccccccccccccccccccccccccccccccccccccccccccc
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Section 3 - Game Data for Team Mvaiio
+--------------------------------------------------------------------------------
+-19.366197183098592 pt/round: Mvaiio(P13) "Protocol"
+-19.366197183098592 pt/round: Better TFT(P0) "Better Tit for Tat"
+C          cCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+Cc          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-17.36111111111111 pt/round: Mvaiio(P13) "Protocol"
+-17.36111111111111 pt/round: GACA_FHA(P1) "GACA"
+C          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CccccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-475.5244755244755 pt/round: Mvaiio(P13) "Protocol"
+74.12587412587412 pt/round: deez(P2) "99.99% betrayal"
+c          CcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccCcccc
+BbbbbbbbbbbCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBCBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-469.82758620689657 pt/round: Mvaiio(P13) "Protocol"
+68.10344827586206 pt/round: Digital Destroyers(P3) "Nice-but-not-nice"
+C          Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+CbcccccccccCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-15.957446808510639 pt/round: Mvaiio(P13) "Protocol"
+-12.76595744680851 pt/round: GameTheory(P4) "Randomness unless you backstab"
+c          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+BbcccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-278.2608695652174 pt/round: Mvaiio(P13) "Protocol"
+29.565217391304348 pt/round: Flan(P5) "Randomness unless you backstab"
+C          CCcccCCCcCCccCcccCCCcccCccCcCccCCccCccccCCCcccCCcCcCccCCccCCccccccCCC
+CcbbbbcccbcCCBBBCCCBCCBBCBBBCCCBBBCBBCBCBBCCBBCBBBBCCCBBBCCBCBCBBCCBBCCBBBBBBCCC
+
+CCccccCcccccCcCCcCccccccCCcCcCCCCcc
+CCBBBBCBBBBBCBCCBCBBBBBBCCBCBCCCCBB
+
+--------------------------------------------------------------------------------
+-14.204545454545455 pt/round: Mvaiio(P13) "Protocol"
+-14.204545454545455 pt/round: hallo_Mami(P6) "bye bye mami backstab if opponent cooperating, be random otherwise"
+C          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CccccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-483.0508474576271 pt/round: Mvaiio(P13) "Protocol"
+79.66101694915254 pt/round: I hope I win(P7) "my_strategy"
+C          ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+CbbbbbbbbbbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccc
+BBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
+-17.24137931034483 pt/round: Mvaiio(P13) "Protocol"
+-17.24137931034483 pt/round: Judgement(P8) "Ratio-based choice"
+C          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CccccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-313.1868131868132 pt/round: Mvaiio(P13) "Protocol"
+46.15384615384615 pt/round: Perilous Plum(P9) "Randomness leaning towards betrays"
+c          CccCCCccCccccCCCCcCccCcCccccccccCcccCcCCccCcccCCccCccccCcCCcCccccCcCC
+Bb bccbbcbcCBBCCCBBCBBBBCCCCBCBBCBCBBBBBBBBCBBBCBCCBBCBBBCCBBCBBBBCBCCBCBBBBCBCC
+
+cCCCcccCCccccccCcCCccccCCcCcCCcccCcCCcCcccccccccCcCCccCcccccCCCcCccCcCccCcCcCccc
+BCCCBBBCCBBBBBBCBCCBBBBCCBCBCCBBBCBCCBCBBBBBBBBBCBCCBBCBBBBBCCCBCBBCBCBBCBCBCBBB
+
+ccCcCcCccCccccccCccccC
+BBCBCBCBBCBBBBBBCBBBBC
+
+--------------------------------------------------------------------------------
+-15.527950310559007 pt/round: Mvaiio(P13) "Protocol"
+-15.527950310559007 pt/round: Sadness(P10) "The Winning Strategy"
+C          CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CccccccccccCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+
+--------------------------------------------------------------------------------
+-481.7073170731707 pt/round: Mvaiio(P13) "Protocol"
+78.04878048780488 pt/round: TheThinkR(P11) "BrainPower!!!"
+C          ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+CcccbbbbbbbBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+cccc
+BBBB
+
+--------------------------------------------------------------------------------
+-476.37795275590554 pt/round: Mvaiio(P13) "Protocol"
+71.65354330708661 pt/round: Wyche Winners(P12) "Betrayal"
+c          Ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+BbcccccccccCBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+ccccccccccccccccccccccccccccccccccccccccccccccc
+BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+
+--------------------------------------------------------------------------------
