@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'defRealFunct' # Only 10 chars displayed.
+strategy_name = 'random kind of'
+strategy_description = 'randomly chooses letters'
 
 import random
 
@@ -18,7 +18,12 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-	
+	round = len(my_history)
+	if round <=10:
+		choice = ['c','b','b','b']
+		return(random.choice(choice))
+	else:
+		return('b')
 
 
 
