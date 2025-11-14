@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'RDGamblers' # Only 10 chars displayed.
+strategy_name = 'betray than randomness than betray'
+strategy_description = 'betray 4 times than random spilt and repeat'
 
 import random
 
@@ -18,12 +18,24 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-	
+	def RD_Gamblers():
+  Me = len(my_history)
 
+  patern = (Me % 6 >= 4)
 
-
-
-
+  if Me > 0 and \
+     their_history[-1] == 'b' and \
+     patern:
+    
+    if random.random() < 0.25:
+      return 'c'
+    else: 
+      return 'b'
+  else:
+    if Me % 6 < 4:
+      return('b')
+    else:
+      return('c')
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
