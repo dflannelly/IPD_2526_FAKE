@@ -18,14 +18,13 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-	
+  if len(my_history)==0:
+    return('bbbbb')
+  elif 'b' in their_history:
+    return('c')
+  else:
+    return('b')	
 
-
-
-
-
-
-    
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
     from this module. Prints error if return value != result.
