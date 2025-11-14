@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'Torrential' # Only 10 chars displayed.
+strategy_name = 'get other points down then keep them down'
+strategy_description = 'it starts with c until it gets a chance to put a b to lower the enemy points the  is keep them lower with a b'
 
 import random
 
@@ -18,7 +18,17 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-	
+def Torrential():
+  if len(my_history)==0:
+    return('c')
+  elif 'c' in their_history:
+    return('b')
+  elif 'b' in their_history:
+    return('c')
+  elif len(my_history) > (their_history):
+    return('b')
+  else:
+    return('c')
 
 
 
