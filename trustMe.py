@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'trustMe' # Only 10 chars displayed.
+strategy_name = 'backstab '
+strategy_description = 'back stab all the time until i win '
 
 import random
 
@@ -19,6 +19,10 @@ import random
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
 	
+	if "b" in their_history:
+         return 'b'
+	else:
+		return'c'
 
 
 
