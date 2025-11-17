@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = 'Savior' # Only 10 chars displayed.
-strategy_name = 'cooperate first and backstab'
-strategy_description = 'cooperates first and if the user cooperates first it continues to cooperate and if the previous turn is backstab it backstabs. If the opponent has backstabed 40 times in total it backstabs always.'
+team_name = 'JohnEgbert' # Only 10 chars displayed.
+strategy_name = 'backstab first and backstab'
+strategy_description = 'backstabs first and if the user cooperates first it continues to cooperate and if the previous turn or turn before is backstab it backstabs. If the opponent has backstabed 20 times in total it backstabs always.'
 
 import random
 
@@ -19,16 +19,21 @@ import random
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
     b_count = their_history.count('b')
-
     if len(my_history) == 0:
-        return "c"
+        return("b")
     else:
-        if b_count >= 40:
+        if b_count >=20:
             return "b"
         elif their_history[-1] == "b":
-            return "b"
-        elif their_history[-1] == "c":
-            return "c"
+            return("b")
+        elif len(my_history) == 1 and their_history[-1] =="c":
+            return("c")
+        elif their_history[-1] == "c" and their_history[-2] == "b" and len(my_history) > 1:
+            return ("b")
+        elif their_history[-1] =="b":
+            return("b")
+        else:
+            return("c")
 
 
 
