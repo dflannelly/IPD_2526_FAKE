@@ -8,7 +8,7 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = 'trustMe' # Only 10 chars displayed.
+team_name = 'trustMe_F' # Only 10 chars displayed.
 strategy_name = 'backstab '
 strategy_description = 'back stab all the time until i win '
 
