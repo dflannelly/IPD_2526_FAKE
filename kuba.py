@@ -21,9 +21,9 @@ def move(my_history, their_history, my_score, their_score):
 	if len(my_history)==0 or len(my_history)==100:
 		return('c')
 	elif 'b' == their_history[-1]:
-		return('bb')
+		return('b')
 	else:
-		return('c')
+		return('cc')
 
 
 
