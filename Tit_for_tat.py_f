@@ -8,7 +8,7 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = 'Tit_for_tat' # Only 10 chars displayed.
+team_name = 'Tit_for_tat_f' # Only 10 chars displayed.
 strategy_name = 'Randomness until see betrayal patten in opponent'
 strategy_description = 'Randomly chooses b/c until certain patterns are recognized then it acts accordingly'
 
