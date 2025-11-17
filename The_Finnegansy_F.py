@@ -13,27 +13,29 @@ strategy_name = 'Starts coupreate then betray and digs its way out of betray cyc
 strategy_description = 'My strategy draws c at first then switches to b until it can trust the other opponent'
 
 import random
-
-
-
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
     if len(my_history) == 0:
         return 'c'
-    else:
-        b_count = their_history.count('b')
 
-        if len(their_history) > 3:
-            combined = "".join(their_history)
-            if "ccc" in combined[-3:]:
-                return 'c'
+    b_count = their_history.count('b')
+    combined = "".join(their_history)
 
-            if b_count > 2:
-                return 'b'
-            else:
-                return 'b'
-        else:
+    if len(their_history) >= 100:
+        if "ccccccccccccccccccccccccccccccccccccccccccccccccccccccc" in combined[-60:]:
+            pick = random.choice(('b','c','c'))
+            return(pick)
+
+    if len(their_history) > 3:
+        if "ccc" in combined[-3:]:
+            return 'c'
+        
+        if b_count > 2:
             return 'b'
+        
+        return 'c'
+        
+    return 'c'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
