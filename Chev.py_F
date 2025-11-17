@@ -8,7 +8,7 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = 'Chev' # Only 10 chars displayed.
+team_name = 'Chev_F' # Only 10 chars displayed.
 strategy_name = 'Cooperate until too many betrayals'
 strategy_description = 'My strategy draw c until my oppentent backstabs me twice in a row and then it draws b'
 
