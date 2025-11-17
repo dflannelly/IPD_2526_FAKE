@@ -1,4 +1,4 @@
-team_name = 'MasonTeam' # Only 10 chars displayed.
+team_name = 'MasonTeam_F' # Only 10 chars displayed.
 strategy_name = 'Mason_Game_Code'
 strategy_description = 'Depending on what letter you type in you either gain or loss points'
 
@@ -61,6 +61,10 @@ def Mason_Game_Code():
     return('c')
 
   elif 'b' in their_history:
+    return('b')
+  elif 'c' in their_history
+    return('c')
+  elif 'b' in their_history
     return('b')
   else:
     return('c')
