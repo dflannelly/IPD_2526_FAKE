@@ -10,7 +10,7 @@
 #YOUR TEAM DETAILS HERE
 team_name = 'Y' # Only 10 chars displayed.
 strategy_name = 'Random'
-strategy_description = 'My code starts with b and their history and then if b in their history returns bbb.'
+strategy_description = 'My code starts with c and random betrayals.'
 
 import random
 
