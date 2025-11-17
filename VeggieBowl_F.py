@@ -9,7 +9,7 @@
 
 #YOUR TEAM DETAILS HERE
 team_name = 'Y' # Only 10 chars displayed.
-strategy_name = 'Last move of their history'
+strategy_name = 'Random'
 strategy_description = 'My code starts with b and their history and then if b in their history returns bbb.'
 
 import random
@@ -18,14 +18,11 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-	def Dont_Cross_Me():
-	  if len(my_history)==0:
-	    return('b')
-	  elif 'b' in their_history:
-	    return('b')
-	  else:
-	    return('c')
-			
+
+def RandomBetrayCooperate_code():
+   if len(my_history) == 0:
+        return 'c'
+   return random.choices(['b', 'c'], weights=[0.8, 0.2], k=1)[0]
 
 
 
