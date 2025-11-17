@@ -9,8 +9,8 @@
 
 #YOUR TEAM DETAILS HERE
 team_name = 'June_bug' # Only 10 chars displayed.
-strategy_name = 'Cooperate'
-strategy_description = 'My strategy is cooperating unless bakstabbed, use what opponnent used last round'
+strategy_name = 'Cooperate until backstabbed.'
+strategy_description = 'My strategy is cooperating until bakstabbed. If backstabbed I use what opponnent used last round'
 
 import random
 
