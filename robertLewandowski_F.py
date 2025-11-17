@@ -8,9 +8,9 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'robertLewandowski'
+strategy_name = 'sneaky cooperator'
+strategy_description = 'cooperates until 3 cs to backstab or backstabs if backstabbed twice'
 
 import random
 
@@ -18,12 +18,15 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-  if len(my_history)==0:
-    return('bbbbb')
-  elif 'b' in their_history:
+def robertLewandowski(their_history):
+  if 'bb' in their_history:
+    return('b')
+  elif 'cc' in their_history:
     return('c')
+  elif 'ccc' in their_history:
+    return('b')
   else:
-    return('b')	
+    return('c')
 
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
