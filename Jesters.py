@@ -22,10 +22,10 @@ def move(my_history, their_history, my_score, their_score):
         return "c"
     else:
         if len(my_history) % 2 == 0:
-            choice = random.choice(["b", "b", "c"])
+            choice = random.choice(["b", "b", "b", "c"])
             return choice
         elif len(my_history) % 3 == 0:
-            choice1 = random.choice(["c", "c", "b"])
+            choice1 = random.choice(["c", "c", "c", "b"])
             return choice1
         else:
             return "c"
