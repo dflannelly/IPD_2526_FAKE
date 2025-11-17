@@ -8,17 +8,20 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = '' # Only 10 chars displayed.
-strategy_name = ''
-strategy_description = ''
+team_name = 'Declare War' # Only 10 chars displayed.
+strategy_name = 'RNG'
+strategy_description = 'Using random number generator, 80% Betray 20% cooperate.'
 
 import random
 
 
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
-def move(my_history, their_history, my_score, their_score):
-	
+	import random
+def declare_war():
+ thing = random.choice(('b','c','b','b','b'))
+ return(thing)
+
 
 
 
