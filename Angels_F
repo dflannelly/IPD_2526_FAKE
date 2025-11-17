@@ -17,20 +17,19 @@ import random
 
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
-def move(my_history, their_history, my_score, their_score):
-    Me = len(my_history)
-    pattern = (Me % 6 >= 4)
+import random
 
-    if Me > 0 and their_history[-1] == 'b' and pattern:
-        if random.random() < 0.25:
-            return 'c'
-        else:
-            return 'b'
+def Angels_F(my_history, their_history, my_score, their_score):
+  #for the first round cooperate
+  if len(my_history)==0:
+    return('b')
+  else:
+    B_many = their_history.count('b')
+
+    if B_many >= 2:
+      return('b')
     else:
-        if Me % 6 < 4:
-            return 'b'
-        else:
-            return 'c'
+      return('c')
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
