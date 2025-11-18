@@ -8,7 +8,7 @@
 
 
 #YOUR TEAM DETAILS HERE
-team_name = 'Y' # Only 10 chars displayed.
+team_name = 'VeggieBowl' # Only 10 chars displayed.
 strategy_name = 'Random'
 strategy_description = 'My code starts with c and random betrayals.'
 
