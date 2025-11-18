@@ -16,9 +16,9 @@ import random
 def move(my_history, their_history, my_score, their_score):
     if len(my_history) == 0:
         return 'c'
-    elif 'c' in their_history:
-        return 'c'
     elif 'b' in their_history:
+        return 'b'
+    elif 'bb' in their_history:
         return 'b'
      elif 'cc' in their_history:
         return 'b'
