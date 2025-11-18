@@ -1,77 +1,35 @@
-team_name = 'MasonTeam_F' # Only 10 chars displayed.
-strategy_name = 'Mason_Game_Code'
-strategy_description = 'Depending on what letter you type in you either gain or loss points'
+####
+# Each team's file must define four tokens:
+#     team_name: a string
+#     strategy_name: a string
+#     strategy_description: a string
+#     move: A function that returns 'c' or 'b'
+####
+
+
+#YOUR TEAM DETAILS HERE
+team_name = 'RDGamblers' # Only 10 chars displayed.
+strategy_name = 'betray than randomness than betray'
+strategy_description = 'betray 4 times than random spilt and repeat'
 
 import random
-def Mason_Game_Code():
-  counter = 0
-  global my_history
-  global their_history
-  global my_score
-  global their_score
 
-  my_history = []
-  their_history = []
-
-  my_score = 0
-  their_score = 0
-
-  game_length = random.randint(100,150)
-
-  for i in range(game_length):
-     choice1 = Mason_Game_Code()
-     choice2 = WildChoice()
-
-     my_history += choice1
-     their_history += choice2
-
-     no_punishment= 0
-     good_reward = 100
-     bad_punishment = -250
-     very_bad_punishment = -500
-
-     if choice1 == 'c' and choice2 =='c':
-       my_score +=  no_punishment
-       their_score += no_punishment
-
-     elif choice1 == 'b' and choice2 =='b':
-       my_score +=  bad_punishment
-       their_score +=  bad_punishment
-
-     elif choice1 == 'c' and choice2 =='b':
-       my_score += very_bad_punishment
-       their_score += good_reward
-
-     elif choice1 == 'b' and choice2 =='c':
-       my_score += good_reward
-       their_score += very_bad_punishment
-     counter +=1
-
-  print("Chesse Doodle:", my_score)
-  print("Wild: Choice",their_score)
-
-  print("Chesse Doodle: ",my_history)
-  print("Wild Choice: ", their_history)
-Mason_Game_Code()
 
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
-def Mason_Game_Code(): 
-  if len(my_history)==0:
-    return('c')
+import random
 
-  elif 'b' in their_history:
-    return('b')
-  elif 'c' in their_history
-    return('c')
-  elif 'b' in their_history
+def move(my_history, their_history, my_score, their_score):
+  #for the first round cooperate
+  if len(my_history)==0:
     return('b')
   else:
-    return('c')
+    B_many = their_history.count('b')
 
-
-
-
+    if B_many >= 2:
+      return('b')
+    else:
+      return('c')
 
     
 def test_move(my_history, their_history, my_score, their_score, result):

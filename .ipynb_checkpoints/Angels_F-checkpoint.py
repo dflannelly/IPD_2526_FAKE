@@ -19,7 +19,7 @@ import random
 #YOUR CODE IN THE MOVE FUNCTION HERE
 import random
 
-def Angels_F(my_history, their_history, my_score, their_score):
+def move(my_history, their_history, my_score, their_score):
   #for the first round cooperate
   if len(my_history)==0:
     return('b')
