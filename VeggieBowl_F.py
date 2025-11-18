@@ -18,9 +18,9 @@ def move(my_history, their_history, my_score, their_score):
         return 'c'
     elif 'c' in their_history:
         return 'c'
-    elif 'bbb' in their_history:
+    elif 'b' in their_history:
         return 'b'
-     elif 'b' in their_history:
+     elif 'cc' in their_history:
         return 'b'
     else:
         return 'b'
