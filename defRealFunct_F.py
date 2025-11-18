@@ -27,7 +27,7 @@ def move(my_history, their_history, my_score, their_score):
     
     # Rounds 1 to 6
     elif 0 < round_num <= 6:
-        answer = ['b', 'c']
+        answer = ['b', 'c','c','c,'c]
         return random.choice(answer)
         
     # Round 7 onwards
@@ -36,9 +36,9 @@ def move(my_history, their_history, my_score, their_score):
         if their_history[-1] == 'b' and their_history[-2] == 'b':
             return 'b'
         
-        # If they have cooperated between 6 and 9 times TOTAL
+
         elif 5 < cs < 10:
-            answer = ['b', 'c', 'c', 'c', 'c'] # 80% chance of 'c'
+            answer = ['b', 'c', 'c', 'c', 'c']
             return random.choice(answer)
         
         # If the last 3 moves didn't match
