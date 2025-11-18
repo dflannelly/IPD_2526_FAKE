@@ -14,13 +14,16 @@ import random
 
 # YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-    # Check if it is the first turn
     if len(my_history) == 0:
         return 'c'
-    
-    # random.choices returns a list (k=1 means a list of 1 item), so we grab [0]
-    # Weights [0.8, 0.2] for ['b', 'c'] means 80% Betray, 20% Cooperate
-    return random.choices(['b', 'c'], weights=[0.8, 0.2], k=1)[0]
+    elif 'c' in their_history:
+        return 'c'
+    elif 'bbb' in their_history:
+        return 'b'
+     elif 'b' in their_history:
+        return 'b'
+    else:
+        return 'b'
 
 # ------------------------------------------------------------------
 # Testing Code
