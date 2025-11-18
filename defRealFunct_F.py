@@ -18,11 +18,33 @@ import random
 
 #YOUR CODE IN THE MOVE FUNCTION HERE
 def move(my_history, their_history, my_score, their_score):
-	round = len(my_history)
-	if round==1:
-		return('c')
-	else:
-		return('b')
+	round_num = len(my_history)
+    cs = 0
+
+    if round_num == 1:
+        if their_history and their_history[-1] == 'c':
+            cs += 1
+
+    if round_num == 0:
+        return 'b'
+    elif 0 < round_num <= 6:
+        answer = ['b', 'c']
+        return random.choice(answer)
+    else:
+        if their_history[-1] == 'b' and their_history[-2] == 'b':
+            return 'b'
+        
+        elif 10 > cs > 5:
+            answer = ['b', 'c', 'c', 'c', 'c']
+            return random.choice(answer)
+        
+        elif (their_history[-1] != my_history[-1] and
+              their_history[-2] != my_history[-2] and
+              their_history[-3] != my_history[-3]):
+            return 'b'
+        
+        else:
+            return 'b'
 
 
     
